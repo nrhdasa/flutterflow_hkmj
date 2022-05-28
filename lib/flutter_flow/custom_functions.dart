@@ -44,3 +44,13 @@ double getProgressIndicatorGenerated(
   return (dashboardData['message'][slot]['generated'] /
       dashboardData['message'][slot]['credit']);
 }
+
+String getException(String exception) {
+  String result =
+      exception.substring(exception.indexOf(':') + 1, exception.length);
+  String replaced = result
+      .replaceAll(RegExp('<b>'), '')
+      .replaceAll(RegExp('</b>'), '')
+      .replaceAll(RegExp('<br>'), '');
+  return replaced;
+}

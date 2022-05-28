@@ -296,7 +296,10 @@ class _RequestWidgetState extends State<RequestWidget> {
                   ScaffoldMessenger.of(context).showSnackBar(
                     SnackBar(
                       content: Text(
-                        'Connection Error !',
+                        functions.getException(getJsonField(
+                          (response?.jsonBody ?? ''),
+                          r'''$.exception''',
+                        ).toString()),
                         style: TextStyle(),
                       ),
                       duration: Duration(milliseconds: 4000),
