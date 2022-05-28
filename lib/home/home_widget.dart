@@ -267,7 +267,7 @@ class _HomeWidgetState extends State<HomeWidget> {
                                   EdgeInsetsDirectional.fromSTEB(2, 2, 2, 12),
                               child: Container(
                                 width: MediaQuery.of(context).size.width * 0.44,
-                                height: 200,
+                                height: 150,
                                 decoration: BoxDecoration(
                                   color: FlutterFlowTheme.of(context)
                                       .secondaryBackground,
@@ -320,7 +320,7 @@ class _HomeWidgetState extends State<HomeWidget> {
                                                       .subtitle1
                                                       .override(
                                                         fontFamily: 'Poppins',
-                                                        fontSize: 50,
+                                                        fontSize: 30,
                                                         fontWeight:
                                                             FontWeight.w500,
                                                       ),
