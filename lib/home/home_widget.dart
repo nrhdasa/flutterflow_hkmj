@@ -322,12 +322,12 @@ class _HomeWidgetState extends State<HomeWidget> {
                                                   (wrapDashboardResponse
                                                           ?.jsonBody ??
                                                       ''),
-                                                  r'''$['Morning']['used']''',
+                                                  r'''$.message.Morning.used''',
                                                 ).toString()}/${getJsonField(
                                                   (wrapDashboardResponse
                                                           ?.jsonBody ??
                                                       ''),
-                                                  r'''$['Morning']['generated']''',
+                                                  r'''$.message.Morning.generated''',
                                                 ).toString()}',
                                                 style:
                                                     FlutterFlowTheme.of(context)
@@ -387,12 +387,12 @@ class _HomeWidgetState extends State<HomeWidget> {
                                                   (wrapDashboardResponse
                                                           ?.jsonBody ??
                                                       ''),
-                                                  r'''$['Morning']['generated']''',
+                                                  r'''$.message.Morning.generated''',
                                                 ).toString()}/${getJsonField(
                                                   (wrapDashboardResponse
                                                           ?.jsonBody ??
                                                       ''),
-                                                  r'''$['Morning']['credit']''',
+                                                  r'''$.message.Morning.credit''',
                                                 ).toString()}',
                                                 style:
                                                     FlutterFlowTheme.of(context)
@@ -448,11 +448,11 @@ class _HomeWidgetState extends State<HomeWidget> {
                                               padding: EdgeInsetsDirectional
                                                   .fromSTEB(0, 4, 0, 0),
                                               child: Text(
-                                                '+${getJsonField(
+                                                '-${getJsonField(
                                                   (wrapDashboardResponse
                                                           ?.jsonBody ??
                                                       ''),
-                                                  r'''$['Morning']['request']''',
+                                                  r'''$.message.Morning.request''',
                                                 ).toString()}',
                                                 style:
                                                     FlutterFlowTheme.of(context)
@@ -488,7 +488,7 @@ class _HomeWidgetState extends State<HomeWidget> {
                                                   (wrapDashboardResponse
                                                           ?.jsonBody ??
                                                       ''),
-                                                  r'''$['Morning']['release']''',
+                                                  r'''$.message.Morning.release''',
                                                 ).toString()}',
                                                 style:
                                                     FlutterFlowTheme.of(context)
@@ -524,7 +524,7 @@ class _HomeWidgetState extends State<HomeWidget> {
                                                   (wrapDashboardResponse
                                                           ?.jsonBody ??
                                                       ''),
-                                                  r'''$['Morning']['transfer_sent']''',
+                                                  r'''$.message.Morning.transfer_sent''',
                                                 ).toString()}',
                                                 style:
                                                     FlutterFlowTheme.of(context)
@@ -560,7 +560,7 @@ class _HomeWidgetState extends State<HomeWidget> {
                                                   (wrapDashboardResponse
                                                           ?.jsonBody ??
                                                       ''),
-                                                  r'''$['Morning']['transfer_rec']''',
+                                                  r'''$.message.Morning.transfer_rec''',
                                                 ).toString()}',
                                                 style:
                                                     FlutterFlowTheme.of(context)
@@ -604,7 +604,7 @@ class _HomeWidgetState extends State<HomeWidget> {
                                                   (wrapDashboardResponse
                                                           ?.jsonBody ??
                                                       ''),
-                                                  r'''$['Morning']['credit']''',
+                                                  r'''$.message.Morning.credit''',
                                                 ).toString()}',
                                                 style:
                                                     FlutterFlowTheme.of(context)
@@ -921,12 +921,12 @@ class _HomeWidgetState extends State<HomeWidget> {
                                                   (wrapDashboardResponse
                                                           ?.jsonBody ??
                                                       ''),
-                                                  r'''$['Evening']['used']''',
+                                                  r'''$.message.Evening.used''',
                                                 ).toString()}/${getJsonField(
                                                   (wrapDashboardResponse
                                                           ?.jsonBody ??
                                                       ''),
-                                                  r'''$['Evening']['generated']''',
+                                                  r'''$.message.Evening.generated''',
                                                 ).toString()}',
                                                 style:
                                                     FlutterFlowTheme.of(context)
@@ -986,12 +986,12 @@ class _HomeWidgetState extends State<HomeWidget> {
                                                   (wrapDashboardResponse
                                                           ?.jsonBody ??
                                                       ''),
-                                                  r'''$['Morning']['generated']''',
+                                                  r'''$.message.Evening.generated''',
                                                 ).toString()}/${getJsonField(
                                                   (wrapDashboardResponse
                                                           ?.jsonBody ??
                                                       ''),
-                                                  r'''$['Morning']['credit']''',
+                                                  r'''$.message.Evening.credit''',
                                                 ).toString()}',
                                                 style:
                                                     FlutterFlowTheme.of(context)
@@ -1051,7 +1051,7 @@ class _HomeWidgetState extends State<HomeWidget> {
                                                   (wrapDashboardResponse
                                                           ?.jsonBody ??
                                                       ''),
-                                                  r'''$['Morning']['request']''',
+                                                  r'''$.message.Evening.request''',
                                                 ).toString()}',
                                                 style:
                                                     FlutterFlowTheme.of(context)
@@ -1087,7 +1087,7 @@ class _HomeWidgetState extends State<HomeWidget> {
                                                   (wrapDashboardResponse
                                                           ?.jsonBody ??
                                                       ''),
-                                                  r'''$['Morning']['release']''',
+                                                  r'''$.message.Evening.release''',
                                                 ).toString()}',
                                                 style:
                                                     FlutterFlowTheme.of(context)
@@ -1123,7 +1123,7 @@ class _HomeWidgetState extends State<HomeWidget> {
                                                   (wrapDashboardResponse
                                                           ?.jsonBody ??
                                                       ''),
-                                                  r'''$['Morning']['transfer_sent']''',
+                                                  r'''$.message.Evening.transfer_sent''',
                                                 ).toString()}',
                                                 style:
                                                     FlutterFlowTheme.of(context)
@@ -1159,7 +1159,7 @@ class _HomeWidgetState extends State<HomeWidget> {
                                                   (wrapDashboardResponse
                                                           ?.jsonBody ??
                                                       ''),
-                                                  r'''$['Morning']['transfer_rec']''',
+                                                  r'''$.message.Evening.transfer_rec''',
                                                 ).toString()}',
                                                 style:
                                                     FlutterFlowTheme.of(context)
@@ -1203,7 +1203,7 @@ class _HomeWidgetState extends State<HomeWidget> {
                                                   (wrapDashboardResponse
                                                           ?.jsonBody ??
                                                       ''),
-                                                  r'''$['Morning']['credit']''',
+                                                  r'''$.message.Evening.credit''',
                                                 ).toString()}',
                                                 style:
                                                     FlutterFlowTheme.of(context)
