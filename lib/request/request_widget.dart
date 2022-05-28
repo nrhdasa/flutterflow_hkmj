@@ -41,46 +41,43 @@ class _RequestWidgetState extends State<RequestWidget> {
           automaticallyImplyLeading: false,
           flexibleSpace: Column(
             mainAxisSize: MainAxisSize.max,
-            mainAxisAlignment: MainAxisAlignment.end,
+            mainAxisAlignment: MainAxisAlignment.start,
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
-              Padding(
-                padding: EdgeInsetsDirectional.fromSTEB(0, 0, 0, 8),
-                child: Row(
-                  mainAxisSize: MainAxisSize.max,
-                  children: [
-                    Padding(
-                      padding: EdgeInsetsDirectional.fromSTEB(12, 0, 0, 0),
-                      child: FlutterFlowIconButton(
-                        borderColor: Colors.transparent,
-                        borderRadius: 30,
-                        borderWidth: 1,
-                        buttonSize: 50,
-                        icon: Icon(
-                          Icons.arrow_back_rounded,
-                          color: FlutterFlowTheme.of(context).primaryText,
-                          size: 24,
-                        ),
-                        onPressed: () async {
-                          context.pop();
-                        },
+              Row(
+                mainAxisSize: MainAxisSize.max,
+                children: [
+                  Padding(
+                    padding: EdgeInsetsDirectional.fromSTEB(12, 0, 0, 0),
+                    child: FlutterFlowIconButton(
+                      borderColor: Colors.transparent,
+                      borderRadius: 30,
+                      borderWidth: 1,
+                      buttonSize: 50,
+                      icon: Icon(
+                        Icons.arrow_back_rounded,
+                        color: FlutterFlowTheme.of(context).primaryText,
+                        size: 24,
                       ),
+                      onPressed: () async {
+                        context.pop();
+                      },
                     ),
-                    Padding(
-                      padding: EdgeInsetsDirectional.fromSTEB(4, 0, 0, 0),
-                      child: Text(
-                        'Back',
-                        style: FlutterFlowTheme.of(context).title1.override(
-                              fontFamily: 'Poppins',
-                              fontSize: 16,
-                            ),
-                      ),
+                  ),
+                  Padding(
+                    padding: EdgeInsetsDirectional.fromSTEB(4, 0, 0, 0),
+                    child: Text(
+                      'Back',
+                      style: FlutterFlowTheme.of(context).title1.override(
+                            fontFamily: 'Poppins',
+                            fontSize: 16,
+                          ),
                     ),
-                  ],
-                ),
+                  ),
+                ],
               ),
               Padding(
-                padding: EdgeInsetsDirectional.fromSTEB(24, 10, 0, 0),
+                padding: EdgeInsetsDirectional.fromSTEB(24, 0, 0, 0),
                 child: Text(
                   'Create Request',
                   style: FlutterFlowTheme.of(context).title1.override(
@@ -260,45 +257,19 @@ class _RequestWidgetState extends State<RequestWidget> {
                   slot: dropDownValue,
                   number: numberController.text,
                 );
-                if ((response?.succeeded ?? true)) {
-                  if (getJsonField(
-                    (response?.jsonBody ?? ''),
-                    r'''$.data.name''',
-                  )) {
-                    ScaffoldMessenger.of(context).showSnackBar(
-                      SnackBar(
-                        content: Text(
-                          'Successfully Added.',
-                          style: TextStyle(),
-                        ),
-                        duration: Duration(milliseconds: 4000),
-                        backgroundColor: Color(0x00000000),
-                      ),
-                    );
-                  } else {
-                    ScaffoldMessenger.of(context).showSnackBar(
-                      SnackBar(
-                        content: Text(
-                          'Authorization Error !',
-                          style: TextStyle(),
-                        ),
-                        duration: Duration(milliseconds: 4000),
-                        backgroundColor: Color(0x00000000),
-                      ),
-                    );
-                  }
-                } else {
-                  ScaffoldMessenger.of(context).showSnackBar(
-                    SnackBar(
-                      content: Text(
-                        'Connection Error !',
-                        style: TextStyle(),
-                      ),
-                      duration: Duration(milliseconds: 4000),
-                      backgroundColor: Color(0x00000000),
+                ScaffoldMessenger.of(context).showSnackBar(
+                  SnackBar(
+                    content: Text(
+                      getJsonField(
+                        (response?.jsonBody ?? ''),
+                        r'''$''',
+                      ).toString(),
+                      style: TextStyle(),
                     ),
-                  );
-                }
+                    duration: Duration(milliseconds: 4000),
+                    backgroundColor: Color(0x00000000),
+                  ),
+                );
 
                 setState(() {});
               },
