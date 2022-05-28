@@ -257,19 +257,46 @@ class _RequestWidgetState extends State<RequestWidget> {
                   slot: dropDownValue,
                   number: numberController.text,
                 );
-                ScaffoldMessenger.of(context).showSnackBar(
-                  SnackBar(
-                    content: Text(
-                      getJsonField(
+                if (((response?.statusCode ?? 200)) == 200) {
+                  if ((getJsonField(
                         (response?.jsonBody ?? ''),
-                        r'''$''',
-                      ).toString(),
-                      style: TextStyle(),
+                        r'''$.data.name''',
+                      ) !=
+                      null)) {
+                    ScaffoldMessenger.of(context).showSnackBar(
+                      SnackBar(
+                        content: Text(
+                          'Succeeded !',
+                          style: TextStyle(),
+                        ),
+                        duration: Duration(milliseconds: 4000),
+                        backgroundColor: Color(0x00000000),
+                      ),
+                    );
+                  } else {
+                    ScaffoldMessenger.of(context).showSnackBar(
+                      SnackBar(
+                        content: Text(
+                          'Authorization Error !',
+                          style: TextStyle(),
+                        ),
+                        duration: Duration(milliseconds: 4000),
+                        backgroundColor: Color(0x00000000),
+                      ),
+                    );
+                  }
+                } else {
+                  ScaffoldMessenger.of(context).showSnackBar(
+                    SnackBar(
+                      content: Text(
+                        'Connection Error !',
+                        style: TextStyle(),
+                      ),
+                      duration: Duration(milliseconds: 4000),
+                      backgroundColor: Color(0x00000000),
                     ),
-                    duration: Duration(milliseconds: 4000),
-                    backgroundColor: Color(0x00000000),
-                  ),
-                );
+                  );
+                }
 
                 setState(() {});
               },
