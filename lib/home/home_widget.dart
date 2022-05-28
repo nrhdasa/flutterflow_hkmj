@@ -33,16 +33,29 @@ class _HomeWidgetState extends State<HomeWidget> {
         actions: [
           Padding(
             padding: EdgeInsetsDirectional.fromSTEB(0, 0, 16, 0),
-            child: Container(
-              width: 50,
-              height: 50,
-              clipBehavior: Clip.antiAlias,
-              decoration: BoxDecoration(
-                shape: BoxShape.circle,
-              ),
-              child: Image.network(
-                'https://images.unsplash.com/photo-1500648767791-00dcc994a43e?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxzZWFyY2h8MTd8fHVzZXJ8ZW58MHx8MHx8&auto=format&fit=crop&w=500&q=60',
-                fit: BoxFit.fitWidth,
+            child: InkWell(
+              onTap: () async {
+                context.pushNamed(
+                  'Profile',
+                  extra: <String, dynamic>{
+                    kTransitionInfoKey: TransitionInfo(
+                      hasTransition: true,
+                      transitionType: PageTransitionType.leftToRight,
+                    ),
+                  },
+                );
+              },
+              child: Container(
+                width: 50,
+                height: 50,
+                clipBehavior: Clip.antiAlias,
+                decoration: BoxDecoration(
+                  shape: BoxShape.circle,
+                ),
+                child: Image.asset(
+                  'assets/images/user.png',
+                  fit: BoxFit.fitWidth,
+                ),
               ),
             ),
           ),

@@ -59,7 +59,7 @@ class _ProfileWidgetState extends State<ProfileWidget> {
                               shape: BoxShape.circle,
                             ),
                             child: Image.asset(
-                              'assets/images/UI_avatar@2x.png',
+                              'assets/images/user.png',
                             ),
                           ),
                         ],
