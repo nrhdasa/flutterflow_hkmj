@@ -284,9 +284,8 @@ class _HomeWidgetState extends State<HomeWidget> {
                                   padding: EdgeInsetsDirectional.fromSTEB(
                                       12, 8, 12, 8),
                                   child: Column(
-                                    mainAxisSize: MainAxisSize.max,
-                                    mainAxisAlignment:
-                                        MainAxisAlignment.spaceAround,
+                                    mainAxisSize: MainAxisSize.min,
+                                    mainAxisAlignment: MainAxisAlignment.start,
                                     crossAxisAlignment:
                                         CrossAxisAlignment.start,
                                     children: [
@@ -299,7 +298,8 @@ class _HomeWidgetState extends State<HomeWidget> {
                                         padding: EdgeInsetsDirectional.fromSTEB(
                                             0, 4, 0, 0),
                                         child: Text(
-                                          'April 2022',
+                                          dateTimeFormat(
+                                              'yMMMd', getCurrentTimestamp),
                                           style: FlutterFlowTheme.of(context)
                                               .bodyText2,
                                         ),
@@ -313,13 +313,14 @@ class _HomeWidgetState extends State<HomeWidget> {
                                               MainAxisAlignment.center,
                                           children: [
                                             Text(
-                                              '03',
+                                              dateTimeFormat(
+                                                  'EEEE', getCurrentTimestamp),
                                               style:
                                                   FlutterFlowTheme.of(context)
                                                       .subtitle1
                                                       .override(
                                                         fontFamily: 'Poppins',
-                                                        fontSize: 82,
+                                                        fontSize: 50,
                                                         fontWeight:
                                                             FontWeight.w500,
                                                       ),
