@@ -143,8 +143,18 @@ class _HomeWidgetState extends State<HomeWidget> {
                                   color: Colors.black,
                                   size: 30,
                                 ),
-                                onPressed: () {
-                                  print('IconButton pressed ...');
+                                onPressed: () async {
+                                  context.pushNamed(
+                                    'Request',
+                                    extra: <String, dynamic>{
+                                      kTransitionInfoKey: TransitionInfo(
+                                        hasTransition: true,
+                                        transitionType:
+                                            PageTransitionType.scale,
+                                        alignment: Alignment.bottomCenter,
+                                      ),
+                                    },
+                                  );
                                 },
                               ),
                               Text(
