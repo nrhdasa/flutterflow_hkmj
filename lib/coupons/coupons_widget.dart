@@ -270,7 +270,7 @@ class _CouponsWidgetState extends State<CouponsWidget>
                                             ),
                                           ),
                                           Container(
-                                            width: 260,
+                                            width: 350,
                                             decoration: BoxDecoration(),
                                             child: Row(
                                               mainAxisSize: MainAxisSize.max,

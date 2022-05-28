@@ -46,6 +46,7 @@ abstract class FlutterFlowTheme {
   Color black600;
   Color tertiary400;
   Color textColor;
+  Color customColor1;
 
   TextStyle get title1 => GoogleFonts.getFont(
         'Poppins',
@@ -109,6 +110,7 @@ class LightModeTheme extends FlutterFlowTheme {
   Color black600 = Color(0xFF090F13);
   Color tertiary400 = Color(0xFF39D2C0);
   Color textColor = Color(0xFF1E2429);
+  Color customColor1 = Color(0xFF2FB73C);
 }
 
 class DarkModeTheme extends FlutterFlowTheme {
@@ -129,6 +131,7 @@ class DarkModeTheme extends FlutterFlowTheme {
   Color black600 = Color(0xFF090F13);
   Color tertiary400 = Color(0xFF39D2C0);
   Color textColor = Color(0xFF1E2429);
+  Color customColor1 = Color(0xFF452FB7);
 }
 
 extension TextStyleHelper on TextStyle {
