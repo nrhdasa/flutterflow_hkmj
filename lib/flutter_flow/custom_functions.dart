@@ -28,3 +28,19 @@ String setDate(DateTime datePicked) {
   final String formatted = formatter.format(datePicked);
   return formatted;
 }
+
+double getProgressIndicatorValueUsed(
+  String slot,
+  dynamic dashboardData,
+) {
+  return (dashboardData['message'][slot]['used'] /
+      dashboardData['message'][slot]['generated']);
+}
+
+double getProgressIndicatorGenerated(
+  String slot,
+  dynamic dashboardData,
+) {
+  return (dashboardData['message'][slot]['generated'] /
+      dashboardData['message'][slot]['credit']);
+}

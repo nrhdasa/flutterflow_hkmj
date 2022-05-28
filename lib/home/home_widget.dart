@@ -2,6 +2,7 @@ import '../backend/api_requests/api_calls.dart';
 import '../flutter_flow/flutter_flow_icon_button.dart';
 import '../flutter_flow/flutter_flow_theme.dart';
 import '../flutter_flow/flutter_flow_util.dart';
+import '../flutter_flow/custom_functions.dart' as functions;
 import 'package:flutter/material.dart';
 import 'package:flutter_spinkit/flutter_spinkit.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
@@ -266,6 +267,76 @@ class _HomeWidgetState extends State<HomeWidget> {
                                   EdgeInsetsDirectional.fromSTEB(2, 2, 2, 12),
                               child: Container(
                                 width: MediaQuery.of(context).size.width * 0.44,
+                                height: 200,
+                                decoration: BoxDecoration(
+                                  color: FlutterFlowTheme.of(context)
+                                      .secondaryBackground,
+                                  boxShadow: [
+                                    BoxShadow(
+                                      blurRadius: 4,
+                                      color: Color(0x34090F13),
+                                      offset: Offset(0, 2),
+                                    )
+                                  ],
+                                  borderRadius: BorderRadius.circular(16),
+                                ),
+                                child: Padding(
+                                  padding: EdgeInsetsDirectional.fromSTEB(
+                                      12, 8, 12, 8),
+                                  child: Column(
+                                    mainAxisSize: MainAxisSize.max,
+                                    mainAxisAlignment:
+                                        MainAxisAlignment.spaceAround,
+                                    crossAxisAlignment:
+                                        CrossAxisAlignment.start,
+                                    children: [
+                                      Text(
+                                        'Day',
+                                        style: FlutterFlowTheme.of(context)
+                                            .subtitle1,
+                                      ),
+                                      Padding(
+                                        padding: EdgeInsetsDirectional.fromSTEB(
+                                            0, 4, 0, 0),
+                                        child: Text(
+                                          'April 2022',
+                                          style: FlutterFlowTheme.of(context)
+                                              .bodyText2,
+                                        ),
+                                      ),
+                                      Padding(
+                                        padding: EdgeInsetsDirectional.fromSTEB(
+                                            0, 16, 0, 16),
+                                        child: Row(
+                                          mainAxisSize: MainAxisSize.max,
+                                          mainAxisAlignment:
+                                              MainAxisAlignment.center,
+                                          children: [
+                                            Text(
+                                              '03',
+                                              style:
+                                                  FlutterFlowTheme.of(context)
+                                                      .subtitle1
+                                                      .override(
+                                                        fontFamily: 'Poppins',
+                                                        fontSize: 82,
+                                                        fontWeight:
+                                                            FontWeight.w500,
+                                                      ),
+                                            ),
+                                          ],
+                                        ),
+                                      ),
+                                    ],
+                                  ),
+                                ),
+                              ),
+                            ),
+                            Padding(
+                              padding:
+                                  EdgeInsetsDirectional.fromSTEB(2, 2, 2, 12),
+                              child: Container(
+                                width: MediaQuery.of(context).size.width * 0.44,
                                 height: 350,
                                 decoration: BoxDecoration(
                                   color: FlutterFlowTheme.of(context)
@@ -343,7 +414,12 @@ class _HomeWidgetState extends State<HomeWidget> {
                                               EdgeInsetsDirectional.fromSTEB(
                                                   0, 8, 0, 0),
                                           child: LinearPercentIndicator(
-                                            percent: 0.4,
+                                            percent: functions
+                                                .getProgressIndicatorValueUsed(
+                                                    'Morning',
+                                                    (wrapDashboardResponse
+                                                            ?.jsonBody ??
+                                                        '')),
                                             width: MediaQuery.of(context)
                                                     .size
                                                     .width *
@@ -408,7 +484,12 @@ class _HomeWidgetState extends State<HomeWidget> {
                                               EdgeInsetsDirectional.fromSTEB(
                                                   0, 8, 0, 0),
                                           child: LinearPercentIndicator(
-                                            percent: 0.4,
+                                            percent: functions
+                                                .getProgressIndicatorGenerated(
+                                                    'Morning',
+                                                    (wrapDashboardResponse
+                                                            ?.jsonBody ??
+                                                        '')),
                                             width: MediaQuery.of(context)
                                                     .size
                                                     .width *
@@ -756,6 +837,11 @@ class _HomeWidgetState extends State<HomeWidget> {
                                 ),
                               ),
                             ),
+                          ],
+                        ),
+                        Column(
+                          mainAxisSize: MainAxisSize.max,
+                          children: [
                             Padding(
                               padding:
                                   EdgeInsetsDirectional.fromSTEB(2, 2, 2, 12),
@@ -942,7 +1028,12 @@ class _HomeWidgetState extends State<HomeWidget> {
                                               EdgeInsetsDirectional.fromSTEB(
                                                   0, 8, 0, 0),
                                           child: LinearPercentIndicator(
-                                            percent: 0.4,
+                                            percent: functions
+                                                .getProgressIndicatorValueUsed(
+                                                    'Evening',
+                                                    (wrapDashboardResponse
+                                                            ?.jsonBody ??
+                                                        '')),
                                             width: MediaQuery.of(context)
                                                     .size
                                                     .width *
@@ -1007,7 +1098,12 @@ class _HomeWidgetState extends State<HomeWidget> {
                                               EdgeInsetsDirectional.fromSTEB(
                                                   0, 8, 0, 0),
                                           child: LinearPercentIndicator(
-                                            percent: 0.4,
+                                            percent: functions
+                                                .getProgressIndicatorGenerated(
+                                                    'Evening',
+                                                    (wrapDashboardResponse
+                                                            ?.jsonBody ??
+                                                        '')),
                                             width: MediaQuery.of(context)
                                                     .size
                                                     .width *
@@ -1217,185 +1313,6 @@ class _HomeWidgetState extends State<HomeWidget> {
                                               ),
                                             ),
                                           ],
-                                        ),
-                                      ),
-                                    ],
-                                  ),
-                                ),
-                              ),
-                            ),
-                          ],
-                        ),
-                        Column(
-                          mainAxisSize: MainAxisSize.max,
-                          children: [
-                            Padding(
-                              padding:
-                                  EdgeInsetsDirectional.fromSTEB(2, 2, 2, 12),
-                              child: Container(
-                                width: MediaQuery.of(context).size.width * 0.44,
-                                height: 200,
-                                decoration: BoxDecoration(
-                                  color: FlutterFlowTheme.of(context)
-                                      .secondaryBackground,
-                                  boxShadow: [
-                                    BoxShadow(
-                                      blurRadius: 4,
-                                      color: Color(0x34090F13),
-                                      offset: Offset(0, 2),
-                                    )
-                                  ],
-                                  borderRadius: BorderRadius.circular(16),
-                                ),
-                                child: Padding(
-                                  padding: EdgeInsetsDirectional.fromSTEB(
-                                      12, 8, 12, 8),
-                                  child: Column(
-                                    mainAxisSize: MainAxisSize.max,
-                                    mainAxisAlignment:
-                                        MainAxisAlignment.spaceAround,
-                                    crossAxisAlignment:
-                                        CrossAxisAlignment.start,
-                                    children: [
-                                      Text(
-                                        'Day',
-                                        style: FlutterFlowTheme.of(context)
-                                            .subtitle1,
-                                      ),
-                                      Padding(
-                                        padding: EdgeInsetsDirectional.fromSTEB(
-                                            0, 4, 0, 0),
-                                        child: Text(
-                                          'April 2022',
-                                          style: FlutterFlowTheme.of(context)
-                                              .bodyText2,
-                                        ),
-                                      ),
-                                      Padding(
-                                        padding: EdgeInsetsDirectional.fromSTEB(
-                                            0, 16, 0, 16),
-                                        child: Row(
-                                          mainAxisSize: MainAxisSize.max,
-                                          mainAxisAlignment:
-                                              MainAxisAlignment.center,
-                                          children: [
-                                            Text(
-                                              '03',
-                                              style:
-                                                  FlutterFlowTheme.of(context)
-                                                      .subtitle1
-                                                      .override(
-                                                        fontFamily: 'Poppins',
-                                                        fontSize: 82,
-                                                        fontWeight:
-                                                            FontWeight.w500,
-                                                      ),
-                                            ),
-                                          ],
-                                        ),
-                                      ),
-                                    ],
-                                  ),
-                                ),
-                              ),
-                            ),
-                            Padding(
-                              padding:
-                                  EdgeInsetsDirectional.fromSTEB(2, 2, 2, 12),
-                              child: Container(
-                                width: MediaQuery.of(context).size.width * 0.44,
-                                height: 180,
-                                decoration: BoxDecoration(
-                                  color: FlutterFlowTheme.of(context)
-                                      .secondaryBackground,
-                                  boxShadow: [
-                                    BoxShadow(
-                                      blurRadius: 4,
-                                      color: Color(0x34090F13),
-                                      offset: Offset(0, 2),
-                                    )
-                                  ],
-                                  borderRadius: BorderRadius.circular(16),
-                                ),
-                                child: Padding(
-                                  padding: EdgeInsetsDirectional.fromSTEB(
-                                      12, 8, 12, 8),
-                                  child: Column(
-                                    mainAxisSize: MainAxisSize.max,
-                                    crossAxisAlignment:
-                                        CrossAxisAlignment.start,
-                                    children: [
-                                      Padding(
-                                        padding: EdgeInsetsDirectional.fromSTEB(
-                                            0, 12, 0, 0),
-                                        child: Text(
-                                          'Coupons Generated',
-                                          style: FlutterFlowTheme.of(context)
-                                              .subtitle1,
-                                        ),
-                                      ),
-                                      Padding(
-                                        padding: EdgeInsetsDirectional.fromSTEB(
-                                            0, 4, 0, 0),
-                                        child: Text(
-                                          'Out of Requested',
-                                          style: FlutterFlowTheme.of(context)
-                                              .bodyText2,
-                                        ),
-                                      ),
-                                      Expanded(
-                                        child: Row(
-                                          mainAxisSize: MainAxisSize.max,
-                                          mainAxisAlignment:
-                                              MainAxisAlignment.spaceBetween,
-                                          crossAxisAlignment:
-                                              CrossAxisAlignment.end,
-                                          children: [
-                                            Padding(
-                                              padding: EdgeInsetsDirectional
-                                                  .fromSTEB(0, 4, 0, 0),
-                                              child: Text(
-                                                'Progress',
-                                                style:
-                                                    FlutterFlowTheme.of(context)
-                                                        .bodyText2,
-                                              ),
-                                            ),
-                                            Padding(
-                                              padding: EdgeInsetsDirectional
-                                                  .fromSTEB(0, 4, 0, 0),
-                                              child: Text(
-                                                '4/10',
-                                                style:
-                                                    FlutterFlowTheme.of(context)
-                                                        .bodyText2,
-                                              ),
-                                            ),
-                                          ],
-                                        ),
-                                      ),
-                                      Expanded(
-                                        child: Padding(
-                                          padding:
-                                              EdgeInsetsDirectional.fromSTEB(
-                                                  0, 8, 0, 0),
-                                          child: LinearPercentIndicator(
-                                            percent: 0.4,
-                                            width: MediaQuery.of(context)
-                                                    .size
-                                                    .width *
-                                                0.38,
-                                            lineHeight: 8,
-                                            animation: true,
-                                            progressColor:
-                                                FlutterFlowTheme.of(context)
-                                                    .primaryColor,
-                                            backgroundColor:
-                                                FlutterFlowTheme.of(context)
-                                                    .lineColor,
-                                            barRadius: Radius.circular(8),
-                                            padding: EdgeInsets.zero,
-                                          ),
                                         ),
                                       ),
                                     ],
