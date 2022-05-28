@@ -20,3 +20,11 @@ String getTodayDate() {
   final format = DateFormat('yyyy-MM-dd');
   return format.format(now);
 }
+
+String setDate(String datePicked) {
+  // Add your function code here!
+  DateTime date = DateFormat('yyyy').parse(datePicked);
+  final DateFormat formatter = DateFormat('yyyy-MM-dd');
+  final String formatted = formatter.format(date);
+  return formatted;
+}

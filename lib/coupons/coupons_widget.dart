@@ -3,6 +3,7 @@ import '../flutter_flow/flutter_flow_drop_down.dart';
 import '../flutter_flow/flutter_flow_icon_button.dart';
 import '../flutter_flow/flutter_flow_theme.dart';
 import '../flutter_flow/flutter_flow_util.dart';
+import '../flutter_flow/custom_functions.dart' as functions;
 import 'package:flutter/material.dart';
 import 'package:flutter_datetime_picker/flutter_datetime_picker.dart';
 import 'package:flutter_spinkit/flutter_spinkit.dart';
@@ -78,11 +79,10 @@ class _CouponsWidgetState extends State<CouponsWidget> {
                           currentTime: getCurrentTimestamp,
                           minTime: DateTime(0, 0, 0),
                         );
+
+                        setState(() => FFAppState().searchdate = functions
+                            .setDate(dateTimeFormat('d/M/y', datePicked)));
                       },
-                    ),
-                    Text(
-                      dateTimeFormat('MMMMEEEEd', datePicked),
-                      style: FlutterFlowTheme.of(context).bodyText1,
                     ),
                   ],
                 ),
@@ -108,7 +108,7 @@ class _CouponsWidgetState extends State<CouponsWidget> {
               Expanded(
                 child: FutureBuilder<ApiCallResponse>(
                   future: CouponstatsCall.call(
-                    date: dateTimeFormat('d/M/y', datePicked),
+                    date: FFAppState().searchdate,
                     auth: FFAppState().authtoken,
                     slot: dropDownValue,
                   ),
