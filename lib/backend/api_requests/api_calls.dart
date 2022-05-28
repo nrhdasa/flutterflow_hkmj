@@ -75,17 +75,24 @@ class CouponstatsCall {
 }
 
 class DashboardCall {
-  static Future<ApiCallResponse> call() {
+  static Future<ApiCallResponse> call({
+    String auth = '',
+  }) {
     return ApiManager.instance.makeApiCall(
       callName: 'dashboard',
       apiUrl:
           'http://hkmjerp.in/api/method/hkm.prasadam_coupon_management.api.get_dashboard_data',
       callType: ApiCallType.GET,
       headers: {
-        'Authorization': 'token a6cc3935556d644:f69a0506864256b',
+        'Authorization': '${auth}',
       },
       params: {},
       returnBody: true,
     );
   }
+
+  static dynamic data(dynamic response) => getJsonField(
+        response,
+        r'''$.message''',
+      );
 }

@@ -202,64 +202,71 @@ class _CouponsWidgetState extends State<CouponsWidget>
                                         crossAxisAlignment:
                                             CrossAxisAlignment.start,
                                         children: [
-                                          Container(
-                                            width: 260,
-                                            height: 40,
-                                            decoration: BoxDecoration(),
-                                            child: Row(
-                                              mainAxisSize: MainAxisSize.max,
-                                              mainAxisAlignment:
-                                                  MainAxisAlignment
-                                                      .spaceBetween,
-                                              children: [
-                                                Text(
-                                                  getJsonField(
-                                                    usersItem,
-                                                    r'''$.user''',
-                                                  ).toString(),
-                                                  style: FlutterFlowTheme.of(
-                                                          context)
-                                                      .subtitle1,
-                                                ),
-                                                Container(
-                                                  width: 60,
-                                                  height: 40,
-                                                  decoration: BoxDecoration(
-                                                    color: Color(0xFF0E0343),
-                                                    boxShadow: [
-                                                      BoxShadow(
-                                                        blurRadius: 5,
-                                                        color:
-                                                            Color(0xFF858585),
-                                                        offset: Offset(1, 1),
-                                                        spreadRadius: 2,
-                                                      )
-                                                    ],
-                                                    borderRadius:
-                                                        BorderRadius.circular(
-                                                            20),
-                                                    shape: BoxShape.rectangle,
-                                                  ),
-                                                  alignment:
-                                                      AlignmentDirectional(
-                                                          0, 0),
-                                                  child: Text(
+                                          Expanded(
+                                            child: Container(
+                                              width: MediaQuery.of(context)
+                                                      .size
+                                                      .width *
+                                                  0.8,
+                                              height: 40,
+                                              decoration: BoxDecoration(),
+                                              child: Row(
+                                                mainAxisSize: MainAxisSize.max,
+                                                mainAxisAlignment:
+                                                    MainAxisAlignment
+                                                        .spaceBetween,
+                                                children: [
+                                                  Text(
                                                     getJsonField(
                                                       usersItem,
-                                                      r'''$.credit''',
+                                                      r'''$.user''',
                                                     ).toString(),
-                                                    textAlign: TextAlign.center,
                                                     style: FlutterFlowTheme.of(
                                                             context)
-                                                        .bodyText1
-                                                        .override(
-                                                          fontFamily: 'Poppins',
-                                                          color: Colors.white,
-                                                          fontSize: 20,
-                                                        ),
+                                                        .subtitle1,
                                                   ),
-                                                ),
-                                              ],
+                                                  Container(
+                                                    width: 60,
+                                                    height: 40,
+                                                    decoration: BoxDecoration(
+                                                      color: Color(0xFF0E0343),
+                                                      boxShadow: [
+                                                        BoxShadow(
+                                                          blurRadius: 5,
+                                                          color:
+                                                              Color(0xFF858585),
+                                                          offset: Offset(1, 1),
+                                                          spreadRadius: 2,
+                                                        )
+                                                      ],
+                                                      borderRadius:
+                                                          BorderRadius.circular(
+                                                              20),
+                                                      shape: BoxShape.rectangle,
+                                                    ),
+                                                    alignment:
+                                                        AlignmentDirectional(
+                                                            0, 0),
+                                                    child: Text(
+                                                      getJsonField(
+                                                        usersItem,
+                                                        r'''$.credit''',
+                                                      ).toString(),
+                                                      textAlign:
+                                                          TextAlign.center,
+                                                      style: FlutterFlowTheme
+                                                              .of(context)
+                                                          .bodyText1
+                                                          .override(
+                                                            fontFamily:
+                                                                'Poppins',
+                                                            color: Colors.white,
+                                                            fontSize: 20,
+                                                          ),
+                                                    ),
+                                                  ),
+                                                ],
+                                              ),
                                             ),
                                           ),
                                           Container(
