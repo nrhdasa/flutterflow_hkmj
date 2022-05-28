@@ -109,7 +109,8 @@ class CreateRequestCall {
   "type": "Request",
   "date": "${date}",
   "slot": "${slot}",
-  "number": "${number}"
+  "number": "${number}",
+  "docstatus": 1
 }''';
     return ApiManager.instance.makeApiCall(
       callName: 'createRequest',

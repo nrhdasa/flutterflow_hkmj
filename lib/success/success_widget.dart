@@ -20,7 +20,7 @@ class _SuccessWidgetState extends State<SuccessWidget> {
   Widget build(BuildContext context) {
     return Scaffold(
       key: scaffoldKey,
-      backgroundColor: FlutterFlowTheme.of(context).secondaryColor,
+      backgroundColor: Color(0xFF67B569),
       body: SafeArea(
         child: GestureDetector(
           onTap: () => FocusScope.of(context).unfocus(),
@@ -36,8 +36,8 @@ class _SuccessWidgetState extends State<SuccessWidget> {
                   children: [
                     Lottie.network(
                       'https://assets3.lottiefiles.com/private_files/lf30_z1sghrbu.json',
-                      width: 200,
-                      height: 200,
+                      width: 250,
+                      height: 250,
                       fit: BoxFit.cover,
                       frameRate: FrameRate(60),
                       repeat: false,
