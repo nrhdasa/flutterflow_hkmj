@@ -126,36 +126,41 @@ class _RequestWidgetState extends State<RequestWidget> {
               decoration: BoxDecoration(
                 color: FlutterFlowTheme.of(context).primaryBtnText,
               ),
-              child: Row(
-                mainAxisSize: MainAxisSize.max,
-                children: [
-                  FlutterFlowIconButton(
-                    borderColor: Colors.transparent,
-                    borderRadius: 30,
-                    borderWidth: 1,
-                    buttonSize: 60,
-                    icon: Icon(
-                      Icons.date_range,
-                      color: Colors.black,
-                      size: 30,
-                    ),
-                    onPressed: () async {
-                      await DatePicker.showDatePicker(
-                        context,
-                        showTitleActions: true,
-                        onConfirm: (date) {
-                          setState(() => datePicked = date);
-                        },
-                        currentTime: getCurrentTimestamp,
-                        minTime: getCurrentTimestamp,
-                      );
+              child: InkWell(
+                onTap: () async {
+                  await DatePicker.showDatePicker(
+                    context,
+                    showTitleActions: true,
+                    onConfirm: (date) {
+                      setState(() => datePicked = date);
                     },
-                  ),
-                  Text(
-                    dateTimeFormat('MMMMEEEEd', datePicked),
-                    style: FlutterFlowTheme.of(context).bodyText1,
-                  ),
-                ],
+                    currentTime: getCurrentTimestamp,
+                    minTime: getCurrentTimestamp,
+                  );
+                },
+                child: Row(
+                  mainAxisSize: MainAxisSize.max,
+                  children: [
+                    FlutterFlowIconButton(
+                      borderColor: Colors.transparent,
+                      borderRadius: 30,
+                      borderWidth: 1,
+                      buttonSize: 60,
+                      icon: Icon(
+                        Icons.date_range,
+                        color: Colors.black,
+                        size: 30,
+                      ),
+                      onPressed: () {
+                        print('IconButton pressed ...');
+                      },
+                    ),
+                    Text(
+                      dateTimeFormat('MMMMEEEEd', datePicked),
+                      style: FlutterFlowTheme.of(context).bodyText1,
+                    ),
+                  ],
+                ),
               ),
             ),
           ),
