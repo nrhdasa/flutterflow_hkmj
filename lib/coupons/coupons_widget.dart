@@ -1,4 +1,5 @@
 import '../backend/api_requests/api_calls.dart';
+import '../flutter_flow/flutter_flow_animations.dart';
 import '../flutter_flow/flutter_flow_drop_down.dart';
 import '../flutter_flow/flutter_flow_icon_button.dart';
 import '../flutter_flow/flutter_flow_theme.dart';
@@ -16,10 +17,38 @@ class CouponsWidget extends StatefulWidget {
   _CouponsWidgetState createState() => _CouponsWidgetState();
 }
 
-class _CouponsWidgetState extends State<CouponsWidget> {
+class _CouponsWidgetState extends State<CouponsWidget>
+    with TickerProviderStateMixin {
   DateTime datePicked;
   String dropDownValue;
   final scaffoldKey = GlobalKey<ScaffoldState>();
+  final animationsMap = {
+    'listViewOnActionTriggerAnimation': AnimationInfo(
+      curve: Curves.linear,
+      trigger: AnimationTrigger.onActionTrigger,
+      duration: 550,
+      initialState: AnimationState(
+        offset: Offset(0, 18),
+        scale: 1,
+        opacity: 0,
+      ),
+      finalState: AnimationState(
+        offset: Offset(0, 12.000000000000014),
+        scale: 1,
+        opacity: 1,
+      ),
+    ),
+  };
+
+  @override
+  void initState() {
+    super.initState();
+    setupTriggerAnimations(
+      animationsMap.values
+          .where((anim) => anim.trigger == AnimationTrigger.onActionTrigger),
+      this,
+    );
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -199,11 +228,11 @@ class _CouponsWidgetState extends State<CouponsWidget> {
                                                     color: Color(0xFF0E0343),
                                                     boxShadow: [
                                                       BoxShadow(
-                                                        blurRadius: 50,
+                                                        blurRadius: 5,
                                                         color:
-                                                            Color(0xFFF8BBD0),
-                                                        offset: Offset(2, 3),
-                                                        spreadRadius: 1,
+                                                            Color(0xFF858585),
+                                                        offset: Offset(1, 1),
+                                                        spreadRadius: 2,
                                                       )
                                                     ],
                                                     borderRadius:
@@ -241,6 +270,59 @@ class _CouponsWidgetState extends State<CouponsWidget> {
                                               mainAxisAlignment:
                                                   MainAxisAlignment.spaceEvenly,
                                               children: [
+                                                Column(
+                                                  mainAxisSize:
+                                                      MainAxisSize.max,
+                                                  children: [
+                                                    Container(
+                                                      width: 20,
+                                                      height: 20,
+                                                      decoration: BoxDecoration(
+                                                        color:
+                                                            Color(0xFF96FF9B),
+                                                        shape: BoxShape.circle,
+                                                      ),
+                                                      alignment:
+                                                          AlignmentDirectional(
+                                                              0, 0),
+                                                      child: Text(
+                                                        getJsonField(
+                                                          usersItem,
+                                                          r'''$.used''',
+                                                        ).toString(),
+                                                        textAlign:
+                                                            TextAlign.center,
+                                                        style:
+                                                            FlutterFlowTheme.of(
+                                                                    context)
+                                                                .title3
+                                                                .override(
+                                                                  fontFamily:
+                                                                      'Poppins',
+                                                                  fontSize: 10,
+                                                                ),
+                                                      ),
+                                                    ),
+                                                    Padding(
+                                                      padding:
+                                                          EdgeInsetsDirectional
+                                                              .fromSTEB(
+                                                                  0, 4, 0, 4),
+                                                      child: Text(
+                                                        'Used',
+                                                        style:
+                                                            FlutterFlowTheme.of(
+                                                                    context)
+                                                                .bodyText2
+                                                                .override(
+                                                                  fontFamily:
+                                                                      'Poppins',
+                                                                  fontSize: 10,
+                                                                ),
+                                                      ),
+                                                    ),
+                                                  ],
+                                                ),
                                                 Column(
                                                   mainAxisSize:
                                                       MainAxisSize.max,
@@ -470,7 +552,9 @@ class _CouponsWidgetState extends State<CouponsWidget> {
                               ),
                             );
                           },
-                        );
+                        ).animated([
+                          animationsMap['listViewOnActionTriggerAnimation']
+                        ]);
                       },
                     );
                   },
