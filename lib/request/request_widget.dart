@@ -263,15 +263,15 @@ class _RequestWidgetState extends State<RequestWidget> {
                         r'''$.data.name''',
                       ) !=
                       null)) {
-                    ScaffoldMessenger.of(context).showSnackBar(
-                      SnackBar(
-                        content: Text(
-                          'Succeeded !',
-                          style: TextStyle(),
+                    context.goNamed(
+                      'Success',
+                      extra: <String, dynamic>{
+                        kTransitionInfoKey: TransitionInfo(
+                          hasTransition: true,
+                          transitionType: PageTransitionType.scale,
+                          alignment: Alignment.bottomCenter,
                         ),
-                        duration: Duration(milliseconds: 4000),
-                        backgroundColor: Color(0x00000000),
-                      ),
+                      },
                     );
                   } else {
                     ScaffoldMessenger.of(context).showSnackBar(
