@@ -80,8 +80,8 @@ class _CouponsWidgetState extends State<CouponsWidget> {
                           minTime: DateTime(0, 0, 0),
                         );
 
-                        setState(() => FFAppState().searchdate = functions
-                            .setDate(dateTimeFormat('d/M/y', datePicked)));
+                        setState(() => FFAppState().searchdate =
+                            functions.setDate(datePicked));
                       },
                     ),
                   ],
