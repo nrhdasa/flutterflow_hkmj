@@ -5,5 +5,6 @@ export 'home/home_widget.dart' show HomeWidget;
 export 'coupons/coupons_widget.dart' show CouponsWidget;
 export 'request/request_widget.dart' show RequestWidget;
 export 'success/success_widget.dart' show SuccessWidget;
+export 'transfer_select_user/transfer_select_user_widget.dart'
+    show TransferSelectUserWidget;
 export 'transfer/transfer_widget.dart' show TransferWidget;
-export 'transfer_copy/transfer_copy_widget.dart' show TransferCopyWidget;

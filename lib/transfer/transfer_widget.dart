@@ -1,20 +1,41 @@
 import '../backend/api_requests/api_calls.dart';
+import '../flutter_flow/flutter_flow_drop_down.dart';
 import '../flutter_flow/flutter_flow_icon_button.dart';
 import '../flutter_flow/flutter_flow_theme.dart';
 import '../flutter_flow/flutter_flow_util.dart';
+import '../flutter_flow/flutter_flow_widgets.dart';
+import '../custom_code/actions/index.dart' as actions;
+import '../flutter_flow/custom_functions.dart' as functions;
 import 'package:flutter/material.dart';
+import 'package:flutter_datetime_picker/flutter_datetime_picker.dart';
 import 'package:flutter_spinkit/flutter_spinkit.dart';
 import 'package:google_fonts/google_fonts.dart';
 
 class TransferWidget extends StatefulWidget {
-  const TransferWidget({Key key}) : super(key: key);
+  const TransferWidget({
+    Key key,
+    this.userid,
+  }) : super(key: key);
+
+  final String userid;
 
   @override
   _TransferWidgetState createState() => _TransferWidgetState();
 }
 
 class _TransferWidgetState extends State<TransferWidget> {
+  ApiCallResponse response;
+  DateTime datePicked;
+  String dropDownValue1;
+  String dropDownValue2;
+  TextEditingController numberController;
   final scaffoldKey = GlobalKey<ScaffoldState>();
+
+  @override
+  void initState() {
+    super.initState();
+    numberController = TextEditingController();
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -124,136 +145,291 @@ class _TransferWidgetState extends State<TransferWidget> {
                 ),
               ),
               Padding(
+                padding: EdgeInsetsDirectional.fromSTEB(24, 14, 24, 0),
+                child: Container(
+                  width: double.infinity,
+                  height: 60,
+                  decoration: BoxDecoration(
+                    color: FlutterFlowTheme.of(context).secondaryBackground,
+                    boxShadow: [
+                      BoxShadow(
+                        blurRadius: 5,
+                        color: Color(0x4D101213),
+                        offset: Offset(0, 2),
+                      )
+                    ],
+                    borderRadius: BorderRadius.circular(8),
+                  ),
+                  child: FutureBuilder<ApiCallResponse>(
+                    future: GetPrasadamRequestUsersCall.call(
+                      auth: FFAppState().authtoken,
+                    ),
+                    builder: (context, snapshot) {
+                      // Customize what your widget looks like when it's loading.
+                      if (!snapshot.hasData) {
+                        return Center(
+                          child: SizedBox(
+                            width: 50,
+                            height: 50,
+                            child: SpinKitFadingCube(
+                              color: FlutterFlowTheme.of(context).primaryColor,
+                              size: 50,
+                            ),
+                          ),
+                        );
+                      }
+                      final dropDownGetPrasadamRequestUsersResponse =
+                          snapshot.data;
+                      return FlutterFlowDropDown(
+                        options: GetPrasadamRequestUsersCall.users(
+                          (dropDownGetPrasadamRequestUsersResponse?.jsonBody ??
+                              ''),
+                        ).map<String>((s) => s.toString()).toList().toList(),
+                        onChanged: (val) =>
+                            setState(() => dropDownValue1 = val),
+                        width: 180,
+                        height: 50,
+                        textStyle:
+                            FlutterFlowTheme.of(context).bodyText1.override(
+                                  fontFamily: 'Poppins',
+                                  color: Colors.black,
+                                ),
+                        hintText: 'Please select the slot...',
+                        fillColor: Colors.white,
+                        elevation: 2,
+                        borderColor: Colors.transparent,
+                        borderWidth: 0,
+                        borderRadius: 0,
+                        margin: EdgeInsetsDirectional.fromSTEB(12, 4, 12, 4),
+                        hidesUnderline: true,
+                      );
+                    },
+                  ),
+                ),
+              ),
+              Padding(
+                padding: EdgeInsetsDirectional.fromSTEB(24, 14, 24, 10),
+                child: Container(
+                  width: double.infinity,
+                  height: 70,
+                  decoration: BoxDecoration(
+                    color: FlutterFlowTheme.of(context).primaryBtnText,
+                  ),
+                  child: InkWell(
+                    onTap: () async {
+                      await DatePicker.showDatePicker(
+                        context,
+                        showTitleActions: true,
+                        onConfirm: (date) {
+                          setState(() => datePicked = date);
+                        },
+                        currentTime: getCurrentTimestamp,
+                        minTime: getCurrentTimestamp,
+                      );
+                    },
+                    child: Row(
+                      mainAxisSize: MainAxisSize.max,
+                      children: [
+                        Padding(
+                          padding: EdgeInsetsDirectional.fromSTEB(16, 0, 10, 0),
+                          child: Icon(
+                            Icons.date_range,
+                            color: Colors.black,
+                            size: 40,
+                          ),
+                        ),
+                        Text(
+                          dateTimeFormat('MMMMEEEEd', datePicked),
+                          style: FlutterFlowTheme.of(context).subtitle2,
+                        ),
+                      ],
+                    ),
+                  ),
+                ),
+              ),
+              Padding(
+                padding: EdgeInsetsDirectional.fromSTEB(24, 14, 24, 0),
+                child: Container(
+                  width: double.infinity,
+                  height: 60,
+                  decoration: BoxDecoration(
+                    color: FlutterFlowTheme.of(context).secondaryBackground,
+                    boxShadow: [
+                      BoxShadow(
+                        blurRadius: 5,
+                        color: Color(0x4D101213),
+                        offset: Offset(0, 2),
+                      )
+                    ],
+                    borderRadius: BorderRadius.circular(8),
+                  ),
+                  child: FlutterFlowDropDown(
+                    initialOption: dropDownValue2 ??= 'Morning',
+                    options: ['Morning', 'Afternoon', 'Evening'].toList(),
+                    onChanged: (val) => setState(() => dropDownValue2 = val),
+                    width: 180,
+                    height: 50,
+                    textStyle: FlutterFlowTheme.of(context).bodyText1.override(
+                          fontFamily: 'Poppins',
+                          color: Colors.black,
+                        ),
+                    hintText: 'Please select the slot...',
+                    fillColor: Colors.white,
+                    elevation: 2,
+                    borderColor: Colors.transparent,
+                    borderWidth: 0,
+                    borderRadius: 0,
+                    margin: EdgeInsetsDirectional.fromSTEB(12, 4, 12, 4),
+                    hidesUnderline: true,
+                  ),
+                ),
+              ),
+              Padding(
                 padding: EdgeInsetsDirectional.fromSTEB(24, 10, 0, 0),
                 child: Container(
                   width: double.infinity,
                   height: 20,
                   decoration: BoxDecoration(),
+                  child: Text(
+                    'Enter the number to transfer',
+                    style: FlutterFlowTheme.of(context).bodyText1,
+                  ),
                 ),
               ),
-              FutureBuilder<ApiCallResponse>(
-                future: GetPrasadamRequestUsersCall.call(
-                  auth: FFAppState().authtoken,
-                ),
-                builder: (context, snapshot) {
-                  // Customize what your widget looks like when it's loading.
-                  if (!snapshot.hasData) {
-                    return Center(
-                      child: SizedBox(
-                        width: 50,
-                        height: 50,
-                        child: SpinKitFadingCube(
-                          color: FlutterFlowTheme.of(context).primaryColor,
-                          size: 50,
+              Padding(
+                padding: EdgeInsetsDirectional.fromSTEB(24, 14, 24, 0),
+                child: Container(
+                  width: double.infinity,
+                  height: 60,
+                  decoration: BoxDecoration(
+                    color: FlutterFlowTheme.of(context).secondaryBackground,
+                    boxShadow: [
+                      BoxShadow(
+                        blurRadius: 5,
+                        color: Color(0x4D101213),
+                        offset: Offset(0, 2),
+                      )
+                    ],
+                    borderRadius: BorderRadius.circular(8),
+                  ),
+                  child: TextFormField(
+                    controller: numberController,
+                    obscureText: false,
+                    decoration: InputDecoration(
+                      labelStyle: FlutterFlowTheme.of(context).bodyText2,
+                      hintStyle: FlutterFlowTheme.of(context)
+                          .bodyText1
+                          .override(
+                            fontFamily: 'Lexend Deca',
+                            color: FlutterFlowTheme.of(context).secondaryText,
+                            fontSize: 14,
+                            fontWeight: FontWeight.normal,
+                          ),
+                      enabledBorder: OutlineInputBorder(
+                        borderSide: BorderSide(
+                          color: Color(0x00000000),
+                          width: 0,
                         ),
+                        borderRadius: BorderRadius.circular(12),
                       ),
+                      focusedBorder: OutlineInputBorder(
+                        borderSide: BorderSide(
+                          color: Color(0x00000000),
+                          width: 0,
+                        ),
+                        borderRadius: BorderRadius.circular(12),
+                      ),
+                      filled: true,
+                      fillColor: Colors.white,
+                      contentPadding:
+                          EdgeInsetsDirectional.fromSTEB(24, 24, 20, 24),
+                    ),
+                    style: FlutterFlowTheme.of(context).bodyText1,
+                    keyboardType: TextInputType.number,
+                  ),
+                ),
+              ),
+              Padding(
+                padding: EdgeInsetsDirectional.fromSTEB(0, 24, 0, 0),
+                child: FFButtonWidget(
+                  onPressed: () async {
+                    response = await CreateRequestCall.call(
+                      auth: FFAppState().authtoken,
+                      date: functions.setDate(datePicked),
+                      slot: dropDownValue,
+                      number: numberController.text,
                     );
-                  }
-                  final columnGetPrasadamRequestUsersResponse = snapshot.data;
-                  return Builder(
-                    builder: (context) {
-                      final users = GetPrasadamRequestUsersCall.users(
-                            (columnGetPrasadamRequestUsersResponse?.jsonBody ??
-                                ''),
-                          )?.toList() ??
-                          [];
-                      return SingleChildScrollView(
-                        child: Column(
-                          mainAxisSize: MainAxisSize.max,
-                          children: List.generate(users.length, (usersIndex) {
-                            final usersItem = users[usersIndex];
-                            return Padding(
-                              padding:
-                                  EdgeInsetsDirectional.fromSTEB(16, 2, 16, 12),
-                              child: InkWell(
-                                onTap: () async {
-                                  context.pushNamed(
-                                    'Coupons',
-                                    extra: <String, dynamic>{
-                                      kTransitionInfoKey: TransitionInfo(
-                                        hasTransition: true,
-                                        transitionType:
-                                            PageTransitionType.rightToLeft,
-                                      ),
-                                    },
-                                  );
-                                },
-                                child: Container(
-                                  width: double.infinity,
-                                  decoration: BoxDecoration(
-                                    color: FlutterFlowTheme.of(context)
-                                        .primaryColor,
-                                    boxShadow: [
-                                      BoxShadow(
-                                        blurRadius: 8,
-                                        color: Color(0x34090F13),
-                                        offset: Offset(0, 4),
-                                      )
-                                    ],
-                                    borderRadius: BorderRadius.circular(16),
-                                  ),
-                                  child: Padding(
-                                    padding: EdgeInsetsDirectional.fromSTEB(
-                                        12, 8, 12, 12),
-                                    child: Column(
-                                      mainAxisSize: MainAxisSize.max,
-                                      crossAxisAlignment:
-                                          CrossAxisAlignment.start,
-                                      children: [
-                                        Padding(
-                                          padding:
-                                              EdgeInsetsDirectional.fromSTEB(
-                                                  0, 0, 0, 8),
-                                          child: Row(
-                                            mainAxisSize: MainAxisSize.max,
-                                            mainAxisAlignment:
-                                                MainAxisAlignment.spaceBetween,
-                                            crossAxisAlignment:
-                                                CrossAxisAlignment.end,
-                                            children: [
-                                              Padding(
-                                                padding: EdgeInsetsDirectional
-                                                    .fromSTEB(0, 12, 0, 0),
-                                                child: Text(
-                                                  getJsonField(
-                                                    usersItem,
-                                                    r'''$.full_name''',
-                                                  ).toString(),
-                                                  style: FlutterFlowTheme.of(
-                                                          context)
-                                                      .subtitle1
-                                                      .override(
-                                                        fontFamily: 'Poppins',
-                                                        color:
-                                                            FlutterFlowTheme.of(
-                                                                    context)
-                                                                .primaryBtnText,
-                                                      ),
-                                                ),
-                                              ),
-                                              Icon(
-                                                Icons
-                                                    .keyboard_arrow_right_rounded,
-                                                color:
-                                                    FlutterFlowTheme.of(context)
-                                                        .primaryBtnText,
-                                                size: 24,
-                                              ),
-                                            ],
-                                          ),
-                                        ),
-                                      ],
-                                    ),
-                                  ),
-                                ),
-                              ),
-                            );
-                          }),
+                    if (((response?.statusCode ?? 200)) == 200) {
+                      if ((getJsonField(
+                            (response?.jsonBody ?? ''),
+                            r'''$.data.name''',
+                          ) !=
+                          null)) {
+                        context.goNamed(
+                          'Success',
+                          extra: <String, dynamic>{
+                            kTransitionInfoKey: TransitionInfo(
+                              hasTransition: true,
+                              transitionType: PageTransitionType.scale,
+                              alignment: Alignment.bottomCenter,
+                            ),
+                          },
+                        );
+                      } else {
+                        ScaffoldMessenger.of(context).showSnackBar(
+                          SnackBar(
+                            content: Text(
+                              'Authorization Error !',
+                              style: TextStyle(),
+                            ),
+                            duration: Duration(milliseconds: 4000),
+                            backgroundColor: Color(0x00000000),
+                          ),
+                        );
+                      }
+                    } else {
+                      await actions.printOutput(
+                        getJsonField(
+                          (response?.jsonBody ?? ''),
+                          r'''$''',
+                        ).toString(),
+                      );
+                      ScaffoldMessenger.of(context).showSnackBar(
+                        SnackBar(
+                          content: Text(
+                            functions.getException(getJsonField(
+                              (response?.jsonBody ?? ''),
+                              r'''$.exception''',
+                            ).toString()),
+                            style: TextStyle(),
+                          ),
+                          duration: Duration(milliseconds: 4000),
+                          backgroundColor: Color(0x00000000),
                         ),
                       );
-                    },
-                  );
-                },
+                    }
+
+                    setState(() {});
+                  },
+                  text: 'Transfer',
+                  options: FFButtonOptions(
+                    width: 270,
+                    height: 50,
+                    color: FlutterFlowTheme.of(context).primaryColor,
+                    textStyle: FlutterFlowTheme.of(context).subtitle2.override(
+                          fontFamily: 'Poppins',
+                          color:
+                              FlutterFlowTheme.of(context).secondaryBackground,
+                          fontSize: 16,
+                        ),
+                    elevation: 3,
+                    borderSide: BorderSide(
+                      color: Colors.transparent,
+                      width: 1,
+                    ),
+                    borderRadius: 8,
+                  ),
+                ),
               ),
             ],
           ),

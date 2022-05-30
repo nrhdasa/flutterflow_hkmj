@@ -66,14 +66,16 @@ GoRouter createRouter(AppStateNotifier appStateNotifier) => GoRouter(
               builder: (context, params) => SuccessWidget(),
             ),
             FFRoute(
-              name: 'Transfer',
-              path: 'transfer',
-              builder: (context, params) => TransferWidget(),
+              name: 'TransferSelectUser',
+              path: 'transferSelectUser',
+              builder: (context, params) => TransferSelectUserWidget(),
             ),
             FFRoute(
-              name: 'TransferCopy',
-              path: 'transferCopy',
-              builder: (context, params) => TransferCopyWidget(),
+              name: 'Transfer',
+              path: 'transfer',
+              builder: (context, params) => TransferWidget(
+                userid: params.getParam('userid', ParamType.String),
+              ),
             )
           ].map((r) => r.toRoute(appStateNotifier)).toList(),
         ).toRoute(appStateNotifier),
