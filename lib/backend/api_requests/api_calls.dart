@@ -102,7 +102,7 @@ class CreateRequestCall {
     String auth = '',
     String date = '',
     String slot = '',
-    String number = '',
+    int number,
   }) {
     final body = '''
 {
@@ -156,5 +156,47 @@ class GetPrasadamRequestUsersCall {
   static dynamic users(dynamic response) => getJsonField(
         response,
         r'''$.message''',
+      );
+}
+
+class CreateTransferCall {
+  static Future<ApiCallResponse> call({
+    String auth = '',
+    String date = '',
+    String slot = '',
+    int number,
+    String transferTo = '',
+  }) {
+    final body = '''
+{
+  "type": "Transfer",
+  "date": "${date}",
+  "slot": "${slot}",
+  "number": ${number},
+  "transfer_to": "${transferTo}",
+  "docstatus": 1
+}''';
+    return ApiManager.instance.makeApiCall(
+      callName: 'createTransfer',
+      apiUrl: 'http://hkmjerp.in/api/resource/Prasadam CPN Request',
+      callType: ApiCallType.POST,
+      headers: {
+        'Authorization': '${auth}',
+      },
+      params: {
+        'date': date,
+        'slot': slot,
+        'number': number,
+        'transfer_to': transferTo,
+      },
+      body: body,
+      bodyType: BodyType.JSON,
+      returnBody: true,
+    );
+  }
+
+  static dynamic name(dynamic response) => getJsonField(
+        response,
+        r'''$.data.name''',
       );
 }

@@ -276,7 +276,7 @@ class _RequestWidgetState extends State<RequestWidget> {
                       auth: FFAppState().authtoken,
                       date: functions.setDate(datePicked),
                       slot: dropDownValue,
-                      number: numberController.text,
+                      number: int.parse(numberController.text),
                     );
                     if (((response?.statusCode ?? 200)) == 200) {
                       if ((getJsonField(

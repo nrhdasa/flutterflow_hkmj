@@ -177,6 +177,12 @@ class _TransferSelectUserWidgetState extends State<TransferSelectUserWidget> {
                                             r'''$.name''',
                                           ).toString(),
                                           ParamType.String),
+                                      'username': serializeParam(
+                                          getJsonField(
+                                            usersItem,
+                                            r'''$.full_name''',
+                                          ).toString(),
+                                          ParamType.String),
                                     }.withoutNulls,
                                     extra: <String, dynamic>{
                                       kTransitionInfoKey: TransitionInfo(

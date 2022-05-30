@@ -75,6 +75,7 @@ GoRouter createRouter(AppStateNotifier appStateNotifier) => GoRouter(
               path: 'transfer',
               builder: (context, params) => TransferWidget(
                 userid: params.getParam('userid', ParamType.String),
+                username: params.getParam('username', ParamType.String),
               ),
             )
           ].map((r) => r.toRoute(appStateNotifier)).toList(),

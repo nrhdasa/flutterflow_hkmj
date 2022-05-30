@@ -55,7 +55,7 @@ class _SuccessWidgetState extends State<SuccessWidget> {
                     ),
               ),
               Padding(
-                padding: EdgeInsetsDirectional.fromSTEB(0, 12, 0, 0),
+                padding: EdgeInsetsDirectional.fromSTEB(5, 12, 5, 0),
                 child: Text(
                   'Your request has been successfully updated!',
                   textAlign: TextAlign.center,
