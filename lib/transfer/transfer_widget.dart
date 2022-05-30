@@ -343,7 +343,13 @@ class _TransferWidgetState extends State<TransferWidget> {
                     padding: EdgeInsetsDirectional.fromSTEB(0, 24, 0, 0),
                     child: FFButtonWidget(
                       onPressed: () async {
-                        response = await CreateTransferCall.call();
+                        response = await CreateTransferCall.call(
+                          auth: FFAppState().authtoken,
+                          date: functions.setDate(datePicked),
+                          slot: dropDownValue,
+                          number: int.parse(numberController.text),
+                          transferTo: widget.userid,
+                        );
                         if (((response?.statusCode ?? 200)) == 200) {
                           if ((getJsonField(
                                 (response?.jsonBody ?? ''),
