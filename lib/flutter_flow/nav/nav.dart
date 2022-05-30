@@ -64,6 +64,16 @@ GoRouter createRouter(AppStateNotifier appStateNotifier) => GoRouter(
               name: 'Success',
               path: 'success',
               builder: (context, params) => SuccessWidget(),
+            ),
+            FFRoute(
+              name: 'Transfer',
+              path: 'transfer',
+              builder: (context, params) => TransferWidget(),
+            ),
+            FFRoute(
+              name: 'TransferCopy',
+              path: 'transferCopy',
+              builder: (context, params) => TransferCopyWidget(),
             )
           ].map((r) => r.toRoute(appStateNotifier)).toList(),
         ).toRoute(appStateNotifier),

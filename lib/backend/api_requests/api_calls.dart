@@ -135,3 +135,26 @@ class CreateRequestCall {
         r'''$.data.name''',
       );
 }
+
+class GetPrasadamRequestUsersCall {
+  static Future<ApiCallResponse> call({
+    String auth = '',
+  }) {
+    return ApiManager.instance.makeApiCall(
+      callName: 'getPrasadamRequestUsers',
+      apiUrl:
+          'http://hkmjerp.in/api/method/hkm.prasadam_coupon_management.api.fetch_request_users',
+      callType: ApiCallType.GET,
+      headers: {
+        'Authorization': '${auth}',
+      },
+      params: {},
+      returnBody: true,
+    );
+  }
+
+  static dynamic users(dynamic response) => getJsonField(
+        response,
+        r'''$.message''',
+      );
+}
