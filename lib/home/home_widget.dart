@@ -85,6 +85,10 @@ class _HomeWidgetState extends State<HomeWidget> {
                     child: Row(
                       mainAxisSize: MainAxisSize.max,
                       children: [
+                        Row(
+                          mainAxisSize: MainAxisSize.max,
+                          children: [],
+                        ),
                         Container(
                           width: 100,
                           height: 100,
@@ -243,10 +247,25 @@ class _HomeWidgetState extends State<HomeWidget> {
                 padding: EdgeInsetsDirectional.fromSTEB(16, 0, 16, 0),
                 child: Row(
                   mainAxisSize: MainAxisSize.max,
+                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
                   children: [
                     Text(
                       'This is your daily summary.',
                       style: FlutterFlowTheme.of(context).bodyText2,
+                    ),
+                    FlutterFlowIconButton(
+                      borderColor: Colors.transparent,
+                      borderRadius: 30,
+                      borderWidth: 1,
+                      buttonSize: 60,
+                      icon: Icon(
+                        Icons.refresh,
+                        color: Colors.black,
+                        size: 30,
+                      ),
+                      onPressed: () async {
+                        context.goNamed('Home');
+                      },
                     ),
                   ],
                 ),
