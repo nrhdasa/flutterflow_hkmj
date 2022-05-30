@@ -4,21 +4,20 @@ import '../flutter_flow/flutter_flow_icon_button.dart';
 import '../flutter_flow/flutter_flow_theme.dart';
 import '../flutter_flow/flutter_flow_util.dart';
 import '../flutter_flow/flutter_flow_widgets.dart';
-import '../custom_code/actions/index.dart' as actions;
 import '../flutter_flow/custom_functions.dart' as functions;
 import 'package:flutter/material.dart';
 import 'package:flutter_datetime_picker/flutter_datetime_picker.dart';
 import 'package:flutter_spinkit/flutter_spinkit.dart';
 import 'package:google_fonts/google_fonts.dart';
 
-class RequestWidget extends StatefulWidget {
-  const RequestWidget({Key key}) : super(key: key);
+class ReleaseWidget extends StatefulWidget {
+  const ReleaseWidget({Key key}) : super(key: key);
 
   @override
-  _RequestWidgetState createState() => _RequestWidgetState();
+  _ReleaseWidgetState createState() => _ReleaseWidgetState();
 }
 
-class _RequestWidgetState extends State<RequestWidget> {
+class _ReleaseWidgetState extends State<ReleaseWidget> {
   ApiCallResponse response;
   DateTime datePicked;
   String dropDownValue;
@@ -80,7 +79,7 @@ class _RequestWidgetState extends State<RequestWidget> {
               Padding(
                 padding: EdgeInsetsDirectional.fromSTEB(24, 0, 0, 0),
                 child: Text(
-                  'Create Request',
+                  'Release',
                   style: FlutterFlowTheme.of(context).title1.override(
                         fontFamily: 'Poppins',
                         fontSize: 32,
@@ -115,7 +114,7 @@ class _RequestWidgetState extends State<RequestWidget> {
                           child: Padding(
                             padding: EdgeInsetsDirectional.fromSTEB(8, 8, 8, 8),
                             child: Text(
-                              'Create your request by filling below details',
+                              'Release already requested coupons',
                               style: FlutterFlowTheme.of(context)
                                   .subtitle2
                                   .override(
@@ -313,12 +312,6 @@ class _RequestWidgetState extends State<RequestWidget> {
                             );
                           }
                         } else {
-                          await actions.printOutput(
-                            getJsonField(
-                              (response?.jsonBody ?? ''),
-                              r'''$''',
-                            ).toString(),
-                          );
                           ScaffoldMessenger.of(context).showSnackBar(
                             SnackBar(
                               content: Text(
@@ -336,7 +329,7 @@ class _RequestWidgetState extends State<RequestWidget> {
 
                         setState(() {});
                       },
-                      text: 'Raise Request',
+                      text: 'Release',
                       options: FFButtonOptions(
                         width: 270,
                         height: 50,

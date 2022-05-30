@@ -113,6 +113,10 @@ class _CouponsWidgetState extends State<CouponsWidget>
                             functions.setDate(datePicked));
                       },
                     ),
+                    Text(
+                      dateTimeFormat('MMMMEEEEd', datePicked),
+                      style: FlutterFlowTheme.of(context).subtitle2,
+                    ),
                   ],
                 ),
               ),

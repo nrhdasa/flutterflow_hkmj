@@ -8,3 +8,4 @@ export 'success/success_widget.dart' show SuccessWidget;
 export 'transfer_select_user/transfer_select_user_widget.dart'
     show TransferSelectUserWidget;
 export 'transfer/transfer_widget.dart' show TransferWidget;
+export 'release/release_widget.dart' show ReleaseWidget;
