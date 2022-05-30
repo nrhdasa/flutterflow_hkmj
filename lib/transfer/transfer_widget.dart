@@ -3,9 +3,6 @@ import '../flutter_flow/flutter_flow_drop_down.dart';
 import '../flutter_flow/flutter_flow_icon_button.dart';
 import '../flutter_flow/flutter_flow_theme.dart';
 import '../flutter_flow/flutter_flow_util.dart';
-import '../flutter_flow/flutter_flow_widgets.dart';
-import '../custom_code/actions/index.dart' as actions;
-import '../flutter_flow/custom_functions.dart' as functions;
 import 'package:flutter/material.dart';
 import 'package:flutter_datetime_picker/flutter_datetime_picker.dart';
 import 'package:flutter_spinkit/flutter_spinkit.dart';
@@ -24,7 +21,6 @@ class TransferWidget extends StatefulWidget {
 }
 
 class _TransferWidgetState extends State<TransferWidget> {
-  ApiCallResponse response;
   DateTime datePicked;
   String dropDownValue1;
   String dropDownValue2;
@@ -346,88 +342,6 @@ class _TransferWidgetState extends State<TransferWidget> {
                     ),
                     style: FlutterFlowTheme.of(context).bodyText1,
                     keyboardType: TextInputType.number,
-                  ),
-                ),
-              ),
-              Padding(
-                padding: EdgeInsetsDirectional.fromSTEB(0, 24, 0, 0),
-                child: FFButtonWidget(
-                  onPressed: () async {
-                    response = await CreateRequestCall.call(
-                      auth: FFAppState().authtoken,
-                      date: functions.setDate(datePicked),
-                      slot: dropDownValue,
-                      number: numberController.text,
-                    );
-                    if (((response?.statusCode ?? 200)) == 200) {
-                      if ((getJsonField(
-                            (response?.jsonBody ?? ''),
-                            r'''$.data.name''',
-                          ) !=
-                          null)) {
-                        context.goNamed(
-                          'Success',
-                          extra: <String, dynamic>{
-                            kTransitionInfoKey: TransitionInfo(
-                              hasTransition: true,
-                              transitionType: PageTransitionType.scale,
-                              alignment: Alignment.bottomCenter,
-                            ),
-                          },
-                        );
-                      } else {
-                        ScaffoldMessenger.of(context).showSnackBar(
-                          SnackBar(
-                            content: Text(
-                              'Authorization Error !',
-                              style: TextStyle(),
-                            ),
-                            duration: Duration(milliseconds: 4000),
-                            backgroundColor: Color(0x00000000),
-                          ),
-                        );
-                      }
-                    } else {
-                      await actions.printOutput(
-                        getJsonField(
-                          (response?.jsonBody ?? ''),
-                          r'''$''',
-                        ).toString(),
-                      );
-                      ScaffoldMessenger.of(context).showSnackBar(
-                        SnackBar(
-                          content: Text(
-                            functions.getException(getJsonField(
-                              (response?.jsonBody ?? ''),
-                              r'''$.exception''',
-                            ).toString()),
-                            style: TextStyle(),
-                          ),
-                          duration: Duration(milliseconds: 4000),
-                          backgroundColor: Color(0x00000000),
-                        ),
-                      );
-                    }
-
-                    setState(() {});
-                  },
-                  text: 'Transfer',
-                  options: FFButtonOptions(
-                    width: 270,
-                    height: 50,
-                    color: FlutterFlowTheme.of(context).primaryColor,
-                    textStyle: FlutterFlowTheme.of(context).subtitle2.override(
-                          fontFamily: 'Poppins',
-                          color:
-                              FlutterFlowTheme.of(context).secondaryBackground,
-                          fontSize: 16,
-                        ),
-                    elevation: 3,
-                    borderSide: BorderSide(
-                      color: Colors.transparent,
-                      width: 1,
-                    ),
-                    borderRadius: 8,
                   ),
                 ),
               ),
