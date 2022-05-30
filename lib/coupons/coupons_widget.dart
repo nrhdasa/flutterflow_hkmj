@@ -55,7 +55,7 @@ class _CouponsWidgetState extends State<CouponsWidget>
     return Scaffold(
       key: scaffoldKey,
       appBar: AppBar(
-        backgroundColor: FlutterFlowTheme.of(context).secondaryBackground,
+        backgroundColor: FlutterFlowTheme.of(context).primaryBackground,
         automaticallyImplyLeading: false,
         title: Text(
           'Coupons Stats',
@@ -274,7 +274,10 @@ class _CouponsWidgetState extends State<CouponsWidget>
                                             ),
                                           ),
                                           Container(
-                                            width: 350,
+                                            width: MediaQuery.of(context)
+                                                    .size
+                                                    .width *
+                                                0.85,
                                             decoration: BoxDecoration(),
                                             child: Row(
                                               mainAxisSize: MainAxisSize.max,
