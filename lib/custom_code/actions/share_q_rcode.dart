@@ -19,6 +19,6 @@ import 'package:share_plus/share_plus.dart';
 Future shareQRcode(String qrcode) async {
   var base64String = qrcode.replaceFirst(RegExp('data:image/png;base64,'), '');
   File imgFile = File('assets/images/qr_code.png');
-  imgFile.writeAsBytesSync(base64Decode(base64String));
+  await imgFile.writeAsBytesSync(base64Decode(base64String));
   Share.shareFiles(['assets/images/qr_code.png'], text: 'QR Code');
 }
