@@ -179,7 +179,7 @@ class _CouponsWidgetState extends State<CouponsWidget>
                                   EdgeInsetsDirectional.fromSTEB(16, 12, 16, 0),
                               child: Container(
                                 width: 100,
-                                height: 120,
+                                height: 150,
                                 decoration: BoxDecoration(
                                   color: FlutterFlowTheme.of(context)
                                       .secondaryBackground,
@@ -282,7 +282,9 @@ class _CouponsWidgetState extends State<CouponsWidget>
                                             child: Row(
                                               mainAxisSize: MainAxisSize.max,
                                               mainAxisAlignment:
-                                                  MainAxisAlignment.spaceEvenly,
+                                                  MainAxisAlignment.start,
+                                              crossAxisAlignment:
+                                                  CrossAxisAlignment.center,
                                               children: [
                                                 Column(
                                                   mainAxisSize:
@@ -302,7 +304,7 @@ class _CouponsWidgetState extends State<CouponsWidget>
                                                       child: Text(
                                                         getJsonField(
                                                           usersItem,
-                                                          r'''$.used''',
+                                                          r'''$.generated''',
                                                         ).toString(),
                                                         textAlign:
                                                             TextAlign.center,
@@ -337,6 +339,73 @@ class _CouponsWidgetState extends State<CouponsWidget>
                                                     ),
                                                   ],
                                                 ),
+                                                Column(
+                                                  mainAxisSize:
+                                                      MainAxisSize.max,
+                                                  children: [
+                                                    Container(
+                                                      width: 20,
+                                                      height: 20,
+                                                      decoration: BoxDecoration(
+                                                        color:
+                                                            Color(0xFF96FF9B),
+                                                        shape: BoxShape.circle,
+                                                      ),
+                                                      alignment:
+                                                          AlignmentDirectional(
+                                                              0, 0),
+                                                      child: Text(
+                                                        getJsonField(
+                                                          usersItem,
+                                                          r'''$.generated''',
+                                                        ).toString(),
+                                                        textAlign:
+                                                            TextAlign.center,
+                                                        style:
+                                                            FlutterFlowTheme.of(
+                                                                    context)
+                                                                .title3
+                                                                .override(
+                                                                  fontFamily:
+                                                                      'Poppins',
+                                                                  fontSize: 10,
+                                                                ),
+                                                      ),
+                                                    ),
+                                                    Padding(
+                                                      padding:
+                                                          EdgeInsetsDirectional
+                                                              .fromSTEB(
+                                                                  0, 4, 0, 4),
+                                                      child: Text(
+                                                        'Generated',
+                                                        style:
+                                                            FlutterFlowTheme.of(
+                                                                    context)
+                                                                .bodyText2
+                                                                .override(
+                                                                  fontFamily:
+                                                                      'Poppins',
+                                                                  fontSize: 10,
+                                                                ),
+                                                      ),
+                                                    ),
+                                                  ],
+                                                ),
+                                              ],
+                                            ),
+                                          ),
+                                          Container(
+                                            width: MediaQuery.of(context)
+                                                    .size
+                                                    .width *
+                                                0.85,
+                                            decoration: BoxDecoration(),
+                                            child: Row(
+                                              mainAxisSize: MainAxisSize.max,
+                                              mainAxisAlignment:
+                                                  MainAxisAlignment.start,
+                                              children: [
                                                 Column(
                                                   mainAxisSize:
                                                       MainAxisSize.max,
