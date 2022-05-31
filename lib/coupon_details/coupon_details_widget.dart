@@ -2,6 +2,7 @@ import '../backend/api_requests/api_calls.dart';
 import '../flutter_flow/flutter_flow_animations.dart';
 import '../flutter_flow/flutter_flow_theme.dart';
 import '../flutter_flow/flutter_flow_util.dart';
+import '../custom_code/actions/index.dart' as actions;
 import '../custom_code/widgets/index.dart' as custom_widgets;
 import 'package:flutter/material.dart';
 import 'package:flutter_spinkit/flutter_spinkit.dart';
@@ -279,10 +280,22 @@ class _CouponDetailsWidgetState extends State<CouponDetailsWidget>
                                   ],
                                   shape: BoxShape.circle,
                                 ),
-                                child: Icon(
-                                  Icons.share_sharp,
-                                  color: Colors.white,
-                                  size: 50,
+                                child: InkWell(
+                                  onTap: () async {
+                                    await actions.shareQRcode(
+                                      getJsonField(
+                                        (couponDetailsACouponDetailsResponse
+                                                ?.jsonBody ??
+                                            ''),
+                                        r'''$.data.qr_code''',
+                                      ).toString(),
+                                    );
+                                  },
+                                  child: Icon(
+                                    Icons.share_sharp,
+                                    color: Colors.white,
+                                    size: 50,
+                                  ),
                                 ),
                               ).animated([
                                 animationsMap['containerOnPageLoadAnimation']
