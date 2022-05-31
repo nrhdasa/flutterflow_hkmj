@@ -2,6 +2,7 @@ import '../backend/api_requests/api_calls.dart';
 import '../flutter_flow/flutter_flow_animations.dart';
 import '../flutter_flow/flutter_flow_theme.dart';
 import '../flutter_flow/flutter_flow_util.dart';
+import '../custom_code/widgets/index.dart' as custom_widgets;
 import 'package:flutter/material.dart';
 import 'package:flutter_spinkit/flutter_spinkit.dart';
 import 'package:google_fonts/google_fonts.dart';
@@ -21,19 +22,6 @@ class CouponDetailsWidget extends StatefulWidget {
 class _CouponDetailsWidgetState extends State<CouponDetailsWidget>
     with TickerProviderStateMixin {
   final animationsMap = {
-    'imageOnPageLoadAnimation': AnimationInfo(
-      trigger: AnimationTrigger.onPageLoad,
-      duration: 600,
-      fadeIn: true,
-      initialState: AnimationState(
-        offset: Offset(0, 39),
-        opacity: 0,
-      ),
-      finalState: AnimationState(
-        offset: Offset(0, 0),
-        opacity: 1,
-      ),
-    ),
     'rowOnPageLoadAnimation': AnimationInfo(
       trigger: AnimationTrigger.onPageLoad,
       duration: 600,
@@ -136,14 +124,17 @@ class _CouponDetailsWidgetState extends State<CouponDetailsWidget>
                         ],
                       ),
                     ),
-                    Padding(
-                      padding: EdgeInsetsDirectional.fromSTEB(0, 12, 0, 0),
-                      child: Image.asset(
-                        'assets/images/user.png',
-                        width: MediaQuery.of(context).size.width,
+                    Container(
+                      width: double.infinity,
+                      height: 300,
+                      child: custom_widgets.QRImage(
+                        width: double.infinity,
                         height: 300,
-                        fit: BoxFit.cover,
-                      ).animated([animationsMap['imageOnPageLoadAnimation']]),
+                        qrcode: getJsonField(
+                          (couponDetailsACouponDetailsResponse?.jsonBody ?? ''),
+                          r'''$.data.qr_code''',
+                        ).toString(),
+                      ),
                     ),
                     Padding(
                       padding: EdgeInsetsDirectional.fromSTEB(0, 20, 0, 10),
