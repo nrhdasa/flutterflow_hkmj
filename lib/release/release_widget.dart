@@ -247,7 +247,7 @@ class _ReleaseWidgetState extends State<ReleaseWidget> {
                     padding: EdgeInsetsDirectional.fromSTEB(0, 24, 0, 0),
                     child: FFButtonWidget(
                       onPressed: () async {
-                        response = await CreateRequestCall.call(
+                        response = await CreateReleaseCall.call(
                           auth: FFAppState().authtoken,
                           date: functions.setDate(datePicked),
                           slot: dropDownValue,

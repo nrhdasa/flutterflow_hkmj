@@ -311,3 +311,42 @@ class ACouponDetailsCall {
         r'''$.message.data''',
       );
 }
+
+class CreateReleaseCall {
+  static Future<ApiCallResponse> call({
+    String auth = '',
+    String date = '',
+    String slot = '',
+    int number,
+  }) {
+    final body = '''
+{
+  "type": "Release",
+  "date": "${date}",
+  "slot": "${slot}",
+  "number": "${number}",
+  "docstatus": 1
+}''';
+    return ApiManager.instance.makeApiCall(
+      callName: 'createRelease',
+      apiUrl: 'http://hkmjerp.in/api/resource/Prasadam CPN Request',
+      callType: ApiCallType.POST,
+      headers: {
+        'Authorization': '${auth}',
+      },
+      params: {
+        'date': date,
+        'slot': slot,
+        'number': number,
+      },
+      body: body,
+      bodyType: BodyType.JSON,
+      returnBody: true,
+    );
+  }
+
+  static dynamic name(dynamic response) => getJsonField(
+        response,
+        r'''$.data.name''',
+      );
+}

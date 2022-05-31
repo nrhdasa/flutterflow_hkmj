@@ -286,111 +286,119 @@ class _CouponsWidgetState extends State<CouponsWidget>
                                               crossAxisAlignment:
                                                   CrossAxisAlignment.center,
                                               children: [
-                                                Column(
-                                                  mainAxisSize:
-                                                      MainAxisSize.max,
-                                                  children: [
-                                                    Container(
-                                                      width: 20,
-                                                      height: 20,
-                                                      decoration: BoxDecoration(
-                                                        color:
-                                                            Color(0xFF96FF9B),
-                                                        shape: BoxShape.circle,
+                                                Padding(
+                                                  padding: EdgeInsetsDirectional
+                                                      .fromSTEB(10, 0, 10, 0),
+                                                  child: Column(
+                                                    mainAxisSize:
+                                                        MainAxisSize.max,
+                                                    children: [
+                                                      Container(
+                                                        width: 20,
+                                                        height: 20,
+                                                        decoration:
+                                                            BoxDecoration(
+                                                          color:
+                                                              Color(0xFF96FF9B),
+                                                          shape:
+                                                              BoxShape.circle,
+                                                        ),
+                                                        alignment:
+                                                            AlignmentDirectional(
+                                                                0, 0),
+                                                        child: Text(
+                                                          getJsonField(
+                                                            usersItem,
+                                                            r'''$.generated''',
+                                                          ).toString(),
+                                                          textAlign:
+                                                              TextAlign.center,
+                                                          style: FlutterFlowTheme
+                                                                  .of(context)
+                                                              .title3
+                                                              .override(
+                                                                fontFamily:
+                                                                    'Poppins',
+                                                                fontSize: 10,
+                                                              ),
+                                                        ),
                                                       ),
-                                                      alignment:
-                                                          AlignmentDirectional(
-                                                              0, 0),
-                                                      child: Text(
-                                                        getJsonField(
-                                                          usersItem,
-                                                          r'''$.generated''',
-                                                        ).toString(),
-                                                        textAlign:
-                                                            TextAlign.center,
-                                                        style:
-                                                            FlutterFlowTheme.of(
-                                                                    context)
-                                                                .title3
-                                                                .override(
-                                                                  fontFamily:
-                                                                      'Poppins',
-                                                                  fontSize: 10,
-                                                                ),
+                                                      Padding(
+                                                        padding:
+                                                            EdgeInsetsDirectional
+                                                                .fromSTEB(
+                                                                    0, 4, 0, 4),
+                                                        child: Text(
+                                                          'Used',
+                                                          style: FlutterFlowTheme
+                                                                  .of(context)
+                                                              .bodyText2
+                                                              .override(
+                                                                fontFamily:
+                                                                    'Poppins',
+                                                                fontSize: 10,
+                                                              ),
+                                                        ),
                                                       ),
-                                                    ),
-                                                    Padding(
-                                                      padding:
-                                                          EdgeInsetsDirectional
-                                                              .fromSTEB(
-                                                                  0, 4, 0, 4),
-                                                      child: Text(
-                                                        'Used',
-                                                        style:
-                                                            FlutterFlowTheme.of(
-                                                                    context)
-                                                                .bodyText2
-                                                                .override(
-                                                                  fontFamily:
-                                                                      'Poppins',
-                                                                  fontSize: 10,
-                                                                ),
-                                                      ),
-                                                    ),
-                                                  ],
+                                                    ],
+                                                  ),
                                                 ),
-                                                Column(
-                                                  mainAxisSize:
-                                                      MainAxisSize.max,
-                                                  children: [
-                                                    Container(
-                                                      width: 20,
-                                                      height: 20,
-                                                      decoration: BoxDecoration(
-                                                        color:
-                                                            Color(0xFF96FF9B),
-                                                        shape: BoxShape.circle,
+                                                Padding(
+                                                  padding: EdgeInsetsDirectional
+                                                      .fromSTEB(10, 0, 10, 0),
+                                                  child: Column(
+                                                    mainAxisSize:
+                                                        MainAxisSize.max,
+                                                    children: [
+                                                      Container(
+                                                        width: 20,
+                                                        height: 20,
+                                                        decoration:
+                                                            BoxDecoration(
+                                                          color:
+                                                              Color(0xFF96FF9B),
+                                                          shape:
+                                                              BoxShape.circle,
+                                                        ),
+                                                        alignment:
+                                                            AlignmentDirectional(
+                                                                0, 0),
+                                                        child: Text(
+                                                          getJsonField(
+                                                            usersItem,
+                                                            r'''$.generated''',
+                                                          ).toString(),
+                                                          textAlign:
+                                                              TextAlign.center,
+                                                          style: FlutterFlowTheme
+                                                                  .of(context)
+                                                              .title3
+                                                              .override(
+                                                                fontFamily:
+                                                                    'Poppins',
+                                                                fontSize: 10,
+                                                              ),
+                                                        ),
                                                       ),
-                                                      alignment:
-                                                          AlignmentDirectional(
-                                                              0, 0),
-                                                      child: Text(
-                                                        getJsonField(
-                                                          usersItem,
-                                                          r'''$.generated''',
-                                                        ).toString(),
-                                                        textAlign:
-                                                            TextAlign.center,
-                                                        style:
-                                                            FlutterFlowTheme.of(
-                                                                    context)
-                                                                .title3
-                                                                .override(
-                                                                  fontFamily:
-                                                                      'Poppins',
-                                                                  fontSize: 10,
-                                                                ),
+                                                      Padding(
+                                                        padding:
+                                                            EdgeInsetsDirectional
+                                                                .fromSTEB(
+                                                                    0, 4, 0, 4),
+                                                        child: Text(
+                                                          'Generated',
+                                                          style: FlutterFlowTheme
+                                                                  .of(context)
+                                                              .bodyText2
+                                                              .override(
+                                                                fontFamily:
+                                                                    'Poppins',
+                                                                fontSize: 10,
+                                                              ),
+                                                        ),
                                                       ),
-                                                    ),
-                                                    Padding(
-                                                      padding:
-                                                          EdgeInsetsDirectional
-                                                              .fromSTEB(
-                                                                  0, 4, 0, 4),
-                                                      child: Text(
-                                                        'Generated',
-                                                        style:
-                                                            FlutterFlowTheme.of(
-                                                                    context)
-                                                                .bodyText2
-                                                                .override(
-                                                                  fontFamily:
-                                                                      'Poppins',
-                                                                  fontSize: 10,
-                                                                ),
-                                                      ),
-                                                    ),
-                                                  ],
+                                                    ],
+                                                  ),
                                                 ),
                                               ],
                                             ),
@@ -406,223 +414,239 @@ class _CouponsWidgetState extends State<CouponsWidget>
                                               mainAxisAlignment:
                                                   MainAxisAlignment.start,
                                               children: [
-                                                Column(
-                                                  mainAxisSize:
-                                                      MainAxisSize.max,
-                                                  children: [
-                                                    Container(
-                                                      width: 20,
-                                                      height: 20,
-                                                      decoration: BoxDecoration(
-                                                        color:
-                                                            Color(0xFF96FF9B),
-                                                        shape: BoxShape.circle,
+                                                Padding(
+                                                  padding: EdgeInsetsDirectional
+                                                      .fromSTEB(10, 0, 10, 0),
+                                                  child: Column(
+                                                    mainAxisSize:
+                                                        MainAxisSize.max,
+                                                    children: [
+                                                      Container(
+                                                        width: 20,
+                                                        height: 20,
+                                                        decoration:
+                                                            BoxDecoration(
+                                                          color:
+                                                              Color(0xFF96FF9B),
+                                                          shape:
+                                                              BoxShape.circle,
+                                                        ),
+                                                        alignment:
+                                                            AlignmentDirectional(
+                                                                0, 0),
+                                                        child: Text(
+                                                          getJsonField(
+                                                            usersItem,
+                                                            r'''$.request''',
+                                                          ).toString(),
+                                                          textAlign:
+                                                              TextAlign.center,
+                                                          style: FlutterFlowTheme
+                                                                  .of(context)
+                                                              .title3
+                                                              .override(
+                                                                fontFamily:
+                                                                    'Poppins',
+                                                                fontSize: 10,
+                                                              ),
+                                                        ),
                                                       ),
-                                                      alignment:
-                                                          AlignmentDirectional(
-                                                              0, 0),
-                                                      child: Text(
-                                                        getJsonField(
-                                                          usersItem,
-                                                          r'''$.request''',
-                                                        ).toString(),
-                                                        textAlign:
-                                                            TextAlign.center,
-                                                        style:
-                                                            FlutterFlowTheme.of(
-                                                                    context)
-                                                                .title3
-                                                                .override(
-                                                                  fontFamily:
-                                                                      'Poppins',
-                                                                  fontSize: 10,
-                                                                ),
+                                                      Padding(
+                                                        padding:
+                                                            EdgeInsetsDirectional
+                                                                .fromSTEB(
+                                                                    0, 4, 0, 4),
+                                                        child: Text(
+                                                          'Requested',
+                                                          style: FlutterFlowTheme
+                                                                  .of(context)
+                                                              .bodyText2
+                                                              .override(
+                                                                fontFamily:
+                                                                    'Poppins',
+                                                                fontSize: 10,
+                                                              ),
+                                                        ),
                                                       ),
-                                                    ),
-                                                    Padding(
-                                                      padding:
-                                                          EdgeInsetsDirectional
-                                                              .fromSTEB(
-                                                                  0, 4, 0, 4),
-                                                      child: Text(
-                                                        'Requested',
-                                                        style:
-                                                            FlutterFlowTheme.of(
-                                                                    context)
-                                                                .bodyText2
-                                                                .override(
-                                                                  fontFamily:
-                                                                      'Poppins',
-                                                                  fontSize: 10,
-                                                                ),
-                                                      ),
-                                                    ),
-                                                  ],
+                                                    ],
+                                                  ),
                                                 ),
-                                                Column(
-                                                  mainAxisSize:
-                                                      MainAxisSize.max,
-                                                  children: [
-                                                    Container(
-                                                      width: 20,
-                                                      height: 20,
-                                                      decoration: BoxDecoration(
-                                                        color:
-                                                            FlutterFlowTheme.of(
-                                                                    context)
-                                                                .alternate,
-                                                        shape: BoxShape.circle,
+                                                Padding(
+                                                  padding: EdgeInsetsDirectional
+                                                      .fromSTEB(10, 0, 10, 0),
+                                                  child: Column(
+                                                    mainAxisSize:
+                                                        MainAxisSize.max,
+                                                    children: [
+                                                      Container(
+                                                        width: 20,
+                                                        height: 20,
+                                                        decoration:
+                                                            BoxDecoration(
+                                                          color: FlutterFlowTheme
+                                                                  .of(context)
+                                                              .alternate,
+                                                          shape:
+                                                              BoxShape.circle,
+                                                        ),
+                                                        alignment:
+                                                            AlignmentDirectional(
+                                                                0, 0),
+                                                        child: Text(
+                                                          getJsonField(
+                                                            usersItem,
+                                                            r'''$.release''',
+                                                          ).toString(),
+                                                          textAlign:
+                                                              TextAlign.center,
+                                                          style: FlutterFlowTheme
+                                                                  .of(context)
+                                                              .title3
+                                                              .override(
+                                                                fontFamily:
+                                                                    'Poppins',
+                                                                color: Colors
+                                                                    .white,
+                                                                fontSize: 10,
+                                                              ),
+                                                        ),
                                                       ),
-                                                      alignment:
-                                                          AlignmentDirectional(
-                                                              0, 0),
-                                                      child: Text(
-                                                        getJsonField(
-                                                          usersItem,
-                                                          r'''$.release''',
-                                                        ).toString(),
-                                                        textAlign:
-                                                            TextAlign.center,
-                                                        style: FlutterFlowTheme
-                                                                .of(context)
-                                                            .title3
-                                                            .override(
-                                                              fontFamily:
-                                                                  'Poppins',
-                                                              color:
-                                                                  Colors.white,
-                                                              fontSize: 10,
-                                                            ),
+                                                      Padding(
+                                                        padding:
+                                                            EdgeInsetsDirectional
+                                                                .fromSTEB(
+                                                                    0, 4, 0, 4),
+                                                        child: Text(
+                                                          'Released',
+                                                          style: FlutterFlowTheme
+                                                                  .of(context)
+                                                              .bodyText2
+                                                              .override(
+                                                                fontFamily:
+                                                                    'Poppins',
+                                                                fontSize: 10,
+                                                              ),
+                                                        ),
                                                       ),
-                                                    ),
-                                                    Padding(
-                                                      padding:
-                                                          EdgeInsetsDirectional
-                                                              .fromSTEB(
-                                                                  0, 4, 0, 4),
-                                                      child: Text(
-                                                        'Released',
-                                                        style:
-                                                            FlutterFlowTheme.of(
-                                                                    context)
-                                                                .bodyText2
-                                                                .override(
-                                                                  fontFamily:
-                                                                      'Poppins',
-                                                                  fontSize: 10,
-                                                                ),
-                                                      ),
-                                                    ),
-                                                  ],
+                                                    ],
+                                                  ),
                                                 ),
-                                                Column(
-                                                  mainAxisSize:
-                                                      MainAxisSize.max,
-                                                  children: [
-                                                    Container(
-                                                      width: 20,
-                                                      height: 20,
-                                                      decoration: BoxDecoration(
-                                                        color:
-                                                            FlutterFlowTheme.of(
-                                                                    context)
-                                                                .alternate,
-                                                        shape: BoxShape.circle,
+                                                Padding(
+                                                  padding: EdgeInsetsDirectional
+                                                      .fromSTEB(10, 0, 10, 0),
+                                                  child: Column(
+                                                    mainAxisSize:
+                                                        MainAxisSize.max,
+                                                    children: [
+                                                      Container(
+                                                        width: 20,
+                                                        height: 20,
+                                                        decoration:
+                                                            BoxDecoration(
+                                                          color: FlutterFlowTheme
+                                                                  .of(context)
+                                                              .alternate,
+                                                          shape:
+                                                              BoxShape.circle,
+                                                        ),
+                                                        alignment:
+                                                            AlignmentDirectional(
+                                                                0, 0),
+                                                        child: Text(
+                                                          getJsonField(
+                                                            usersItem,
+                                                            r'''$.transfer_rec''',
+                                                          ).toString(),
+                                                          textAlign:
+                                                              TextAlign.center,
+                                                          style: FlutterFlowTheme
+                                                                  .of(context)
+                                                              .title3
+                                                              .override(
+                                                                fontFamily:
+                                                                    'Poppins',
+                                                                color: Colors
+                                                                    .white,
+                                                                fontSize: 10,
+                                                              ),
+                                                        ),
                                                       ),
-                                                      alignment:
-                                                          AlignmentDirectional(
-                                                              0, 0),
-                                                      child: Text(
-                                                        getJsonField(
-                                                          usersItem,
-                                                          r'''$.transfer_rec''',
-                                                        ).toString(),
-                                                        textAlign:
-                                                            TextAlign.center,
-                                                        style: FlutterFlowTheme
-                                                                .of(context)
-                                                            .title3
-                                                            .override(
-                                                              fontFamily:
-                                                                  'Poppins',
-                                                              color:
-                                                                  Colors.white,
-                                                              fontSize: 10,
-                                                            ),
+                                                      Padding(
+                                                        padding:
+                                                            EdgeInsetsDirectional
+                                                                .fromSTEB(
+                                                                    0, 4, 0, 4),
+                                                        child: Text(
+                                                          'Transfer | REC',
+                                                          style: FlutterFlowTheme
+                                                                  .of(context)
+                                                              .bodyText2
+                                                              .override(
+                                                                fontFamily:
+                                                                    'Poppins',
+                                                                fontSize: 10,
+                                                              ),
+                                                        ),
                                                       ),
-                                                    ),
-                                                    Padding(
-                                                      padding:
-                                                          EdgeInsetsDirectional
-                                                              .fromSTEB(
-                                                                  0, 4, 0, 4),
-                                                      child: Text(
-                                                        'Transfer | REC',
-                                                        style:
-                                                            FlutterFlowTheme.of(
-                                                                    context)
-                                                                .bodyText2
-                                                                .override(
-                                                                  fontFamily:
-                                                                      'Poppins',
-                                                                  fontSize: 10,
-                                                                ),
-                                                      ),
-                                                    ),
-                                                  ],
+                                                    ],
+                                                  ),
                                                 ),
-                                                Column(
-                                                  mainAxisSize:
-                                                      MainAxisSize.max,
-                                                  children: [
-                                                    Container(
-                                                      width: 20,
-                                                      height: 20,
-                                                      decoration: BoxDecoration(
-                                                        color:
-                                                            Color(0xFF96FF9B),
-                                                        shape: BoxShape.circle,
+                                                Padding(
+                                                  padding: EdgeInsetsDirectional
+                                                      .fromSTEB(10, 0, 10, 0),
+                                                  child: Column(
+                                                    mainAxisSize:
+                                                        MainAxisSize.max,
+                                                    children: [
+                                                      Container(
+                                                        width: 20,
+                                                        height: 20,
+                                                        decoration:
+                                                            BoxDecoration(
+                                                          color:
+                                                              Color(0xFF96FF9B),
+                                                          shape:
+                                                              BoxShape.circle,
+                                                        ),
+                                                        alignment:
+                                                            AlignmentDirectional(
+                                                                0, 0),
+                                                        child: Text(
+                                                          getJsonField(
+                                                            usersItem,
+                                                            r'''$.transfer_sent''',
+                                                          ).toString(),
+                                                          textAlign:
+                                                              TextAlign.center,
+                                                          style: FlutterFlowTheme
+                                                                  .of(context)
+                                                              .title3
+                                                              .override(
+                                                                fontFamily:
+                                                                    'Poppins',
+                                                                fontSize: 10,
+                                                              ),
+                                                        ),
                                                       ),
-                                                      alignment:
-                                                          AlignmentDirectional(
-                                                              0, 0),
-                                                      child: Text(
-                                                        getJsonField(
-                                                          usersItem,
-                                                          r'''$.transfer_sent''',
-                                                        ).toString(),
-                                                        textAlign:
-                                                            TextAlign.center,
-                                                        style:
-                                                            FlutterFlowTheme.of(
-                                                                    context)
-                                                                .title3
-                                                                .override(
-                                                                  fontFamily:
-                                                                      'Poppins',
-                                                                  fontSize: 10,
-                                                                ),
+                                                      Padding(
+                                                        padding:
+                                                            EdgeInsetsDirectional
+                                                                .fromSTEB(
+                                                                    0, 4, 0, 4),
+                                                        child: Text(
+                                                          'Transfer | SEN',
+                                                          style: FlutterFlowTheme
+                                                                  .of(context)
+                                                              .bodyText2
+                                                              .override(
+                                                                fontFamily:
+                                                                    'Poppins',
+                                                                fontSize: 10,
+                                                              ),
+                                                        ),
                                                       ),
-                                                    ),
-                                                    Padding(
-                                                      padding:
-                                                          EdgeInsetsDirectional
-                                                              .fromSTEB(
-                                                                  0, 4, 0, 4),
-                                                      child: Text(
-                                                        'Transfer | SEN',
-                                                        style:
-                                                            FlutterFlowTheme.of(
-                                                                    context)
-                                                                .bodyText2
-                                                                .override(
-                                                                  fontFamily:
-                                                                      'Poppins',
-                                                                  fontSize: 10,
-                                                                ),
-                                                      ),
-                                                    ),
-                                                  ],
+                                                    ],
+                                                  ),
                                                 ),
                                               ],
                                             ),
