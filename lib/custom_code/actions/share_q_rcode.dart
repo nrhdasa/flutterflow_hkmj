@@ -17,13 +17,8 @@ import 'package:share_plus/share_plus.dart';
 // THE ABOVE IMPORTS WILL BE ADDED AUTOMATICALLY. DO NOT INCLUDE THESE IN CODE EDITOR.
 
 Future shareQRcode(String qrcode) async {
-  await imageFromBase64String(qrcode);
-  Share.shareFiles(['assets/images/qr_code.jpg'], text: 'QR Code');
-}
-
-imageFromBase64String(String base64String) {
-  base64String =
-      base64String.replaceFirst(RegExp('data:image/png;base64,'), '');
+  var base64String = qrcode.replaceFirst(RegExp('data:image/png;base64,'), '');
   File imgFile = File('assets/images/qr_code.png');
-  imgFile.writeAsBytes(base64Decode(base64String));
+  imgFile.writeAsBytesSync(base64Decode(base64String));
+  Share.shareFiles(['assets/images/qr_code.png'], text: 'QR Code');
 }
