@@ -209,8 +209,8 @@ class _HomeWidgetState extends State<HomeWidget> {
                                       color: Colors.white,
                                       size: 30,
                                     ),
-                                    onPressed: () {
-                                      print('IconButton pressed ...');
+                                    onPressed: () async {
+                                      context.pushNamed('Release');
                                     },
                                   ),
                                   Text(

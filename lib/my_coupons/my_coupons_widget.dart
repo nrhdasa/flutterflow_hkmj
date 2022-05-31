@@ -230,7 +230,7 @@ class _MyCouponsWidgetState extends State<MyCouponsWidget> {
                                                             FlutterFlowTheme.of(
                                                                     context)
                                                                 .secondaryColor,
-                                                        fontSize: 20,
+                                                        fontSize: 30,
                                                         fontWeight:
                                                             FontWeight.bold,
                                                       ),

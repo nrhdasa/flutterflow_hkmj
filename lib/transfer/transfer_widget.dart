@@ -1,6 +1,5 @@
 import '../backend/api_requests/api_calls.dart';
 import '../flutter_flow/flutter_flow_drop_down.dart';
-import '../flutter_flow/flutter_flow_icon_button.dart';
 import '../flutter_flow/flutter_flow_theme.dart';
 import '../flutter_flow/flutter_flow_util.dart';
 import '../flutter_flow/flutter_flow_widgets.dart';
@@ -51,40 +50,8 @@ class _TransferWidgetState extends State<TransferWidget> {
             mainAxisAlignment: MainAxisAlignment.start,
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
-              Row(
-                mainAxisSize: MainAxisSize.max,
-                children: [
-                  Padding(
-                    padding: EdgeInsetsDirectional.fromSTEB(12, 0, 0, 0),
-                    child: FlutterFlowIconButton(
-                      borderColor: Colors.transparent,
-                      borderRadius: 30,
-                      borderWidth: 1,
-                      buttonSize: 50,
-                      icon: Icon(
-                        Icons.arrow_back_rounded,
-                        color: FlutterFlowTheme.of(context).primaryText,
-                        size: 24,
-                      ),
-                      onPressed: () async {
-                        context.pop();
-                      },
-                    ),
-                  ),
-                  Padding(
-                    padding: EdgeInsetsDirectional.fromSTEB(4, 0, 0, 0),
-                    child: Text(
-                      'Back',
-                      style: FlutterFlowTheme.of(context).title1.override(
-                            fontFamily: 'Poppins',
-                            fontSize: 16,
-                          ),
-                    ),
-                  ),
-                ],
-              ),
               Padding(
-                padding: EdgeInsetsDirectional.fromSTEB(24, 0, 0, 0),
+                padding: EdgeInsetsDirectional.fromSTEB(24, 40, 0, 0),
                 child: Text(
                   'Transfer',
                   style: FlutterFlowTheme.of(context).title1.override(
