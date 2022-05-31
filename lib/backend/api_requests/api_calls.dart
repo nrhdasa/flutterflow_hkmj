@@ -200,3 +200,27 @@ class CreateTransferCall {
         r'''$.data.name''',
       );
 }
+
+class IsLoggedInCall {
+  static Future<ApiCallResponse> call({
+    String auth = '',
+  }) {
+    return ApiManager.instance.makeApiCall(
+      callName: 'isLoggedIn',
+      apiUrl:
+          'http://hkmjerp.in/api/method/hkm.erpnext___custom.login.api.isLoggedIn',
+      callType: ApiCallType.POST,
+      headers: {
+        'Authorization': '${auth}',
+      },
+      params: {},
+      bodyType: BodyType.JSON,
+      returnBody: true,
+    );
+  }
+
+  static dynamic msg(dynamic response) => getJsonField(
+        response,
+        r'''$.message''',
+      );
+}

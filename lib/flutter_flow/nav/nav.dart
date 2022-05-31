@@ -28,12 +28,12 @@ GoRouter createRouter(AppStateNotifier appStateNotifier) => GoRouter(
       initialLocation: '/',
       debugLogDiagnostics: true,
       refreshListenable: appStateNotifier,
-      errorBuilder: (context, _) => LoginWidget(),
+      errorBuilder: (context, _) => WelcomeWidget(),
       routes: [
         FFRoute(
           name: '_initialize',
           path: '/',
-          builder: (context, _) => LoginWidget(),
+          builder: (context, _) => WelcomeWidget(),
           routes: [
             FFRoute(
               name: 'Login',
@@ -82,6 +82,11 @@ GoRouter createRouter(AppStateNotifier appStateNotifier) => GoRouter(
               name: 'Release',
               path: 'release',
               builder: (context, params) => ReleaseWidget(),
+            ),
+            FFRoute(
+              name: 'Welcome',
+              path: 'welcome',
+              builder: (context, params) => WelcomeWidget(),
             )
           ].map((r) => r.toRoute(appStateNotifier)).toList(),
         ).toRoute(appStateNotifier),
