@@ -1086,7 +1086,7 @@ class _HomeWidgetState extends State<HomeWidget> {
                                 child: LinearPercentIndicator(
                                   percent:
                                       functions.getProgressIndicatorValueUsed(
-                                          'Morning',
+                                          'Evening',
                                           (columnDashboardResponse?.jsonBody ??
                                               '')),
                                   width:
@@ -1145,7 +1145,7 @@ class _HomeWidgetState extends State<HomeWidget> {
                                 child: LinearPercentIndicator(
                                   percent:
                                       functions.getProgressIndicatorGenerated(
-                                          'Morning',
+                                          'Evening',
                                           (columnDashboardResponse?.jsonBody ??
                                               '')),
                                   width:
