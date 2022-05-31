@@ -129,8 +129,8 @@ class _HomeWidgetState extends State<HomeWidget> {
                                           .primaryBackground,
                                       size: 30,
                                     ),
-                                    onPressed: () {
-                                      print('IconButton pressed ...');
+                                    onPressed: () async {
+                                      context.pushNamed('Generate');
                                     },
                                   ),
                                   Text(
@@ -1386,6 +1386,79 @@ class _HomeWidgetState extends State<HomeWidget> {
                                           0, 12, 0, 0),
                                       child: Text(
                                         'Coupon Stats',
+                                        style: FlutterFlowTheme.of(context)
+                                            .subtitle1
+                                            .override(
+                                              fontFamily: 'Poppins',
+                                              color:
+                                                  FlutterFlowTheme.of(context)
+                                                      .primaryBtnText,
+                                            ),
+                                      ),
+                                    ),
+                                    Icon(
+                                      Icons.keyboard_arrow_right_rounded,
+                                      color: FlutterFlowTheme.of(context)
+                                          .primaryBtnText,
+                                      size: 24,
+                                    ),
+                                  ],
+                                ),
+                              ),
+                            ],
+                          ),
+                        ),
+                      ),
+                    ),
+                  ),
+                  Padding(
+                    padding: EdgeInsetsDirectional.fromSTEB(16, 2, 16, 12),
+                    child: InkWell(
+                      onTap: () async {
+                        context.pushNamed(
+                          'MyCoupons',
+                          extra: <String, dynamic>{
+                            kTransitionInfoKey: TransitionInfo(
+                              hasTransition: true,
+                              transitionType: PageTransitionType.rightToLeft,
+                            ),
+                          },
+                        );
+                      },
+                      child: Container(
+                        width: double.infinity,
+                        decoration: BoxDecoration(
+                          color: FlutterFlowTheme.of(context).primaryColor,
+                          boxShadow: [
+                            BoxShadow(
+                              blurRadius: 8,
+                              color: Color(0x34090F13),
+                              offset: Offset(0, 4),
+                            )
+                          ],
+                          borderRadius: BorderRadius.circular(16),
+                        ),
+                        child: Padding(
+                          padding:
+                              EdgeInsetsDirectional.fromSTEB(12, 8, 12, 12),
+                          child: Column(
+                            mainAxisSize: MainAxisSize.max,
+                            crossAxisAlignment: CrossAxisAlignment.start,
+                            children: [
+                              Padding(
+                                padding:
+                                    EdgeInsetsDirectional.fromSTEB(0, 0, 0, 8),
+                                child: Row(
+                                  mainAxisSize: MainAxisSize.max,
+                                  mainAxisAlignment:
+                                      MainAxisAlignment.spaceBetween,
+                                  crossAxisAlignment: CrossAxisAlignment.end,
+                                  children: [
+                                    Padding(
+                                      padding: EdgeInsetsDirectional.fromSTEB(
+                                          0, 12, 0, 0),
+                                      child: Text(
+                                        'My Coupons',
                                         style: FlutterFlowTheme.of(context)
                                             .subtitle1
                                             .override(
