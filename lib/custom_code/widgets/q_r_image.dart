@@ -34,6 +34,8 @@ class _QRImageState extends State<QRImage> {
   }
 
   Image imageFromBase64String(String base64String) {
+    base64String =
+        base64String.replaceFirst(RegExp('data:image/png;base64,'), '');
     return Image.memory(base64Decode(base64String));
   }
 }
