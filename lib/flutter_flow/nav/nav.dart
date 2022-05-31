@@ -48,12 +48,16 @@ GoRouter createRouter(AppStateNotifier appStateNotifier) => GoRouter(
             FFRoute(
               name: 'Home',
               path: 'home',
-              builder: (context, params) => HomeWidget(),
+              builder: (context, params) => params.isEmpty
+                  ? NavBarPage(initialPage: 'Home')
+                  : HomeWidget(),
             ),
             FFRoute(
               name: 'Coupons',
               path: 'coupons',
-              builder: (context, params) => CouponsWidget(),
+              builder: (context, params) => params.isEmpty
+                  ? NavBarPage(initialPage: 'Coupons')
+                  : CouponsWidget(),
             ),
             FFRoute(
               name: 'Request',
@@ -96,7 +100,9 @@ GoRouter createRouter(AppStateNotifier appStateNotifier) => GoRouter(
             FFRoute(
               name: 'MyCoupons',
               path: 'myCoupons',
-              builder: (context, params) => MyCouponsWidget(),
+              builder: (context, params) => params.isEmpty
+                  ? NavBarPage(initialPage: 'MyCoupons')
+                  : MyCouponsWidget(),
             ),
             FFRoute(
               name: 'CouponDetails',
