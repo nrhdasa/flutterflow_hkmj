@@ -87,6 +87,16 @@ GoRouter createRouter(AppStateNotifier appStateNotifier) => GoRouter(
               name: 'Welcome',
               path: 'welcome',
               builder: (context, params) => WelcomeWidget(),
+            ),
+            FFRoute(
+              name: 'Generate',
+              path: 'generate',
+              builder: (context, params) => GenerateWidget(),
+            ),
+            FFRoute(
+              name: 'MyCoupons',
+              path: 'myCoupons',
+              builder: (context, params) => MyCouponsWidget(),
             )
           ].map((r) => r.toRoute(appStateNotifier)).toList(),
         ).toRoute(appStateNotifier),

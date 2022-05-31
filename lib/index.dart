@@ -10,3 +10,5 @@ export 'transfer_select_user/transfer_select_user_widget.dart'
 export 'transfer/transfer_widget.dart' show TransferWidget;
 export 'release/release_widget.dart' show ReleaseWidget;
 export 'welcome/welcome_widget.dart' show WelcomeWidget;
+export 'generate/generate_widget.dart' show GenerateWidget;
+export 'my_coupons/my_coupons_widget.dart' show MyCouponsWidget;

@@ -10,14 +10,14 @@ import 'package:flutter_datetime_picker/flutter_datetime_picker.dart';
 import 'package:flutter_spinkit/flutter_spinkit.dart';
 import 'package:google_fonts/google_fonts.dart';
 
-class ReleaseWidget extends StatefulWidget {
-  const ReleaseWidget({Key key}) : super(key: key);
+class GenerateWidget extends StatefulWidget {
+  const GenerateWidget({Key key}) : super(key: key);
 
   @override
-  _ReleaseWidgetState createState() => _ReleaseWidgetState();
+  _GenerateWidgetState createState() => _GenerateWidgetState();
 }
 
-class _ReleaseWidgetState extends State<ReleaseWidget> {
+class _GenerateWidgetState extends State<GenerateWidget> {
   ApiCallResponse response;
   DateTime datePicked;
   String dropDownValue;
@@ -79,7 +79,7 @@ class _ReleaseWidgetState extends State<ReleaseWidget> {
               Padding(
                 padding: EdgeInsetsDirectional.fromSTEB(24, 0, 0, 0),
                 child: Text(
-                  'Release',
+                  'Generate Coupon',
                   style: FlutterFlowTheme.of(context).title1.override(
                         fontFamily: 'Poppins',
                         fontSize: 32,
@@ -114,7 +114,7 @@ class _ReleaseWidgetState extends State<ReleaseWidget> {
                           child: Padding(
                             padding: EdgeInsetsDirectional.fromSTEB(8, 8, 8, 8),
                             child: Text(
-                              'Release already requested coupons',
+                              'This action is irreversible. Once generated, you can\'t transfer or release the coupons.',
                               style: FlutterFlowTheme.of(context)
                                   .subtitle2
                                   .override(
@@ -280,7 +280,7 @@ class _ReleaseWidgetState extends State<ReleaseWidget> {
                     padding: EdgeInsetsDirectional.fromSTEB(0, 24, 0, 0),
                     child: FFButtonWidget(
                       onPressed: () async {
-                        response = await CreateRequestCall.call(
+                        response = await GenerateCouponCall.call(
                           auth: FFAppState().authtoken,
                           date: functions.setDate(datePicked),
                           slot: dropDownValue,
@@ -332,7 +332,7 @@ class _ReleaseWidgetState extends State<ReleaseWidget> {
 
                         setState(() {});
                       },
-                      text: 'Release',
+                      text: 'Generate',
                       options: FFButtonOptions(
                         width: 270,
                         height: 50,

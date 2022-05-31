@@ -224,3 +224,67 @@ class IsLoggedInCall {
         r'''$.message''',
       );
 }
+
+class GenerateCouponCall {
+  static Future<ApiCallResponse> call({
+    String auth = '',
+    String date = '',
+    String slot = '',
+    int number,
+  }) {
+    final body = '''
+{
+  "type": "Request",
+  "date": "${date}",
+  "slot": "${slot}",
+  "number": "${number}"
+}''';
+    return ApiManager.instance.makeApiCall(
+      callName: 'generateCoupon',
+      apiUrl: 'http://hkmjerp.in/api/resource/Prasadam Coupon',
+      callType: ApiCallType.POST,
+      headers: {
+        'Authorization': '${auth}',
+      },
+      params: {
+        'date': date,
+        'slot': slot,
+        'number': number,
+      },
+      body: body,
+      bodyType: BodyType.JSON,
+      returnBody: true,
+    );
+  }
+
+  static dynamic name(dynamic response) => getJsonField(
+        response,
+        r'''$.data.name''',
+      );
+}
+
+class CouponsOfAUserCall {
+  static Future<ApiCallResponse> call({
+    String date = '',
+    String auth = '',
+  }) {
+    return ApiManager.instance.makeApiCall(
+      callName: 'couponsOfAUser',
+      apiUrl:
+          'http://hkmjerp.in/api/method/hkm.prasadam_coupon_management.api.get_coupons_of_user',
+      callType: ApiCallType.GET,
+      headers: {
+        'Authorization': '${auth}',
+      },
+      params: {
+        'date': date,
+      },
+      returnBody: true,
+    );
+  }
+
+  static dynamic coupons(dynamic response) => getJsonField(
+        response,
+        r'''$.message''',
+      );
+}
