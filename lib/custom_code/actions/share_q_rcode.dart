@@ -13,12 +13,15 @@ import 'package:flutter/material.dart';
 import 'dart:convert';
 import 'dart:io';
 import 'package:share_plus/share_plus.dart';
+import 'package:path_provider/path_provider.dart';
 
 // THE ABOVE IMPORTS WILL BE ADDED AUTOMATICALLY. DO NOT INCLUDE THESE IN CODE EDITOR.
 
 Future shareQRcode(String qrcode) async {
   var base64String = qrcode.replaceFirst(RegExp('data:image/png;base64,'), '');
-  File imgFile = File('assets/images/qr_code.png');
-  await imgFile.writeAsBytesSync(base64Decode(base64String));
-  Share.shareFiles(['assets/images/qr_code.png'], text: 'QR Code');
+  final Directory directory = await getApplicationDocumentsDirectory();
+  final File file = File('${directory.path}/qr_code.png');
+  var decoded = base64Decode(base64String);
+  await file.writeAsBytes(decoded);
+  Share.shareFiles([file.path], text: 'QR Code');
 }
