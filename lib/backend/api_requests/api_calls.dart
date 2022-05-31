@@ -288,3 +288,26 @@ class CouponsOfAUserCall {
         r'''$.message''',
       );
 }
+
+class ACouponDetailsCall {
+  static Future<ApiCallResponse> call({
+    String id = '',
+    String auth = '',
+  }) {
+    return ApiManager.instance.makeApiCall(
+      callName: 'aCouponDetails',
+      apiUrl: 'http://hkmjerp.in/api/resource/Prasadam Coupon/${id}',
+      callType: ApiCallType.GET,
+      headers: {
+        'Authorization': '${auth}',
+      },
+      params: {},
+      returnBody: true,
+    );
+  }
+
+  static dynamic details(dynamic response) => getJsonField(
+        response,
+        r'''$.message.data''',
+      );
+}

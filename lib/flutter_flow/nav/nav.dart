@@ -97,6 +97,13 @@ GoRouter createRouter(AppStateNotifier appStateNotifier) => GoRouter(
               name: 'MyCoupons',
               path: 'myCoupons',
               builder: (context, params) => MyCouponsWidget(),
+            ),
+            FFRoute(
+              name: 'CouponDetails',
+              path: 'couponDetails',
+              builder: (context, params) => CouponDetailsWidget(
+                couponid: params.getParam('couponid', ParamType.String),
+              ),
             )
           ].map((r) => r.toRoute(appStateNotifier)).toList(),
         ).toRoute(appStateNotifier),
