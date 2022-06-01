@@ -2,6 +2,8 @@ import '../backend/api_requests/api_calls.dart';
 import '../flutter_flow/flutter_flow_animations.dart';
 import '../flutter_flow/flutter_flow_theme.dart';
 import '../flutter_flow/flutter_flow_util.dart';
+import '../login/login_widget.dart';
+import '../main.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/scheduler.dart';
 import 'package:flutter_spinkit/flutter_spinkit.dart';
@@ -71,12 +73,27 @@ class _WelcomeWidgetState extends State<WelcomeWidget>
           auth: FFAppState().authtoken,
         );
         if ((message?.succeeded ?? true)) {
-          context.pushNamed('Home');
+          await Navigator.push(
+            context,
+            MaterialPageRoute(
+              builder: (context) => NavBarPage(initialPage: 'Home'),
+            ),
+          );
         } else {
-          context.pushNamed('Login');
+          await Navigator.push(
+            context,
+            MaterialPageRoute(
+              builder: (context) => LoginWidget(),
+            ),
+          );
         }
       } else {
-        context.pushNamed('Login');
+        await Navigator.push(
+          context,
+          MaterialPageRoute(
+            builder: (context) => LoginWidget(),
+          ),
+        );
       }
     });
 

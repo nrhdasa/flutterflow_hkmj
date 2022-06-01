@@ -122,7 +122,7 @@ class _CouponsWidgetState extends State<CouponsWidget>
               ),
               FlutterFlowDropDown(
                 initialOption: dropDownValue ??= 'Morning',
-                options: ['Morning', 'Afternoon', 'Evening'].toList(),
+                options: ['Morning', 'Afternoon', 'Evening'],
                 onChanged: (val) => setState(() => dropDownValue = val),
                 height: 50,
                 textStyle: FlutterFlowTheme.of(context).bodyText1.override(

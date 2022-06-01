@@ -1,6 +1,7 @@
 import '../backend/api_requests/api_calls.dart';
 import '../flutter_flow/flutter_flow_theme.dart';
 import '../flutter_flow/flutter_flow_util.dart';
+import '../transfer/transfer_widget.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_spinkit/flutter_spinkit.dart';
 import 'package:google_fonts/google_fonts.dart';
@@ -141,29 +142,24 @@ class _TransferSelectUserWidgetState extends State<TransferSelectUserWidget> {
                                       16, 2, 16, 12),
                                   child: InkWell(
                                     onTap: () async {
-                                      context.pushNamed(
-                                        'Transfer',
-                                        queryParams: {
-                                          'userid': serializeParam(
-                                              getJsonField(
-                                                usersItem,
-                                                r'''$.name''',
-                                              ).toString(),
-                                              ParamType.String),
-                                          'username': serializeParam(
-                                              getJsonField(
-                                                usersItem,
-                                                r'''$.full_name''',
-                                              ).toString(),
-                                              ParamType.String),
-                                        }.withoutNulls,
-                                        extra: <String, dynamic>{
-                                          kTransitionInfoKey: TransitionInfo(
-                                            hasTransition: true,
-                                            transitionType:
-                                                PageTransitionType.rightToLeft,
+                                      await Navigator.push(
+                                        context,
+                                        PageTransition(
+                                          type: PageTransitionType.rightToLeft,
+                                          duration: Duration(milliseconds: 300),
+                                          reverseDuration:
+                                              Duration(milliseconds: 300),
+                                          child: TransferWidget(
+                                            userid: getJsonField(
+                                              usersItem,
+                                              r'''$.name''',
+                                            ).toString(),
+                                            username: getJsonField(
+                                              usersItem,
+                                              r'''$.full_name''',
+                                            ).toString(),
                                           ),
-                                        },
+                                        ),
                                       );
                                     },
                                     child: Container(

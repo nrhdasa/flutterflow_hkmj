@@ -3,6 +3,7 @@ import '../flutter_flow/flutter_flow_drop_down.dart';
 import '../flutter_flow/flutter_flow_theme.dart';
 import '../flutter_flow/flutter_flow_util.dart';
 import '../flutter_flow/flutter_flow_widgets.dart';
+import '../success/success_widget.dart';
 import '../custom_code/actions/index.dart' as actions;
 import '../flutter_flow/custom_functions.dart' as functions;
 import 'package:flutter/material.dart';
@@ -155,7 +156,7 @@ class _RequestWidgetState extends State<RequestWidget> {
                       ),
                       child: FlutterFlowDropDown(
                         initialOption: dropDownValue ??= 'Morning',
-                        options: ['Morning', 'Afternoon', 'Evening'].toList(),
+                        options: ['Morning', 'Afternoon', 'Evening'],
                         onChanged: (val) => setState(() => dropDownValue = val),
                         width: 180,
                         height: 50,
@@ -260,15 +261,16 @@ class _RequestWidgetState extends State<RequestWidget> {
                                 r'''$.data.name''',
                               ) !=
                               null)) {
-                            context.goNamed(
-                              'Success',
-                              extra: <String, dynamic>{
-                                kTransitionInfoKey: TransitionInfo(
-                                  hasTransition: true,
-                                  transitionType: PageTransitionType.scale,
-                                  alignment: Alignment.bottomCenter,
-                                ),
-                              },
+                            await Navigator.pushAndRemoveUntil(
+                              context,
+                              PageTransition(
+                                type: PageTransitionType.scale,
+                                alignment: Alignment.bottomCenter,
+                                duration: Duration(milliseconds: 300),
+                                reverseDuration: Duration(milliseconds: 300),
+                                child: SuccessWidget(),
+                              ),
+                              (r) => false,
                             );
                           } else {
                             ScaffoldMessenger.of(context).showSnackBar(

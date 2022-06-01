@@ -2,6 +2,12 @@ import '../backend/api_requests/api_calls.dart';
 import '../flutter_flow/flutter_flow_icon_button.dart';
 import '../flutter_flow/flutter_flow_theme.dart';
 import '../flutter_flow/flutter_flow_util.dart';
+import '../generate/generate_widget.dart';
+import '../main.dart';
+import '../profile/profile_widget.dart';
+import '../release/release_widget.dart';
+import '../request/request_widget.dart';
+import '../transfer_select_user/transfer_select_user_widget.dart';
 import '../flutter_flow/custom_functions.dart' as functions;
 import 'package:flutter/material.dart';
 import 'package:flutter_spinkit/flutter_spinkit.dart';
@@ -35,14 +41,14 @@ class _HomeWidgetState extends State<HomeWidget> {
             padding: EdgeInsetsDirectional.fromSTEB(0, 0, 16, 0),
             child: InkWell(
               onTap: () async {
-                context.pushNamed(
-                  'Profile',
-                  extra: <String, dynamic>{
-                    kTransitionInfoKey: TransitionInfo(
-                      hasTransition: true,
-                      transitionType: PageTransitionType.leftToRight,
-                    ),
-                  },
+                await Navigator.push(
+                  context,
+                  PageTransition(
+                    type: PageTransitionType.leftToRight,
+                    duration: Duration(milliseconds: 300),
+                    reverseDuration: Duration(milliseconds: 300),
+                    child: ProfileWidget(),
+                  ),
                 );
               },
               child: Container(
@@ -121,6 +127,48 @@ class _HomeWidgetState extends State<HomeWidget> {
                                     borderRadius: 20,
                                     borderWidth: 1,
                                     buttonSize: 70,
+                                    fillColor: Color(0xFFC9EBE7),
+                                    icon: Icon(
+                                      Icons.sync_alt,
+                                      color:
+                                          FlutterFlowTheme.of(context).gray600,
+                                      size: 30,
+                                    ),
+                                    onPressed: () async {
+                                      await Navigator.push(
+                                        context,
+                                        MaterialPageRoute(
+                                          builder: (context) =>
+                                              GenerateWidget(),
+                                        ),
+                                      );
+                                    },
+                                  ),
+                                  Text(
+                                    'Scan',
+                                    style:
+                                        FlutterFlowTheme.of(context).bodyText1,
+                                  ),
+                                ],
+                              ),
+                            ),
+                            Container(
+                              width: 100,
+                              height: 100,
+                              decoration: BoxDecoration(
+                                shape: BoxShape.rectangle,
+                              ),
+                              child: Column(
+                                mainAxisSize: MainAxisSize.max,
+                                mainAxisAlignment: MainAxisAlignment.center,
+                                crossAxisAlignment: CrossAxisAlignment.center,
+                                children: [
+                                  FlutterFlowIconButton(
+                                    borderColor: FlutterFlowTheme.of(context)
+                                        .primaryBtnText,
+                                    borderRadius: 20,
+                                    borderWidth: 1,
+                                    buttonSize: 70,
                                     fillColor: FlutterFlowTheme.of(context)
                                         .tertiaryColor,
                                     icon: FaIcon(
@@ -130,7 +178,13 @@ class _HomeWidgetState extends State<HomeWidget> {
                                       size: 30,
                                     ),
                                     onPressed: () async {
-                                      context.pushNamed('Generate');
+                                      await Navigator.push(
+                                        context,
+                                        MaterialPageRoute(
+                                          builder: (context) =>
+                                              GenerateWidget(),
+                                        ),
+                                      );
                                     },
                                   ),
                                   Text(
@@ -158,22 +212,24 @@ class _HomeWidgetState extends State<HomeWidget> {
                                     borderRadius: 20,
                                     borderWidth: 1,
                                     buttonSize: 70,
+                                    fillColor:
+                                        FlutterFlowTheme.of(context).gray200,
                                     icon: FaIcon(
                                       FontAwesomeIcons.plus,
                                       color: Colors.black,
                                       size: 30,
                                     ),
                                     onPressed: () async {
-                                      context.pushNamed(
-                                        'Request',
-                                        extra: <String, dynamic>{
-                                          kTransitionInfoKey: TransitionInfo(
-                                            hasTransition: true,
-                                            transitionType:
-                                                PageTransitionType.scale,
-                                            alignment: Alignment.bottomCenter,
-                                          ),
-                                        },
+                                      await Navigator.push(
+                                        context,
+                                        PageTransition(
+                                          type: PageTransitionType.scale,
+                                          alignment: Alignment.bottomCenter,
+                                          duration: Duration(milliseconds: 300),
+                                          reverseDuration:
+                                              Duration(milliseconds: 300),
+                                          child: RequestWidget(),
+                                        ),
                                       );
                                     },
                                   ),
@@ -210,7 +266,12 @@ class _HomeWidgetState extends State<HomeWidget> {
                                       size: 30,
                                     ),
                                     onPressed: () async {
-                                      context.pushNamed('Release');
+                                      await Navigator.push(
+                                        context,
+                                        MaterialPageRoute(
+                                          builder: (context) => ReleaseWidget(),
+                                        ),
+                                      );
                                     },
                                   ),
                                   Text(
@@ -246,7 +307,13 @@ class _HomeWidgetState extends State<HomeWidget> {
                                       size: 30,
                                     ),
                                     onPressed: () async {
-                                      context.pushNamed('TransferSelectUser');
+                                      await Navigator.push(
+                                        context,
+                                        MaterialPageRoute(
+                                          builder: (context) =>
+                                              TransferSelectUserWidget(),
+                                        ),
+                                      );
                                     },
                                   ),
                                   Text(
@@ -283,7 +350,14 @@ class _HomeWidgetState extends State<HomeWidget> {
                             size: 30,
                           ),
                           onPressed: () async {
-                            context.goNamed('Home');
+                            await Navigator.pushAndRemoveUntil(
+                              context,
+                              MaterialPageRoute(
+                                builder: (context) =>
+                                    NavBarPage(initialPage: 'Home'),
+                              ),
+                              (r) => false,
+                            );
                           },
                         ),
                       ],
@@ -1342,14 +1416,14 @@ class _HomeWidgetState extends State<HomeWidget> {
                     padding: EdgeInsetsDirectional.fromSTEB(16, 2, 16, 12),
                     child: InkWell(
                       onTap: () async {
-                        context.pushNamed(
-                          'Coupons',
-                          extra: <String, dynamic>{
-                            kTransitionInfoKey: TransitionInfo(
-                              hasTransition: true,
-                              transitionType: PageTransitionType.rightToLeft,
-                            ),
-                          },
+                        await Navigator.push(
+                          context,
+                          PageTransition(
+                            type: PageTransitionType.rightToLeft,
+                            duration: Duration(milliseconds: 300),
+                            reverseDuration: Duration(milliseconds: 300),
+                            child: NavBarPage(initialPage: 'Coupons'),
+                          ),
                         );
                       },
                       child: Container(
@@ -1415,14 +1489,14 @@ class _HomeWidgetState extends State<HomeWidget> {
                     padding: EdgeInsetsDirectional.fromSTEB(16, 2, 16, 12),
                     child: InkWell(
                       onTap: () async {
-                        context.pushNamed(
-                          'MyCoupons',
-                          extra: <String, dynamic>{
-                            kTransitionInfoKey: TransitionInfo(
-                              hasTransition: true,
-                              transitionType: PageTransitionType.rightToLeft,
-                            ),
-                          },
+                        await Navigator.push(
+                          context,
+                          PageTransition(
+                            type: PageTransitionType.rightToLeft,
+                            duration: Duration(milliseconds: 300),
+                            reverseDuration: Duration(milliseconds: 300),
+                            child: NavBarPage(initialPage: 'MyCoupons'),
+                          ),
                         );
                       },
                       child: Container(

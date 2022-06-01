@@ -1,4 +1,5 @@
 import '../backend/api_requests/api_calls.dart';
+import '../coupon_details/coupon_details_widget.dart';
 import '../flutter_flow/flutter_flow_icon_button.dart';
 import '../flutter_flow/flutter_flow_theme.dart';
 import '../flutter_flow/flutter_flow_util.dart';
@@ -37,7 +38,7 @@ class _MyCouponsWidgetState extends State<MyCouponsWidget> {
             size: 30,
           ),
           onPressed: () async {
-            context.pop();
+            Navigator.pop(context);
           },
         ),
         title: Text(
@@ -138,23 +139,20 @@ class _MyCouponsWidgetState extends State<MyCouponsWidget> {
                                   EdgeInsetsDirectional.fromSTEB(16, 8, 16, 0),
                               child: InkWell(
                                 onTap: () async {
-                                  context.pushNamed(
-                                    'CouponDetails',
-                                    queryParams: {
-                                      'couponid': serializeParam(
-                                          getJsonField(
-                                            morninglistItem,
-                                            r'''$.name''',
-                                          ).toString(),
-                                          ParamType.String),
-                                    }.withoutNulls,
-                                    extra: <String, dynamic>{
-                                      kTransitionInfoKey: TransitionInfo(
-                                        hasTransition: true,
-                                        transitionType:
-                                            PageTransitionType.rightToLeft,
+                                  await Navigator.push(
+                                    context,
+                                    PageTransition(
+                                      type: PageTransitionType.rightToLeft,
+                                      duration: Duration(milliseconds: 300),
+                                      reverseDuration:
+                                          Duration(milliseconds: 300),
+                                      child: CouponDetailsWidget(
+                                        couponid: getJsonField(
+                                          morninglistItem,
+                                          r'''$.name''',
+                                        ).toString(),
                                       ),
-                                    },
+                                    ),
                                   );
                                 },
                                 child: Container(

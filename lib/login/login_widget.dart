@@ -3,6 +3,7 @@ import '../flutter_flow/flutter_flow_icon_button.dart';
 import '../flutter_flow/flutter_flow_theme.dart';
 import '../flutter_flow/flutter_flow_util.dart';
 import '../flutter_flow/flutter_flow_widgets.dart';
+import '../main.dart';
 import '../flutter_flow/custom_functions.dart' as functions;
 import 'package:easy_debounce/easy_debounce.dart';
 import 'package:flutter/material.dart';
@@ -334,15 +335,16 @@ class _LoginWidgetState extends State<LoginWidget> {
                                           (response?.jsonBody ?? ''),
                                           r'''$.message.email''',
                                         ).toString());
-                                    context.goNamed(
-                                      'Home',
-                                      extra: <String, dynamic>{
-                                        kTransitionInfoKey: TransitionInfo(
-                                          hasTransition: true,
-                                          transitionType:
-                                              PageTransitionType.fade,
-                                        ),
-                                      },
+                                    await Navigator.pushAndRemoveUntil(
+                                      context,
+                                      PageTransition(
+                                        type: PageTransitionType.fade,
+                                        duration: Duration(milliseconds: 300),
+                                        reverseDuration:
+                                            Duration(milliseconds: 300),
+                                        child: NavBarPage(initialPage: 'Home'),
+                                      ),
+                                      (r) => false,
                                     );
                                   } else {
                                     ScaffoldMessenger.of(context).showSnackBar(

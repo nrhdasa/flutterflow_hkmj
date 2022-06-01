@@ -6,6 +6,7 @@ import 'package:intl/intl.dart';
 import 'package:timeago/timeago.dart' as timeago;
 import 'lat_lng.dart';
 import 'place.dart';
+import '../../auth/auth_util.dart';
 
 bool isCredentialsCorrect(int successkey) {
   if (successkey == 1) {
