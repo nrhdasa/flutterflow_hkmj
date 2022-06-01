@@ -1,4 +1,5 @@
 import '../backend/api_requests/api_calls.dart';
+import '../flutter_flow/flutter_flow_animations.dart';
 import '../flutter_flow/flutter_flow_theme.dart';
 import '../flutter_flow/flutter_flow_util.dart';
 import '../flutter_flow/flutter_flow_widgets.dart';
@@ -16,10 +17,39 @@ class ScanCouponWidget extends StatefulWidget {
   _ScanCouponWidgetState createState() => _ScanCouponWidgetState();
 }
 
-class _ScanCouponWidgetState extends State<ScanCouponWidget> {
+class _ScanCouponWidgetState extends State<ScanCouponWidget>
+    with TickerProviderStateMixin {
   ApiCallResponse responseUsed;
   var couponid = '';
   final scaffoldKey = GlobalKey<ScaffoldState>();
+  final animationsMap = {
+    'textOnActionTriggerAnimation': AnimationInfo(
+      curve: Curves.elasticOut,
+      trigger: AnimationTrigger.onActionTrigger,
+      duration: 600,
+      fadeIn: true,
+      initialState: AnimationState(
+        offset: Offset(0, 0),
+        scale: 5,
+        opacity: 0,
+      ),
+      finalState: AnimationState(
+        offset: Offset(0, 0),
+        scale: 1,
+        opacity: 1,
+      ),
+    ),
+  };
+
+  @override
+  void initState() {
+    super.initState();
+    setupTriggerAnimations(
+      animationsMap.values
+          .where((anim) => anim.trigger == AnimationTrigger.onActionTrigger),
+      this,
+    );
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -117,6 +147,29 @@ class _ScanCouponWidgetState extends State<ScanCouponWidget> {
                         return Column(
                           mainAxisSize: MainAxisSize.max,
                           children: [
+                            if (functions.isCouponUsed(getJsonField(
+                                  (columnACouponDetailsResponse?.jsonBody ??
+                                      ''),
+                                  r'''$.data.used''',
+                                )) ??
+                                true)
+                              Padding(
+                                padding:
+                                    EdgeInsetsDirectional.fromSTEB(0, 12, 0, 0),
+                                child: Text(
+                                  'Already Used !!!',
+                                  style: FlutterFlowTheme.of(context)
+                                      .title1
+                                      .override(
+                                        fontFamily: 'Poppins',
+                                        color: FlutterFlowTheme.of(context)
+                                            .alternate,
+                                        fontSize: 30,
+                                      ),
+                                ).animated([
+                                  animationsMap['textOnActionTriggerAnimation']
+                                ]),
+                              ),
                             Row(
                               mainAxisSize: MainAxisSize.max,
                               mainAxisAlignment: MainAxisAlignment.center,
@@ -304,102 +357,112 @@ class _ScanCouponWidgetState extends State<ScanCouponWidget> {
                                 ),
                               ],
                             ),
-                            Padding(
-                              padding:
-                                  EdgeInsetsDirectional.fromSTEB(0, 16, 0, 0),
-                              child: FFButtonWidget(
-                                onPressed: () async {
-                                  var confirmDialogResponse =
-                                      await showDialog<bool>(
-                                            context: context,
-                                            builder: (alertDialogContext) {
-                                              return AlertDialog(
-                                                title: Text('Are you sure?'),
-                                                content: Text(
-                                                    'This can not be undone. Please  check properly before you submit.'),
-                                                actions: [
-                                                  TextButton(
-                                                    onPressed: () =>
-                                                        Navigator.pop(
-                                                            alertDialogContext,
-                                                            false),
-                                                    child: Text('Cancel'),
-                                                  ),
-                                                  TextButton(
-                                                    onPressed: () =>
-                                                        Navigator.pop(
-                                                            alertDialogContext,
-                                                            true),
-                                                    child: Text('Confirm'),
-                                                  ),
-                                                ],
-                                              );
-                                            },
-                                          ) ??
-                                          false;
-                                  if (confirmDialogResponse) {
-                                    responseUsed =
-                                        await ConfirmCouponUsedCall.call(
-                                      auth: FFAppState().authtoken,
-                                      coupon: couponid,
-                                    );
-                                    if (((responseUsed?.statusCode ?? 200)) ==
-                                        200) {
-                                      await Navigator.push(
-                                        context,
-                                        PageTransition(
-                                          type: PageTransitionType.rightToLeft,
-                                          duration: Duration(milliseconds: 300),
-                                          reverseDuration:
-                                              Duration(milliseconds: 300),
-                                          child: SuccessWidget(),
-                                        ),
+                            if (!(functions.isCouponUsed(getJsonField(
+                                  (columnACouponDetailsResponse?.jsonBody ??
+                                      ''),
+                                  r'''$.data.used''',
+                                ))) ??
+                                true)
+                              Padding(
+                                padding:
+                                    EdgeInsetsDirectional.fromSTEB(0, 16, 0, 0),
+                                child: FFButtonWidget(
+                                  onPressed: () async {
+                                    var confirmDialogResponse =
+                                        await showDialog<bool>(
+                                              context: context,
+                                              builder: (alertDialogContext) {
+                                                return AlertDialog(
+                                                  title: Text('Are you sure?'),
+                                                  content: Text(
+                                                      'This can not be undone. Please  check properly before you submit.'),
+                                                  actions: [
+                                                    TextButton(
+                                                      onPressed: () =>
+                                                          Navigator.pop(
+                                                              alertDialogContext,
+                                                              false),
+                                                      child: Text('Cancel'),
+                                                    ),
+                                                    TextButton(
+                                                      onPressed: () =>
+                                                          Navigator.pop(
+                                                              alertDialogContext,
+                                                              true),
+                                                      child: Text('Confirm'),
+                                                    ),
+                                                  ],
+                                                );
+                                              },
+                                            ) ??
+                                            false;
+                                    if (confirmDialogResponse) {
+                                      responseUsed =
+                                          await ConfirmCouponUsedCall.call(
+                                        auth: FFAppState().authtoken,
+                                        coupon: couponid,
                                       );
-                                    } else {
-                                      ScaffoldMessenger.of(context)
-                                          .showSnackBar(
-                                        SnackBar(
-                                          content: Text(
-                                            functions.getException(getJsonField(
-                                              (responseUsed?.jsonBody ?? ''),
-                                              r'''$.exception''',
-                                            ).toString()),
-                                            style: FlutterFlowTheme.of(context)
-                                                .bodyText2,
+                                      if (((responseUsed?.statusCode ?? 200)) ==
+                                          200) {
+                                        await Navigator.push(
+                                          context,
+                                          PageTransition(
+                                            type:
+                                                PageTransitionType.rightToLeft,
+                                            duration:
+                                                Duration(milliseconds: 300),
+                                            reverseDuration:
+                                                Duration(milliseconds: 300),
+                                            child: SuccessWidget(),
                                           ),
-                                          duration:
-                                              Duration(milliseconds: 4000),
-                                          backgroundColor: Color(0xFFFFDBDD),
-                                        ),
-                                      );
+                                        );
+                                      } else {
+                                        ScaffoldMessenger.of(context)
+                                            .showSnackBar(
+                                          SnackBar(
+                                            content: Text(
+                                              functions
+                                                  .getException(getJsonField(
+                                                (responseUsed?.jsonBody ?? ''),
+                                                r'''$.exception''',
+                                              ).toString()),
+                                              style:
+                                                  FlutterFlowTheme.of(context)
+                                                      .bodyText2,
+                                            ),
+                                            duration:
+                                                Duration(milliseconds: 4000),
+                                            backgroundColor: Color(0xFFFFDBDD),
+                                          ),
+                                        );
+                                      }
                                     }
-                                  }
 
-                                  setState(() {});
-                                },
-                                text: 'Accept the Coupon',
-                                options: FFButtonOptions(
-                                  width: 270,
-                                  height: 50,
-                                  color:
-                                      FlutterFlowTheme.of(context).primaryColor,
-                                  textStyle: FlutterFlowTheme.of(context)
-                                      .subtitle2
-                                      .override(
-                                        fontFamily: 'Lexend Deca',
-                                        color: Colors.white,
-                                        fontSize: 16,
-                                        fontWeight: FontWeight.w500,
-                                      ),
-                                  elevation: 3,
-                                  borderSide: BorderSide(
-                                    color: Colors.transparent,
-                                    width: 1,
+                                    setState(() {});
+                                  },
+                                  text: 'Accept the Coupon',
+                                  options: FFButtonOptions(
+                                    width: 270,
+                                    height: 50,
+                                    color: FlutterFlowTheme.of(context)
+                                        .primaryColor,
+                                    textStyle: FlutterFlowTheme.of(context)
+                                        .subtitle2
+                                        .override(
+                                          fontFamily: 'Lexend Deca',
+                                          color: Colors.white,
+                                          fontSize: 16,
+                                          fontWeight: FontWeight.w500,
+                                        ),
+                                    elevation: 3,
+                                    borderSide: BorderSide(
+                                      color: Colors.transparent,
+                                      width: 1,
+                                    ),
+                                    borderRadius: 8,
                                   ),
-                                  borderRadius: 8,
                                 ),
                               ),
-                            ),
                           ],
                         );
                       },

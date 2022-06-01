@@ -68,3 +68,10 @@ String getDateinFormat(
   final String formatted = formatter.format(dateformatted);
   return formatted;
 }
+
+bool isCouponUsed(int used) {
+  if (used == 1) {
+    return true;
+  }
+  return false;
+}
