@@ -17,6 +17,7 @@ class FFAppState {
     _authtoken = prefs.getString('ff_authtoken') ?? _authtoken;
     _username = prefs.getString('ff_username') ?? _username;
     _useremail = prefs.getString('ff_useremail') ?? _useremail;
+    _roles = prefs.getStringList('ff_roles') ?? _roles;
   }
 
   SharedPreferences prefs;
@@ -43,6 +44,23 @@ class FFAppState {
   }
 
   String searchdate = '';
+
+  List<String> _roles = [];
+  List<String> get roles => _roles;
+  set roles(List<String> _value) {
+    _roles = _value;
+    prefs.setStringList('ff_roles', _value);
+  }
+
+  void addToRoles(String _value) {
+    _roles.add(_value);
+    prefs.setStringList('ff_roles', _roles);
+  }
+
+  void removeFromRoles(String _value) {
+    _roles.remove(_value);
+    prefs.setStringList('ff_roles', _roles);
+  }
 }
 
 LatLng _latLngFromString(String val) {

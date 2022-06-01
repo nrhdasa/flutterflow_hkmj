@@ -335,6 +335,13 @@ class _LoginWidgetState extends State<LoginWidget> {
                                           (response?.jsonBody ?? ''),
                                           r'''$.message.email''',
                                         ).toString());
+                                    setState(() =>
+                                        FFAppState().roles = getJsonField(
+                                          (response?.jsonBody ?? ''),
+                                          r'''$.message.roles''',
+                                        )
+                                            .map<String>((s) => s.toString())
+                                            .toList());
                                     await Navigator.pushAndRemoveUntil(
                                       context,
                                       PageTransition(
