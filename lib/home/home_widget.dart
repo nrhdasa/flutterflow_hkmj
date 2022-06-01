@@ -8,6 +8,7 @@ import '../main.dart';
 import '../profile/profile_widget.dart';
 import '../release/release_widget.dart';
 import '../request/request_widget.dart';
+import '../scan_coupon/scan_coupon_widget.dart';
 import '../transfer_select_user/transfer_select_user_widget.dart';
 import '../flutter_flow/custom_functions.dart' as functions;
 import 'package:flutter/material.dart';
@@ -82,8 +83,16 @@ class _HomeWidgetState extends State<HomeWidget> {
                 Padding(
                   padding: EdgeInsetsDirectional.fromSTEB(24, 24, 24, 24),
                   child: FFButtonWidget(
-                    onPressed: () {
-                      print('Button pressed ...');
+                    onPressed: () async {
+                      await Navigator.push(
+                        context,
+                        PageTransition(
+                          type: PageTransitionType.rightToLeft,
+                          duration: Duration(milliseconds: 300),
+                          reverseDuration: Duration(milliseconds: 300),
+                          child: ScanCouponWidget(),
+                        ),
+                      );
                     },
                     text: 'Scan Coupon',
                     icon: Icon(
