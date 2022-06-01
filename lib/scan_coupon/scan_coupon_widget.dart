@@ -340,8 +340,8 @@ class _ScanCouponWidgetState extends State<ScanCouponWidget> {
                                   if (confirmDialogResponse) {
                                     responseUsed =
                                         await ConfirmCouponUsedCall.call(
-                                      id: couponid,
                                       auth: FFAppState().authtoken,
+                                      coupon: couponid,
                                     );
                                     if (((responseUsed?.statusCode ?? 200)) ==
                                         200) {
