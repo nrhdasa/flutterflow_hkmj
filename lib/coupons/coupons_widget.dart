@@ -223,7 +223,7 @@ class _CouponsWidgetState extends State<CouponsWidget>
                                                   Text(
                                                     getJsonField(
                                                       usersItem,
-                                                      r'''$.user''',
+                                                      r'''$.username''',
                                                     ).toString(),
                                                     style: FlutterFlowTheme.of(
                                                             context)
