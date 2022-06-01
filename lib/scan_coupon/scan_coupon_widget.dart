@@ -2,6 +2,7 @@ import '../backend/api_requests/api_calls.dart';
 import '../flutter_flow/flutter_flow_theme.dart';
 import '../flutter_flow/flutter_flow_util.dart';
 import '../flutter_flow/flutter_flow_widgets.dart';
+import '../success/success_widget.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_barcode_scanner/flutter_barcode_scanner.dart';
 import 'package:flutter_spinkit/flutter_spinkit.dart';
@@ -283,16 +284,34 @@ class _ScanCouponWidgetState extends State<ScanCouponWidget> {
                               ) ??
                               false;
                           if (confirmDialogResponse) {
-                            ScaffoldMessenger.of(context).showSnackBar(
-                              SnackBar(
-                                content: Text(
-                                  'Submitting...',
-                                  style: TextStyle(),
-                                ),
-                                duration: Duration(milliseconds: 4000),
-                                backgroundColor: Color(0x00000000),
-                              ),
+                            await ConfirmCouponUsedCall.call(
+                              id: couponid,
+                              auth: FFAppState().authtoken,
                             );
+                            if (((columnACouponDetailsResponse?.statusCode ??
+                                    200)) ==
+                                200) {
+                              await Navigator.push(
+                                context,
+                                PageTransition(
+                                  type: PageTransitionType.rightToLeft,
+                                  duration: Duration(milliseconds: 300),
+                                  reverseDuration: Duration(milliseconds: 300),
+                                  child: SuccessWidget(),
+                                ),
+                              );
+                            } else {
+                              ScaffoldMessenger.of(context).showSnackBar(
+                                SnackBar(
+                                  content: Text(
+                                    'Error !',
+                                    style: TextStyle(),
+                                  ),
+                                  duration: Duration(milliseconds: 4000),
+                                  backgroundColor: Color(0x00000000),
+                                ),
+                              );
+                            }
                           }
                         },
                         text: 'Accept the Coupon',

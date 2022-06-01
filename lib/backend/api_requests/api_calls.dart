@@ -350,3 +350,30 @@ class CreateReleaseCall {
         r'''$.data.name''',
       );
 }
+
+class ConfirmCouponUsedCall {
+  static Future<ApiCallResponse> call({
+    String id = '',
+    String auth = '',
+  }) {
+    final body = '''
+{"used": 1}''';
+    return ApiManager.instance.makeApiCall(
+      callName: 'confirmCouponUsed',
+      apiUrl: 'http://hkmjerp.in/api/resource/Prasadam Coupon/${id}',
+      callType: ApiCallType.PUT,
+      headers: {
+        'Authorization': '${auth}',
+      },
+      params: {},
+      body: body,
+      bodyType: BodyType.TEXT,
+      returnBody: true,
+    );
+  }
+
+  static dynamic details(dynamic response) => getJsonField(
+        response,
+        r'''$.message.data''',
+      );
+}
