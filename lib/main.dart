@@ -123,8 +123,8 @@ class _NavBarPageState extends State<NavBarPage> {
         backgroundColor: FlutterFlowTheme.of(context).primaryBtnText,
         selectedItemColor: FlutterFlowTheme.of(context).black600,
         unselectedItemColor: FlutterFlowTheme.of(context).primaryText,
-        showSelectedLabels: false,
-        showUnselectedLabels: false,
+        showSelectedLabels: true,
+        showUnselectedLabels: true,
         type: BottomNavigationBarType.fixed,
         items: <BottomNavigationBarItem>[
           BottomNavigationBarItem(
@@ -144,7 +144,11 @@ class _NavBarPageState extends State<NavBarPage> {
               Icons.grain,
               size: 24,
             ),
-            label: 'Coupons',
+            activeIcon: Icon(
+              Icons.format_list_numbered_rounded,
+              size: 24,
+            ),
+            label: 'Generated',
             tooltip: '',
           ),
           BottomNavigationBarItem(
@@ -152,7 +156,11 @@ class _NavBarPageState extends State<NavBarPage> {
               Icons.receipt_long_sharp,
               size: 24,
             ),
-            label: 'Home',
+            activeIcon: Icon(
+              Icons.qr_code_scanner_rounded,
+              size: 24,
+            ),
+            label: 'Stats',
             tooltip: '',
           )
         ],

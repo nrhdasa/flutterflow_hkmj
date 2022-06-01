@@ -82,6 +82,7 @@ class _WelcomeWidgetState extends State<WelcomeWidget>
             ),
           );
         } else {
+          await Future.delayed(const Duration(milliseconds: 2000));
           await Navigator.push(
             context,
             PageTransition(
@@ -93,6 +94,7 @@ class _WelcomeWidgetState extends State<WelcomeWidget>
           );
         }
       } else {
+        await Future.delayed(const Duration(milliseconds: 2000));
         await Navigator.push(
           context,
           PageTransition(
