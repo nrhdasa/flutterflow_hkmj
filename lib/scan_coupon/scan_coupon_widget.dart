@@ -46,6 +46,8 @@ class _ScanCouponWidgetState extends State<ScanCouponWidget> {
         child: GestureDetector(
           onTap: () => FocusScope.of(context).unfocus(),
           child: Container(
+            width: double.infinity,
+            height: double.infinity,
             decoration: BoxDecoration(
               color: Color(0xFFEEEEEE),
             ),
@@ -343,21 +345,6 @@ class _ScanCouponWidgetState extends State<ScanCouponWidget> {
                                     );
                                     if (((responseUsed?.statusCode ?? 200)) ==
                                         200) {
-                                      ScaffoldMessenger.of(context)
-                                          .showSnackBar(
-                                        SnackBar(
-                                          content: Text(
-                                            getJsonField(
-                                              (responseUsed?.jsonBody ?? ''),
-                                              r'''$''',
-                                            ).toString(),
-                                            style: TextStyle(),
-                                          ),
-                                          duration:
-                                              Duration(milliseconds: 8750),
-                                          backgroundColor: Color(0x00000000),
-                                        ),
-                                      );
                                       await Navigator.push(
                                         context,
                                         PageTransition(

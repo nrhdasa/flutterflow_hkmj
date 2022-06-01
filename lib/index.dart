@@ -14,3 +14,4 @@ export 'generate/generate_widget.dart' show GenerateWidget;
 export 'my_coupons/my_coupons_widget.dart' show MyCouponsWidget;
 export 'coupon_details/coupon_details_widget.dart' show CouponDetailsWidget;
 export 'scan_coupon/scan_coupon_widget.dart' show ScanCouponWidget;
+export 'success_scan/success_scan_widget.dart' show SuccessScanWidget;
