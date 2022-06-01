@@ -27,6 +27,7 @@ class _ScanCouponWidgetState extends State<ScanCouponWidget>
       curve: Curves.elasticOut,
       trigger: AnimationTrigger.onActionTrigger,
       duration: 600,
+      delay: 290,
       fadeIn: true,
       initialState: AnimationState(
         offset: Offset(0, 0),

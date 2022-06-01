@@ -325,7 +325,7 @@ class CreateReleaseCall {
   "type": "Release",
   "date": "${date}",
   "slot": "${slot}",
-  "number": "${number}",
+  "number": ${number},
   "docstatus": 1
 }''';
     return ApiManager.instance.makeApiCall(
