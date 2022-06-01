@@ -290,9 +290,7 @@ class _ScanCouponWidgetState extends State<ScanCouponWidget> {
                               id: couponid,
                               auth: FFAppState().authtoken,
                             );
-                            if (((columnACouponDetailsResponse?.statusCode ??
-                                    200)) ==
-                                200) {
+                            if (((responseUsed?.statusCode ?? 200)) == 200) {
                               ScaffoldMessenger.of(context).showSnackBar(
                                 SnackBar(
                                   content: Text(
