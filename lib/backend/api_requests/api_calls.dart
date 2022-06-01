@@ -237,6 +237,7 @@ class GenerateCouponCall {
   "type": "Request",
   "date": "${date}",
   "slot": "${slot}",
+  "docstatus": 1,
   "number": "${number}"
 }''';
     return ApiManager.instance.makeApiCall(
