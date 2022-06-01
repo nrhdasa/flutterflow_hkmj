@@ -3,6 +3,7 @@ import '../flutter_flow/flutter_flow_theme.dart';
 import '../flutter_flow/flutter_flow_util.dart';
 import '../flutter_flow/flutter_flow_widgets.dart';
 import '../success/success_widget.dart';
+import '../flutter_flow/custom_functions.dart' as functions;
 import 'package:flutter/material.dart';
 import 'package:flutter_barcode_scanner/flutter_barcode_scanner.dart';
 import 'package:flutter_spinkit/flutter_spinkit.dart';
@@ -16,8 +17,9 @@ class ScanCouponWidget extends StatefulWidget {
 }
 
 class _ScanCouponWidgetState extends State<ScanCouponWidget> {
-  final scaffoldKey = GlobalKey<ScaffoldState>();
+  ApiCallResponse responseUsed;
   var couponid = '';
+  final scaffoldKey = GlobalKey<ScaffoldState>();
 
   @override
   Widget build(BuildContext context) {
@@ -284,13 +286,26 @@ class _ScanCouponWidgetState extends State<ScanCouponWidget> {
                               ) ??
                               false;
                           if (confirmDialogResponse) {
-                            await ConfirmCouponUsedCall.call(
+                            responseUsed = await ConfirmCouponUsedCall.call(
                               id: couponid,
                               auth: FFAppState().authtoken,
                             );
                             if (((columnACouponDetailsResponse?.statusCode ??
                                     200)) ==
                                 200) {
+                              ScaffoldMessenger.of(context).showSnackBar(
+                                SnackBar(
+                                  content: Text(
+                                    getJsonField(
+                                      (responseUsed?.jsonBody ?? ''),
+                                      r'''$''',
+                                    ).toString(),
+                                    style: TextStyle(),
+                                  ),
+                                  duration: Duration(milliseconds: 8750),
+                                  backgroundColor: Color(0x00000000),
+                                ),
+                              );
                               await Navigator.push(
                                 context,
                                 PageTransition(
@@ -304,15 +319,21 @@ class _ScanCouponWidgetState extends State<ScanCouponWidget> {
                               ScaffoldMessenger.of(context).showSnackBar(
                                 SnackBar(
                                   content: Text(
-                                    'Error !',
-                                    style: TextStyle(),
+                                    functions.getException(getJsonField(
+                                      (responseUsed?.jsonBody ?? ''),
+                                      r'''$.exception''',
+                                    ).toString()),
+                                    style:
+                                        FlutterFlowTheme.of(context).bodyText2,
                                   ),
                                   duration: Duration(milliseconds: 4000),
-                                  backgroundColor: Color(0x00000000),
+                                  backgroundColor: Color(0xFFFFDBDD),
                                 ),
                               );
                             }
                           }
+
+                          setState(() {});
                         },
                         text: 'Accept the Coupon',
                         options: FFButtonOptions(
