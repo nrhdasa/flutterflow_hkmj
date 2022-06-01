@@ -4,7 +4,6 @@ import '../flutter_flow/flutter_flow_theme.dart';
 import '../flutter_flow/flutter_flow_util.dart';
 import '../flutter_flow/flutter_flow_widgets.dart';
 import '../success/success_widget.dart';
-import '../custom_code/actions/index.dart' as actions;
 import '../flutter_flow/custom_functions.dart' as functions;
 import 'package:flutter/material.dart';
 import 'package:flutter_datetime_picker/flutter_datetime_picker.dart';
@@ -285,12 +284,6 @@ class _RequestWidgetState extends State<RequestWidget> {
                             );
                           }
                         } else {
-                          await actions.printOutput(
-                            getJsonField(
-                              (response?.jsonBody ?? ''),
-                              r'''$''',
-                            ).toString(),
-                          );
                           ScaffoldMessenger.of(context).showSnackBar(
                             SnackBar(
                               content: Text(
@@ -298,10 +291,10 @@ class _RequestWidgetState extends State<RequestWidget> {
                                   (response?.jsonBody ?? ''),
                                   r'''$.exception''',
                                 ).toString()),
-                                style: TextStyle(),
+                                style: FlutterFlowTheme.of(context).bodyText1,
                               ),
                               duration: Duration(milliseconds: 4000),
-                              backgroundColor: Color(0x00000000),
+                              backgroundColor: Color(0xFFFFDBDD),
                             ),
                           );
                         }

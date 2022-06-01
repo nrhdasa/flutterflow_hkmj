@@ -3,7 +3,7 @@ import '../flutter_flow/flutter_flow_animations.dart';
 import '../flutter_flow/flutter_flow_theme.dart';
 import '../flutter_flow/flutter_flow_util.dart';
 import '../flutter_flow/flutter_flow_widgets.dart';
-import '../success/success_widget.dart';
+import '../success_scan/success_scan_widget.dart';
 import '../flutter_flow/custom_functions.dart' as functions;
 import 'package:flutter/material.dart';
 import 'package:flutter_barcode_scanner/flutter_barcode_scanner.dart';
@@ -414,7 +414,7 @@ class _ScanCouponWidgetState extends State<ScanCouponWidget>
                                                 Duration(milliseconds: 300),
                                             reverseDuration:
                                                 Duration(milliseconds: 300),
-                                            child: SuccessWidget(),
+                                            child: SuccessScanWidget(),
                                           ),
                                         );
                                       } else {

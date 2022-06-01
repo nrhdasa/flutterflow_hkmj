@@ -291,10 +291,10 @@ class _ReleaseWidgetState extends State<ReleaseWidget> {
                                   (response?.jsonBody ?? ''),
                                   r'''$.exception''',
                                 ).toString()),
-                                style: TextStyle(),
+                                style: FlutterFlowTheme.of(context).bodyText1,
                               ),
                               duration: Duration(milliseconds: 4000),
-                              backgroundColor: Color(0x00000000),
+                              backgroundColor: Color(0xFFFFDBDD),
                             ),
                           );
                         }
