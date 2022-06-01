@@ -56,3 +56,15 @@ String getException(String exception) {
       .replaceAll(RegExp('<br>'), '');
   return replaced;
 }
+
+String getDateinFormat(
+  String date,
+  String format,
+) {
+  //$.creation
+  DateTime dateformatted = DateTime.parse(date);
+  dateformatted = dateformatted ?? DateTime.now();
+  final DateFormat formatter = DateFormat(format);
+  final String formatted = formatter.format(dateformatted);
+  return formatted;
+}

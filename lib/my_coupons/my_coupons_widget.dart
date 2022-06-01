@@ -27,23 +27,12 @@ class _MyCouponsWidgetState extends State<MyCouponsWidget> {
       appBar: AppBar(
         backgroundColor: FlutterFlowTheme.of(context).secondaryBackground,
         automaticallyImplyLeading: false,
-        leading: FlutterFlowIconButton(
-          borderColor: Colors.transparent,
-          borderRadius: 30,
-          borderWidth: 1,
-          buttonSize: 60,
-          icon: Icon(
-            Icons.arrow_back_rounded,
-            color: FlutterFlowTheme.of(context).primaryText,
-            size: 30,
-          ),
-          onPressed: () async {
-            Navigator.pop(context);
-          },
-        ),
         title: Text(
-          'Back',
-          style: FlutterFlowTheme.of(context).subtitle1,
+          'Coupons Generated',
+          style: FlutterFlowTheme.of(context).subtitle1.override(
+                fontFamily: 'Poppins',
+                fontSize: 24,
+              ),
         ),
         actions: [],
         centerTitle: false,
@@ -262,10 +251,12 @@ class _MyCouponsWidgetState extends State<MyCouponsWidget> {
                                                       .bodyText2,
                                                 ),
                                                 Text(
-                                                  getJsonField(
-                                                    morninglistItem,
-                                                    r'''$.creation''',
-                                                  ).toString(),
+                                                  functions.getDateinFormat(
+                                                      getJsonField(
+                                                        morninglistItem,
+                                                        r'''$.creation''',
+                                                      ).toString(),
+                                                      'yyyy-MM-dd'),
                                                   style: FlutterFlowTheme.of(
                                                           context)
                                                       .subtitle1,
