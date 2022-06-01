@@ -1,10 +1,9 @@
 import '../backend/api_requests/api_calls.dart';
-import '../coupons/coupons_widget.dart';
 import '../flutter_flow/flutter_flow_icon_button.dart';
 import '../flutter_flow/flutter_flow_theme.dart';
 import '../flutter_flow/flutter_flow_util.dart';
 import '../generate/generate_widget.dart';
-import '../my_coupons/my_coupons_widget.dart';
+import '../main.dart';
 import '../profile/profile_widget.dart';
 import '../release/release_widget.dart';
 import '../request/request_widget.dart';
@@ -354,7 +353,8 @@ class _HomeWidgetState extends State<HomeWidget> {
                             await Navigator.pushAndRemoveUntil(
                               context,
                               MaterialPageRoute(
-                                builder: (context) => HomeWidget(),
+                                builder: (context) =>
+                                    NavBarPage(initialPage: 'Home'),
                               ),
                               (r) => false,
                             );
@@ -1422,7 +1422,7 @@ class _HomeWidgetState extends State<HomeWidget> {
                             type: PageTransitionType.rightToLeft,
                             duration: Duration(milliseconds: 300),
                             reverseDuration: Duration(milliseconds: 300),
-                            child: CouponsWidget(),
+                            child: NavBarPage(initialPage: 'Coupons'),
                           ),
                         );
                       },
@@ -1495,7 +1495,7 @@ class _HomeWidgetState extends State<HomeWidget> {
                             type: PageTransitionType.rightToLeft,
                             duration: Duration(milliseconds: 300),
                             reverseDuration: Duration(milliseconds: 300),
-                            child: MyCouponsWidget(),
+                            child: NavBarPage(initialPage: 'MyCoupons'),
                           ),
                         );
                       },
