@@ -34,14 +34,14 @@ class _MyAppState extends State<MyApp> {
   Locale _locale;
   ThemeMode _themeMode = FlutterFlowTheme.themeMode;
 
-  Stream<HKMAshramFirebaseUser> userStream;
-  HKMAshramFirebaseUser initialUser;
+  Stream<KrishnaTasteFirebaseUser> userStream;
+  KrishnaTasteFirebaseUser initialUser;
   bool displaySplashImage = true;
 
   @override
   void initState() {
     super.initState();
-    userStream = hKMAshramFirebaseUserStream()
+    userStream = krishnaTasteFirebaseUserStream()
       ..listen((user) => initialUser ?? setState(() => initialUser = user));
     Future.delayed(
       Duration(seconds: 1),
@@ -58,7 +58,7 @@ class _MyAppState extends State<MyApp> {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
-      title: 'HKM Ashram',
+      title: 'Krishna Taste',
       localizationsDelegates: [
         FFLocalizationsDelegate(),
         GlobalMaterialLocalizations.delegate,
@@ -71,13 +71,12 @@ class _MyAppState extends State<MyApp> {
       darkTheme: ThemeData(brightness: Brightness.dark),
       themeMode: _themeMode,
       home: initialUser == null || displaySplashImage
-          ? Center(
-              child: SizedBox(
-                width: 50,
-                height: 50,
-                child: SpinKitFadingCube(
-                  color: FlutterFlowTheme.of(context).primaryColor,
-                  size: 50,
+          ? Container(
+              color: FlutterFlowTheme.of(context).secondaryColor,
+              child: Builder(
+                builder: (context) => Image.asset(
+                  'assets/images/logo.png',
+                  fit: BoxFit.contain,
                 ),
               ),
             )
