@@ -354,21 +354,26 @@ class CreateReleaseCall {
 
 class ConfirmCouponUsedCall {
   static Future<ApiCallResponse> call({
-    String coupon = '',
     String auth = '',
+    String coupon = '',
   }) {
+    final body = '''
+{
+  "coupon": "${coupon}"
+}''';
     return ApiManager.instance.makeApiCall(
       callName: 'confirmCouponUsed',
       apiUrl:
           'http://hkmjerp.in/api/method/hkm.prasadam_coupon_management.api.confirmCouponUsed',
-      callType: ApiCallType.PUT,
+      callType: ApiCallType.POST,
       headers: {
         'Authorization': '${auth}',
       },
       params: {
         'coupon': coupon,
       },
-      bodyType: BodyType.NONE,
+      body: body,
+      bodyType: BodyType.JSON,
       returnBody: true,
     );
   }
