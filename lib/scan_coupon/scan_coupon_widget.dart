@@ -25,16 +25,21 @@ class _ScanCouponWidgetState extends State<ScanCouponWidget> {
   Widget build(BuildContext context) {
     return Scaffold(
       key: scaffoldKey,
-      appBar: AppBar(
-        backgroundColor: FlutterFlowTheme.of(context).secondaryBackground,
-        automaticallyImplyLeading: false,
-        title: Text(
-          'Scan Coupon',
-          style: FlutterFlowTheme.of(context).title2,
+      appBar: PreferredSize(
+        preferredSize: Size.fromHeight(100),
+        child: AppBar(
+          backgroundColor: FlutterFlowTheme.of(context).secondaryBackground,
+          automaticallyImplyLeading: false,
+          flexibleSpace: Padding(
+            padding: EdgeInsetsDirectional.fromSTEB(24, 40, 0, 0),
+            child: Text(
+              'Scan Coupon',
+              style: FlutterFlowTheme.of(context).title2,
+            ),
+          ),
+          actions: [],
+          elevation: 0,
         ),
-        actions: [],
-        centerTitle: false,
-        elevation: 0,
       ),
       backgroundColor: FlutterFlowTheme.of(context).secondaryBackground,
       body: SafeArea(
