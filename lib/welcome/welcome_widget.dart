@@ -67,7 +67,6 @@ class _WelcomeWidgetState extends State<WelcomeWidget>
     super.initState();
     // On page load action.
     SchedulerBinding.instance?.addPostFrameCallback((_) async {
-      await Future.delayed(const Duration(milliseconds: 2000));
       if ((FFAppState().authtoken != null) && (FFAppState().authtoken != '')) {
         message = await IsLoggedInCall.call(
           auth: FFAppState().authtoken,
@@ -75,23 +74,32 @@ class _WelcomeWidgetState extends State<WelcomeWidget>
         if ((message?.succeeded ?? true)) {
           await Navigator.push(
             context,
-            MaterialPageRoute(
-              builder: (context) => NavBarPage(initialPage: 'Home'),
+            PageTransition(
+              type: PageTransitionType.rightToLeft,
+              duration: Duration(milliseconds: 300),
+              reverseDuration: Duration(milliseconds: 300),
+              child: NavBarPage(initialPage: 'Home'),
             ),
           );
         } else {
           await Navigator.push(
             context,
-            MaterialPageRoute(
-              builder: (context) => LoginWidget(),
+            PageTransition(
+              type: PageTransitionType.rightToLeft,
+              duration: Duration(milliseconds: 300),
+              reverseDuration: Duration(milliseconds: 300),
+              child: LoginWidget(),
             ),
           );
         }
       } else {
         await Navigator.push(
           context,
-          MaterialPageRoute(
-            builder: (context) => LoginWidget(),
+          PageTransition(
+            type: PageTransitionType.rightToLeft,
+            duration: Duration(milliseconds: 300),
+            reverseDuration: Duration(milliseconds: 300),
+            child: LoginWidget(),
           ),
         );
       }

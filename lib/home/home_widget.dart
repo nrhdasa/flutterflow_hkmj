@@ -137,9 +137,12 @@ class _HomeWidgetState extends State<HomeWidget> {
                                     onPressed: () async {
                                       await Navigator.push(
                                         context,
-                                        MaterialPageRoute(
-                                          builder: (context) =>
-                                              GenerateWidget(),
+                                        PageTransition(
+                                          type: PageTransitionType.rightToLeft,
+                                          duration: Duration(milliseconds: 300),
+                                          reverseDuration:
+                                              Duration(milliseconds: 300),
+                                          child: GenerateWidget(),
                                         ),
                                       );
                                     },
@@ -180,9 +183,12 @@ class _HomeWidgetState extends State<HomeWidget> {
                                     onPressed: () async {
                                       await Navigator.push(
                                         context,
-                                        MaterialPageRoute(
-                                          builder: (context) =>
-                                              GenerateWidget(),
+                                        PageTransition(
+                                          type: PageTransitionType.rightToLeft,
+                                          duration: Duration(milliseconds: 300),
+                                          reverseDuration:
+                                              Duration(milliseconds: 300),
+                                          child: GenerateWidget(),
                                         ),
                                       );
                                     },
@@ -268,8 +274,12 @@ class _HomeWidgetState extends State<HomeWidget> {
                                     onPressed: () async {
                                       await Navigator.push(
                                         context,
-                                        MaterialPageRoute(
-                                          builder: (context) => ReleaseWidget(),
+                                        PageTransition(
+                                          type: PageTransitionType.rightToLeft,
+                                          duration: Duration(milliseconds: 300),
+                                          reverseDuration:
+                                              Duration(milliseconds: 300),
+                                          child: ReleaseWidget(),
                                         ),
                                       );
                                     },
@@ -309,9 +319,12 @@ class _HomeWidgetState extends State<HomeWidget> {
                                     onPressed: () async {
                                       await Navigator.push(
                                         context,
-                                        MaterialPageRoute(
-                                          builder: (context) =>
-                                              TransferSelectUserWidget(),
+                                        PageTransition(
+                                          type: PageTransitionType.rightToLeft,
+                                          duration: Duration(milliseconds: 300),
+                                          reverseDuration:
+                                              Duration(milliseconds: 300),
+                                          child: TransferSelectUserWidget(),
                                         ),
                                       );
                                     },
@@ -352,9 +365,11 @@ class _HomeWidgetState extends State<HomeWidget> {
                           onPressed: () async {
                             await Navigator.pushAndRemoveUntil(
                               context,
-                              MaterialPageRoute(
-                                builder: (context) =>
-                                    NavBarPage(initialPage: 'Home'),
+                              PageTransition(
+                                type: PageTransitionType.rightToLeft,
+                                duration: Duration(milliseconds: 300),
+                                reverseDuration: Duration(milliseconds: 300),
+                                child: NavBarPage(initialPage: 'Home'),
                               ),
                               (r) => false,
                             );
