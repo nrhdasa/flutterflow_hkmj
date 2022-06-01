@@ -4,7 +4,6 @@ import '../flutter_flow/flutter_flow_drop_down.dart';
 import '../flutter_flow/flutter_flow_icon_button.dart';
 import '../flutter_flow/flutter_flow_theme.dart';
 import '../flutter_flow/flutter_flow_util.dart';
-import '../flutter_flow/custom_functions.dart' as functions;
 import 'package:flutter/material.dart';
 import 'package:flutter_datetime_picker/flutter_datetime_picker.dart';
 import 'package:flutter_spinkit/flutter_spinkit.dart';
@@ -106,11 +105,8 @@ class _CouponsWidgetState extends State<CouponsWidget>
                             setState(() => datePicked = date);
                           },
                           currentTime: getCurrentTimestamp,
-                          minTime: DateTime(0, 0, 0),
+                          minTime: getCurrentTimestamp,
                         );
-
-                        setState(() => FFAppState().searchdate =
-                            functions.setDate(datePicked));
                       },
                     ),
                     Text(
@@ -298,8 +294,9 @@ class _CouponsWidgetState extends State<CouponsWidget>
                                                         height: 20,
                                                         decoration:
                                                             BoxDecoration(
-                                                          color:
-                                                              Color(0xFF96FF9B),
+                                                          color: FlutterFlowTheme
+                                                                  .of(context)
+                                                              .tertiaryColor,
                                                           shape:
                                                               BoxShape.circle,
                                                         ),
@@ -329,7 +326,7 @@ class _CouponsWidgetState extends State<CouponsWidget>
                                                                 .fromSTEB(
                                                                     0, 4, 0, 4),
                                                         child: Text(
-                                                          'Used',
+                                                          'Generated',
                                                           style: FlutterFlowTheme
                                                                   .of(context)
                                                               .bodyText2
@@ -386,7 +383,7 @@ class _CouponsWidgetState extends State<CouponsWidget>
                                                                 .fromSTEB(
                                                                     0, 4, 0, 4),
                                                         child: Text(
-                                                          'Generated',
+                                                          'Used',
                                                           style: FlutterFlowTheme
                                                                   .of(context)
                                                               .bodyText2
