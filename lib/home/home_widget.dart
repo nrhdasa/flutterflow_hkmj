@@ -36,7 +36,10 @@ class _HomeWidgetState extends State<HomeWidget> {
         automaticallyImplyLeading: false,
         title: Text(
           'Hi, ${FFAppState().username}',
-          style: FlutterFlowTheme.of(context).title1,
+          style: FlutterFlowTheme.of(context).title1.override(
+                fontFamily: 'Poppins',
+                color: FlutterFlowTheme.of(context).primaryText,
+              ),
         ),
         actions: [
           Padding(
@@ -150,225 +153,219 @@ class _HomeWidgetState extends State<HomeWidget> {
                                 color: Colors.white,
                               ),
                             ),
-                            child: Padding(
-                              padding:
-                                  EdgeInsetsDirectional.fromSTEB(16, 0, 16, 0),
-                              child: SingleChildScrollView(
-                                scrollDirection: Axis.horizontal,
-                                child: Row(
-                                  mainAxisSize: MainAxisSize.max,
-                                  children: [
-                                    Container(
-                                      width: 100,
-                                      height: 100,
-                                      decoration: BoxDecoration(
-                                        shape: BoxShape.rectangle,
-                                      ),
-                                      child: Column(
-                                        mainAxisSize: MainAxisSize.max,
-                                        mainAxisAlignment:
-                                            MainAxisAlignment.center,
-                                        crossAxisAlignment:
-                                            CrossAxisAlignment.center,
-                                        children: [
-                                          FlutterFlowIconButton(
-                                            borderColor:
-                                                FlutterFlowTheme.of(context)
-                                                    .primaryBtnText,
-                                            borderRadius: 20,
-                                            borderWidth: 1,
-                                            buttonSize: 70,
-                                            fillColor:
-                                                FlutterFlowTheme.of(context)
-                                                    .tertiaryColor,
-                                            icon: FaIcon(
-                                              FontAwesomeIcons.qrcode,
-                                              color:
-                                                  FlutterFlowTheme.of(context)
-                                                      .primaryBackground,
-                                              size: 30,
-                                            ),
-                                            onPressed: () async {
-                                              await Navigator.push(
-                                                context,
-                                                PageTransition(
-                                                  type: PageTransitionType
-                                                      .rightToLeft,
-                                                  duration: Duration(
-                                                      milliseconds: 300),
-                                                  reverseDuration: Duration(
-                                                      milliseconds: 300),
-                                                  child: GenerateWidget(),
-                                                ),
-                                              );
-                                            },
-                                          ),
-                                          Text(
-                                            'Generate',
-                                            style: FlutterFlowTheme.of(context)
-                                                .bodyText1,
-                                          ),
-                                        ],
-                                      ),
+                            child: SingleChildScrollView(
+                              scrollDirection: Axis.horizontal,
+                              child: Row(
+                                mainAxisSize: MainAxisSize.max,
+                                children: [
+                                  Container(
+                                    width: 100,
+                                    height: 100,
+                                    decoration: BoxDecoration(
+                                      shape: BoxShape.rectangle,
                                     ),
-                                    Container(
-                                      width: 100,
-                                      height: 100,
-                                      decoration: BoxDecoration(
-                                        shape: BoxShape.rectangle,
-                                      ),
-                                      child: Column(
-                                        mainAxisSize: MainAxisSize.max,
-                                        mainAxisAlignment:
-                                            MainAxisAlignment.center,
-                                        crossAxisAlignment:
-                                            CrossAxisAlignment.center,
-                                        children: [
-                                          FlutterFlowIconButton(
-                                            borderColor:
-                                                FlutterFlowTheme.of(context)
-                                                    .tertiaryColor,
-                                            borderRadius: 20,
-                                            borderWidth: 1,
-                                            buttonSize: 70,
-                                            fillColor:
-                                                FlutterFlowTheme.of(context)
-                                                    .gray200,
-                                            icon: FaIcon(
-                                              FontAwesomeIcons.plus,
-                                              color: Colors.black,
-                                              size: 30,
-                                            ),
-                                            onPressed: () async {
-                                              await Navigator.push(
-                                                context,
-                                                PageTransition(
-                                                  type:
-                                                      PageTransitionType.scale,
-                                                  alignment:
-                                                      Alignment.bottomCenter,
-                                                  duration: Duration(
-                                                      milliseconds: 300),
-                                                  reverseDuration: Duration(
-                                                      milliseconds: 300),
-                                                  child: RequestWidget(),
-                                                ),
-                                              );
-                                            },
+                                    child: Column(
+                                      mainAxisSize: MainAxisSize.max,
+                                      mainAxisAlignment:
+                                          MainAxisAlignment.center,
+                                      crossAxisAlignment:
+                                          CrossAxisAlignment.center,
+                                      children: [
+                                        FlutterFlowIconButton(
+                                          borderColor:
+                                              FlutterFlowTheme.of(context)
+                                                  .primaryBtnText,
+                                          borderRadius: 20,
+                                          borderWidth: 1,
+                                          buttonSize: 70,
+                                          fillColor:
+                                              FlutterFlowTheme.of(context)
+                                                  .tertiaryColor,
+                                          icon: FaIcon(
+                                            FontAwesomeIcons.qrcode,
+                                            color: FlutterFlowTheme.of(context)
+                                                .primaryBackground,
+                                            size: 30,
                                           ),
-                                          Text(
-                                            'Request',
-                                            style: FlutterFlowTheme.of(context)
-                                                .bodyText1,
-                                          ),
-                                        ],
-                                      ),
+                                          onPressed: () async {
+                                            await Navigator.push(
+                                              context,
+                                              PageTransition(
+                                                type: PageTransitionType
+                                                    .rightToLeft,
+                                                duration:
+                                                    Duration(milliseconds: 300),
+                                                reverseDuration:
+                                                    Duration(milliseconds: 300),
+                                                child: GenerateWidget(),
+                                              ),
+                                            );
+                                          },
+                                        ),
+                                        Text(
+                                          'Generate',
+                                          style: FlutterFlowTheme.of(context)
+                                              .bodyText1,
+                                        ),
+                                      ],
                                     ),
-                                    Container(
-                                      width: 100,
-                                      height: 100,
-                                      decoration: BoxDecoration(
-                                        shape: BoxShape.rectangle,
-                                      ),
-                                      child: Column(
-                                        mainAxisSize: MainAxisSize.max,
-                                        mainAxisAlignment:
-                                            MainAxisAlignment.center,
-                                        crossAxisAlignment:
-                                            CrossAxisAlignment.center,
-                                        children: [
-                                          FlutterFlowIconButton(
-                                            borderColor:
-                                                FlutterFlowTheme.of(context)
-                                                    .primaryBtnText,
-                                            borderRadius: 20,
-                                            borderWidth: 1,
-                                            buttonSize: 70,
-                                            fillColor:
-                                                FlutterFlowTheme.of(context)
-                                                    .alternate,
-                                            icon: FaIcon(
-                                              FontAwesomeIcons.minus,
-                                              color: Colors.white,
-                                              size: 30,
-                                            ),
-                                            onPressed: () async {
-                                              await Navigator.push(
-                                                context,
-                                                PageTransition(
-                                                  type: PageTransitionType
-                                                      .rightToLeft,
-                                                  duration: Duration(
-                                                      milliseconds: 300),
-                                                  reverseDuration: Duration(
-                                                      milliseconds: 300),
-                                                  child: ReleaseWidget(),
-                                                ),
-                                              );
-                                            },
-                                          ),
-                                          Text(
-                                            'Release',
-                                            style: FlutterFlowTheme.of(context)
-                                                .bodyText1,
-                                          ),
-                                        ],
-                                      ),
+                                  ),
+                                  Container(
+                                    width: 100,
+                                    height: 100,
+                                    decoration: BoxDecoration(
+                                      shape: BoxShape.rectangle,
                                     ),
-                                    Container(
-                                      width: 100,
-                                      height: 100,
-                                      decoration: BoxDecoration(
-                                        shape: BoxShape.rectangle,
-                                      ),
-                                      child: Column(
-                                        mainAxisSize: MainAxisSize.max,
-                                        mainAxisAlignment:
-                                            MainAxisAlignment.center,
-                                        crossAxisAlignment:
-                                            CrossAxisAlignment.center,
-                                        children: [
-                                          FlutterFlowIconButton(
-                                            borderColor:
-                                                FlutterFlowTheme.of(context)
-                                                    .primaryBtnText,
-                                            borderRadius: 20,
-                                            borderWidth: 1,
-                                            buttonSize: 70,
-                                            fillColor:
-                                                FlutterFlowTheme.of(context)
-                                                    .secondaryColor,
-                                            icon: FaIcon(
-                                              FontAwesomeIcons.arrowRight,
-                                              color: Colors.black,
-                                              size: 30,
-                                            ),
-                                            onPressed: () async {
-                                              await Navigator.push(
-                                                context,
-                                                PageTransition(
-                                                  type: PageTransitionType
-                                                      .rightToLeft,
-                                                  duration: Duration(
-                                                      milliseconds: 300),
-                                                  reverseDuration: Duration(
-                                                      milliseconds: 300),
-                                                  child:
-                                                      TransferSelectUserWidget(),
-                                                ),
-                                              );
-                                            },
+                                    child: Column(
+                                      mainAxisSize: MainAxisSize.max,
+                                      mainAxisAlignment:
+                                          MainAxisAlignment.center,
+                                      crossAxisAlignment:
+                                          CrossAxisAlignment.center,
+                                      children: [
+                                        FlutterFlowIconButton(
+                                          borderColor:
+                                              FlutterFlowTheme.of(context)
+                                                  .tertiaryColor,
+                                          borderRadius: 20,
+                                          borderWidth: 1,
+                                          buttonSize: 70,
+                                          fillColor:
+                                              FlutterFlowTheme.of(context)
+                                                  .gray200,
+                                          icon: FaIcon(
+                                            FontAwesomeIcons.plus,
+                                            color: Colors.black,
+                                            size: 30,
                                           ),
-                                          Text(
-                                            'Transfer',
-                                            style: FlutterFlowTheme.of(context)
-                                                .bodyText1,
-                                          ),
-                                        ],
-                                      ),
+                                          onPressed: () async {
+                                            await Navigator.push(
+                                              context,
+                                              PageTransition(
+                                                type: PageTransitionType.scale,
+                                                alignment:
+                                                    Alignment.bottomCenter,
+                                                duration:
+                                                    Duration(milliseconds: 300),
+                                                reverseDuration:
+                                                    Duration(milliseconds: 300),
+                                                child: RequestWidget(),
+                                              ),
+                                            );
+                                          },
+                                        ),
+                                        Text(
+                                          'Request',
+                                          style: FlutterFlowTheme.of(context)
+                                              .bodyText1,
+                                        ),
+                                      ],
                                     ),
-                                  ],
-                                ),
+                                  ),
+                                  Container(
+                                    width: 100,
+                                    height: 100,
+                                    decoration: BoxDecoration(
+                                      shape: BoxShape.rectangle,
+                                    ),
+                                    child: Column(
+                                      mainAxisSize: MainAxisSize.max,
+                                      mainAxisAlignment:
+                                          MainAxisAlignment.center,
+                                      crossAxisAlignment:
+                                          CrossAxisAlignment.center,
+                                      children: [
+                                        FlutterFlowIconButton(
+                                          borderColor:
+                                              FlutterFlowTheme.of(context)
+                                                  .primaryBtnText,
+                                          borderRadius: 20,
+                                          borderWidth: 1,
+                                          buttonSize: 70,
+                                          fillColor:
+                                              FlutterFlowTheme.of(context)
+                                                  .alternate,
+                                          icon: FaIcon(
+                                            FontAwesomeIcons.minus,
+                                            color: Colors.white,
+                                            size: 30,
+                                          ),
+                                          onPressed: () async {
+                                            await Navigator.push(
+                                              context,
+                                              PageTransition(
+                                                type: PageTransitionType
+                                                    .rightToLeft,
+                                                duration:
+                                                    Duration(milliseconds: 300),
+                                                reverseDuration:
+                                                    Duration(milliseconds: 300),
+                                                child: ReleaseWidget(),
+                                              ),
+                                            );
+                                          },
+                                        ),
+                                        Text(
+                                          'Release',
+                                          style: FlutterFlowTheme.of(context)
+                                              .bodyText1,
+                                        ),
+                                      ],
+                                    ),
+                                  ),
+                                  Container(
+                                    width: 100,
+                                    height: 100,
+                                    decoration: BoxDecoration(
+                                      shape: BoxShape.rectangle,
+                                    ),
+                                    child: Column(
+                                      mainAxisSize: MainAxisSize.max,
+                                      mainAxisAlignment:
+                                          MainAxisAlignment.center,
+                                      crossAxisAlignment:
+                                          CrossAxisAlignment.center,
+                                      children: [
+                                        FlutterFlowIconButton(
+                                          borderColor:
+                                              FlutterFlowTheme.of(context)
+                                                  .primaryBtnText,
+                                          borderRadius: 20,
+                                          borderWidth: 1,
+                                          buttonSize: 70,
+                                          fillColor:
+                                              FlutterFlowTheme.of(context)
+                                                  .secondaryColor,
+                                          icon: FaIcon(
+                                            FontAwesomeIcons.arrowRight,
+                                            color: Colors.black,
+                                            size: 30,
+                                          ),
+                                          onPressed: () async {
+                                            await Navigator.push(
+                                              context,
+                                              PageTransition(
+                                                type: PageTransitionType
+                                                    .rightToLeft,
+                                                duration:
+                                                    Duration(milliseconds: 300),
+                                                reverseDuration:
+                                                    Duration(milliseconds: 300),
+                                                child:
+                                                    TransferSelectUserWidget(),
+                                              ),
+                                            );
+                                          },
+                                        ),
+                                        Text(
+                                          'Transfer',
+                                          style: FlutterFlowTheme.of(context)
+                                              .bodyText1,
+                                        ),
+                                      ],
+                                    ),
+                                  ),
+                                ],
                               ),
                             ),
                           ),

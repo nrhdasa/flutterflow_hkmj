@@ -143,7 +143,7 @@ class _AllUsersCouponsWidgetState extends State<AllUsersCouponsWidget>
                       ),
                   hintText: 'Please select the slot...',
                   icon: Icon(
-                    Icons.access_time,
+                    Icons.arrow_drop_down_circle_outlined,
                     color: Color(0xFF1A237E),
                     size: 15,
                   ),
@@ -152,7 +152,7 @@ class _AllUsersCouponsWidgetState extends State<AllUsersCouponsWidget>
                   borderColor: FlutterFlowTheme.of(context).secondaryBackground,
                   borderWidth: 0,
                   borderRadius: 0,
-                  margin: EdgeInsetsDirectional.fromSTEB(12, 4, 12, 4),
+                  margin: EdgeInsetsDirectional.fromSTEB(15, 4, 15, 4),
                   hidesUnderline: true,
                 ),
               ),
