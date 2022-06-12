@@ -261,7 +261,7 @@ class _GenerateWidgetState extends State<GenerateWidget> {
                                 r'''$.data.name''',
                               ) !=
                               null)) {
-                            await Navigator.pushAndRemoveUntil(
+                            await Navigator.push(
                               context,
                               PageTransition(
                                 type: PageTransitionType.rightToLeft,
@@ -274,7 +274,6 @@ class _GenerateWidgetState extends State<GenerateWidget> {
                                   ).toString(),
                                 ),
                               ),
-                              (r) => false,
                             );
                           } else {
                             ScaffoldMessenger.of(context).showSnackBar(
