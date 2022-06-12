@@ -54,7 +54,7 @@ class _AllUsersCouponsWidgetState extends State<AllUsersCouponsWidget>
     return Scaffold(
       key: scaffoldKey,
       appBar: AppBar(
-        backgroundColor: FlutterFlowTheme.of(context).primaryBackground,
+        backgroundColor: FlutterFlowTheme.of(context).primaryBtnText,
         automaticallyImplyLeading: false,
         title: Text(
           'Coupons Stats',
@@ -64,7 +64,7 @@ class _AllUsersCouponsWidgetState extends State<AllUsersCouponsWidget>
         centerTitle: false,
         elevation: 0,
       ),
-      backgroundColor: FlutterFlowTheme.of(context).primaryBackground,
+      backgroundColor: FlutterFlowTheme.of(context).primaryBtnText,
       body: SafeArea(
         child: GestureDetector(
           onTap: () => FocusScope.of(context).unfocus(),
@@ -75,7 +75,7 @@ class _AllUsersCouponsWidgetState extends State<AllUsersCouponsWidget>
               Container(
                 width: double.infinity,
                 decoration: BoxDecoration(
-                  color: FlutterFlowTheme.of(context).secondaryBackground,
+                  color: FlutterFlowTheme.of(context).primaryBtnText,
                   boxShadow: [
                     BoxShadow(
                       blurRadius: 5,
@@ -109,30 +109,52 @@ class _AllUsersCouponsWidgetState extends State<AllUsersCouponsWidget>
                         ),
                       ),
                       Text(
-                        dateTimeFormat('MMMMEEEEd', datePicked),
+                        valueOrDefault<String>(
+                          dateTimeFormat('MMMMEEEEd', datePicked),
+                          'Today',
+                        ),
                         style: FlutterFlowTheme.of(context).subtitle2,
                       ),
                     ],
                   ),
                 ),
               ),
-              FlutterFlowDropDown(
-                initialOption: dropDownValue ??= 'Morning',
-                options: ['Morning', 'Afternoon', 'Evening'],
-                onChanged: (val) => setState(() => dropDownValue = val),
-                height: 50,
-                textStyle: FlutterFlowTheme.of(context).bodyText1.override(
-                      fontFamily: 'Poppins',
-                      color: Colors.black,
-                    ),
-                hintText: 'Please select the slot...',
-                fillColor: Colors.white,
-                elevation: 2,
-                borderColor: Colors.transparent,
-                borderWidth: 0,
-                borderRadius: 0,
-                margin: EdgeInsetsDirectional.fromSTEB(12, 4, 12, 4),
-                hidesUnderline: true,
+              Container(
+                width: double.infinity,
+                decoration: BoxDecoration(
+                  color: Color(0xFFEEEEEE),
+                  boxShadow: [
+                    BoxShadow(
+                      blurRadius: 2,
+                      color: FlutterFlowTheme.of(context).gray600,
+                      offset: Offset(0, 2),
+                      spreadRadius: 0.3,
+                    )
+                  ],
+                ),
+                child: FlutterFlowDropDown(
+                  initialOption: dropDownValue ??= 'Morning',
+                  options: ['Morning', 'Afternoon', 'Evening'],
+                  onChanged: (val) => setState(() => dropDownValue = val),
+                  height: 50,
+                  textStyle: FlutterFlowTheme.of(context).bodyText1.override(
+                        fontFamily: 'Poppins',
+                        color: Colors.black,
+                      ),
+                  hintText: 'Please select the slot...',
+                  icon: Icon(
+                    Icons.access_time,
+                    color: Color(0xFF1A237E),
+                    size: 15,
+                  ),
+                  fillColor: Colors.white,
+                  elevation: 10,
+                  borderColor: FlutterFlowTheme.of(context).secondaryBackground,
+                  borderWidth: 0,
+                  borderRadius: 0,
+                  margin: EdgeInsetsDirectional.fromSTEB(12, 4, 12, 4),
+                  hidesUnderline: true,
+                ),
               ),
               Expanded(
                 child: FutureBuilder<ApiCallResponse>(
@@ -178,7 +200,7 @@ class _AllUsersCouponsWidgetState extends State<AllUsersCouponsWidget>
                                 height: 100,
                                 decoration: BoxDecoration(
                                   color: FlutterFlowTheme.of(context)
-                                      .secondaryBackground,
+                                      .primaryBackground,
                                   boxShadow: [
                                     BoxShadow(
                                       color: Color(0x230E151B),
