@@ -9,14 +9,14 @@ import 'package:flutter_datetime_picker/flutter_datetime_picker.dart';
 import 'package:flutter_spinkit/flutter_spinkit.dart';
 import 'package:google_fonts/google_fonts.dart';
 
-class MyCouponsWidget extends StatefulWidget {
-  const MyCouponsWidget({Key key}) : super(key: key);
+class CouponsGeneratedWidget extends StatefulWidget {
+  const CouponsGeneratedWidget({Key key}) : super(key: key);
 
   @override
-  _MyCouponsWidgetState createState() => _MyCouponsWidgetState();
+  _CouponsGeneratedWidgetState createState() => _CouponsGeneratedWidgetState();
 }
 
-class _MyCouponsWidgetState extends State<MyCouponsWidget> {
+class _CouponsGeneratedWidgetState extends State<CouponsGeneratedWidget> {
   DateTime datePicked;
   final scaffoldKey = GlobalKey<ScaffoldState>();
 
@@ -58,36 +58,41 @@ class _MyCouponsWidgetState extends State<MyCouponsWidget> {
                       )
                     ],
                   ),
-                  child: Row(
-                    mainAxisSize: MainAxisSize.max,
-                    children: [
-                      FlutterFlowIconButton(
-                        borderColor: Colors.transparent,
-                        borderRadius: 30,
-                        borderWidth: 1,
-                        buttonSize: 60,
-                        icon: Icon(
-                          Icons.calendar_today,
-                          color: Colors.black,
-                          size: 30,
-                        ),
-                        onPressed: () async {
-                          await DatePicker.showDatePicker(
-                            context,
-                            showTitleActions: true,
-                            onConfirm: (date) {
-                              setState(() => datePicked = date);
-                            },
-                            currentTime: getCurrentTimestamp,
-                            minTime: DateTime(0, 0, 0),
-                          );
+                  child: InkWell(
+                    onTap: () async {
+                      await DatePicker.showDatePicker(
+                        context,
+                        showTitleActions: true,
+                        onConfirm: (date) {
+                          setState(() => datePicked = date);
                         },
-                      ),
-                      Text(
-                        dateTimeFormat('MMMMEEEEd', datePicked),
-                        style: FlutterFlowTheme.of(context).subtitle2,
-                      ),
-                    ],
+                        currentTime: getCurrentTimestamp,
+                        minTime: getCurrentTimestamp,
+                      );
+                    },
+                    child: Row(
+                      mainAxisSize: MainAxisSize.max,
+                      children: [
+                        FlutterFlowIconButton(
+                          borderColor: Colors.transparent,
+                          borderRadius: 30,
+                          borderWidth: 1,
+                          buttonSize: 60,
+                          icon: Icon(
+                            Icons.calendar_today,
+                            color: Colors.black,
+                            size: 30,
+                          ),
+                          onPressed: () {
+                            print('IconButton pressed ...');
+                          },
+                        ),
+                        Text(
+                          dateTimeFormat('MMMMEEEEd', datePicked),
+                          style: FlutterFlowTheme.of(context).subtitle2,
+                        ),
+                      ],
+                    ),
                   ),
                 ),
                 FutureBuilder<ApiCallResponse>(

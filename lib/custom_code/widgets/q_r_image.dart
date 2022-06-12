@@ -27,7 +27,7 @@ class QRImage extends StatefulWidget {
 class _QRImageState extends State<QRImage> {
   @override
   Widget build(BuildContext context) {
-    return Container(
+    return SizedBox(
         height: widget.height,
         width: widget.width,
         child: imageFromBase64String(widget.qrcode));

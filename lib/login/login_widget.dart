@@ -143,6 +143,7 @@ class _LoginWidgetState extends State<LoginWidget> {
                                         fontSize: 14,
                                         fontWeight: FontWeight.normal,
                                       ),
+                                  hintText: 'Enter your email here...',
                                   hintStyle: FlutterFlowTheme.of(context)
                                       .bodyText1
                                       .override(
@@ -219,6 +220,7 @@ class _LoginWidgetState extends State<LoginWidget> {
                                         fontSize: 14,
                                         fontWeight: FontWeight.normal,
                                       ),
+                                  hintText: 'Enter your password here...',
                                   hintStyle: FlutterFlowTheme.of(context)
                                       .bodyText1
                                       .override(
@@ -336,10 +338,10 @@ class _LoginWidgetState extends State<LoginWidget> {
                                           r'''$.message.email''',
                                         ).toString());
                                     setState(() =>
-                                        FFAppState().roles = getJsonField(
+                                        FFAppState().roles = (getJsonField(
                                           (response?.jsonBody ?? ''),
                                           r'''$.message.roles''',
-                                        )
+                                        ) as List)
                                             .map<String>((s) => s.toString())
                                             .toList());
                                     await Navigator.pushAndRemoveUntil(

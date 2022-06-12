@@ -110,8 +110,8 @@ class _NavBarPageState extends State<NavBarPage> {
   Widget build(BuildContext context) {
     final tabs = {
       'Home': HomeWidget(),
-      'MyCoupons': MyCouponsWidget(),
       'Coupons': CouponsWidget(),
+      'CouponsGenerated': CouponsGeneratedWidget(),
     };
     final currentIndex = tabs.keys.toList().indexOf(_currentPage);
     return Scaffold(
@@ -140,18 +140,6 @@ class _NavBarPageState extends State<NavBarPage> {
           ),
           BottomNavigationBarItem(
             icon: Icon(
-              Icons.grain,
-              size: 24,
-            ),
-            activeIcon: Icon(
-              Icons.format_list_numbered_rounded,
-              size: 24,
-            ),
-            label: 'Generated',
-            tooltip: '',
-          ),
-          BottomNavigationBarItem(
-            icon: Icon(
               Icons.receipt_long_sharp,
               size: 24,
             ),
@@ -160,6 +148,18 @@ class _NavBarPageState extends State<NavBarPage> {
               size: 24,
             ),
             label: 'Stats',
+            tooltip: '',
+          ),
+          BottomNavigationBarItem(
+            icon: Icon(
+              Icons.grain,
+              size: 24,
+            ),
+            activeIcon: Icon(
+              Icons.format_list_numbered_rounded,
+              size: 24,
+            ),
+            label: 'Generated',
             tooltip: '',
           )
         ],
