@@ -117,7 +117,7 @@ class _HomeWidgetState extends State<HomeWidget> {
                 ),
               Container(
                 decoration: BoxDecoration(
-                  color: FlutterFlowTheme.of(context).gray200,
+                  color: Color(0xFFF9EDE9),
                 ),
                 child: FutureBuilder<ApiCallResponse>(
                   future: DashboardCall.call(
@@ -822,7 +822,7 @@ class _HomeWidgetState extends State<HomeWidget> {
                                       ),
                                     ),
                                     Container(
-                                      width: 210,
+                                      width: double.infinity,
                                       height: 2,
                                       decoration: BoxDecoration(
                                         color: FlutterFlowTheme.of(context)
@@ -1207,7 +1207,7 @@ class _HomeWidgetState extends State<HomeWidget> {
                                       ),
                                     ),
                                     Container(
-                                      width: 210,
+                                      width: double.infinity,
                                       height: 2,
                                       decoration: BoxDecoration(
                                         color: FlutterFlowTheme.of(context)
@@ -1592,7 +1592,7 @@ class _HomeWidgetState extends State<HomeWidget> {
                                       ),
                                     ),
                                     Container(
-                                      width: 210,
+                                      width: double.infinity,
                                       height: 2,
                                       decoration: BoxDecoration(
                                         color: FlutterFlowTheme.of(context)

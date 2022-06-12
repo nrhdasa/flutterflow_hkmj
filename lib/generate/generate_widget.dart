@@ -1,9 +1,9 @@
 import '../backend/api_requests/api_calls.dart';
+import '../coupon_details/coupon_details_widget.dart';
 import '../flutter_flow/flutter_flow_drop_down.dart';
 import '../flutter_flow/flutter_flow_theme.dart';
 import '../flutter_flow/flutter_flow_util.dart';
 import '../flutter_flow/flutter_flow_widgets.dart';
-import '../success/success_widget.dart';
 import '../flutter_flow/custom_functions.dart' as functions;
 import 'package:flutter/material.dart';
 import 'package:flutter_datetime_picker/flutter_datetime_picker.dart';
@@ -264,11 +264,15 @@ class _GenerateWidgetState extends State<GenerateWidget> {
                             await Navigator.pushAndRemoveUntil(
                               context,
                               PageTransition(
-                                type: PageTransitionType.scale,
-                                alignment: Alignment.bottomCenter,
+                                type: PageTransitionType.rightToLeft,
                                 duration: Duration(milliseconds: 300),
                                 reverseDuration: Duration(milliseconds: 300),
-                                child: SuccessWidget(),
+                                child: CouponDetailsWidget(
+                                  couponid: getJsonField(
+                                    (response?.jsonBody ?? ''),
+                                    r'''$.data.name''',
+                                  ).toString(),
+                                ),
                               ),
                               (r) => false,
                             );
@@ -285,23 +289,6 @@ class _GenerateWidgetState extends State<GenerateWidget> {
                             );
                           }
                         } else {
-                          ScaffoldMessenger.of(context).showSnackBar(
-                            SnackBar(
-                              content: Text(
-                                getJsonField(
-                                  (response?.jsonBody ?? ''),
-                                  r'''$.exception''',
-                                ).toString(),
-                                style: TextStyle(
-                                  color: FlutterFlowTheme.of(context).textColor,
-                                ),
-                              ),
-                              duration: Duration(milliseconds: 4000),
-                              backgroundColor: Color(0x00000000),
-                            ),
-                          );
-                          await Future.delayed(
-                              const Duration(milliseconds: 5000));
                           ScaffoldMessenger.of(context).showSnackBar(
                             SnackBar(
                               content: Text(
