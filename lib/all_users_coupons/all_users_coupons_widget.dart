@@ -1,7 +1,6 @@
 import '../backend/api_requests/api_calls.dart';
 import '../flutter_flow/flutter_flow_animations.dart';
 import '../flutter_flow/flutter_flow_drop_down.dart';
-import '../flutter_flow/flutter_flow_icon_button.dart';
 import '../flutter_flow/flutter_flow_theme.dart';
 import '../flutter_flow/flutter_flow_util.dart';
 import 'package:flutter/material.dart';
@@ -9,14 +8,14 @@ import 'package:flutter_datetime_picker/flutter_datetime_picker.dart';
 import 'package:flutter_spinkit/flutter_spinkit.dart';
 import 'package:google_fonts/google_fonts.dart';
 
-class CouponsWidget extends StatefulWidget {
-  const CouponsWidget({Key key}) : super(key: key);
+class AllUsersCouponsWidget extends StatefulWidget {
+  const AllUsersCouponsWidget({Key key}) : super(key: key);
 
   @override
-  _CouponsWidgetState createState() => _CouponsWidgetState();
+  _AllUsersCouponsWidgetState createState() => _AllUsersCouponsWidgetState();
 }
 
-class _CouponsWidgetState extends State<CouponsWidget>
+class _AllUsersCouponsWidgetState extends State<AllUsersCouponsWidget>
     with TickerProviderStateMixin {
   DateTime datePicked;
   String dropDownValue;
@@ -84,36 +83,36 @@ class _CouponsWidgetState extends State<CouponsWidget>
                     )
                   ],
                 ),
-                child: Row(
-                  mainAxisSize: MainAxisSize.max,
-                  children: [
-                    FlutterFlowIconButton(
-                      borderColor: Colors.transparent,
-                      borderRadius: 30,
-                      borderWidth: 1,
-                      buttonSize: 60,
-                      icon: Icon(
-                        Icons.calendar_today,
-                        color: Colors.black,
-                        size: 30,
-                      ),
-                      onPressed: () async {
-                        await DatePicker.showDatePicker(
-                          context,
-                          showTitleActions: true,
-                          onConfirm: (date) {
-                            setState(() => datePicked = date);
-                          },
-                          currentTime: getCurrentTimestamp,
-                          minTime: getCurrentTimestamp,
-                        );
+                child: InkWell(
+                  onTap: () async {
+                    // Date Pick
+                    await DatePicker.showDatePicker(
+                      context,
+                      showTitleActions: true,
+                      onConfirm: (date) {
+                        setState(() => datePicked = date);
                       },
-                    ),
-                    Text(
-                      dateTimeFormat('MMMMEEEEd', datePicked),
-                      style: FlutterFlowTheme.of(context).subtitle2,
-                    ),
-                  ],
+                      currentTime: getCurrentTimestamp,
+                      minTime: getCurrentTimestamp,
+                    );
+                  },
+                  child: Row(
+                    mainAxisSize: MainAxisSize.max,
+                    children: [
+                      Padding(
+                        padding: EdgeInsetsDirectional.fromSTEB(10, 10, 10, 10),
+                        child: Icon(
+                          Icons.settings_outlined,
+                          color: Colors.black,
+                          size: 45,
+                        ),
+                      ),
+                      Text(
+                        dateTimeFormat('MMMMEEEEd', datePicked),
+                        style: FlutterFlowTheme.of(context).subtitle2,
+                      ),
+                    ],
+                  ),
                 ),
               ),
               FlutterFlowDropDown(

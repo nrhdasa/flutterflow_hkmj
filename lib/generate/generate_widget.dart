@@ -253,6 +253,7 @@ class _GenerateWidgetState extends State<GenerateWidget> {
                           date: functions.setDate(datePicked),
                           slot: dropDownValue,
                           number: int.parse(numberController.text),
+                          authority: FFAppState().useremail,
                         );
                         if (((response?.statusCode ?? 200)) == 200) {
                           if ((getJsonField(
@@ -284,6 +285,23 @@ class _GenerateWidgetState extends State<GenerateWidget> {
                             );
                           }
                         } else {
+                          ScaffoldMessenger.of(context).showSnackBar(
+                            SnackBar(
+                              content: Text(
+                                getJsonField(
+                                  (response?.jsonBody ?? ''),
+                                  r'''$.exception''',
+                                ).toString(),
+                                style: TextStyle(
+                                  color: FlutterFlowTheme.of(context).textColor,
+                                ),
+                              ),
+                              duration: Duration(milliseconds: 4000),
+                              backgroundColor: Color(0x00000000),
+                            ),
+                          );
+                          await Future.delayed(
+                              const Duration(milliseconds: 5000));
                           ScaffoldMessenger.of(context).showSnackBar(
                             SnackBar(
                               content: Text(

@@ -1,6 +1,5 @@
 import '../backend/api_requests/api_calls.dart';
 import '../coupon_details/coupon_details_widget.dart';
-import '../flutter_flow/flutter_flow_icon_button.dart';
 import '../flutter_flow/flutter_flow_theme.dart';
 import '../flutter_flow/flutter_flow_util.dart';
 import '../flutter_flow/custom_functions.dart' as functions;
@@ -72,20 +71,16 @@ class _CouponsGeneratedWidgetState extends State<CouponsGeneratedWidget> {
                     },
                     child: Row(
                       mainAxisSize: MainAxisSize.max,
+                      crossAxisAlignment: CrossAxisAlignment.center,
                       children: [
-                        FlutterFlowIconButton(
-                          borderColor: Colors.transparent,
-                          borderRadius: 30,
-                          borderWidth: 1,
-                          buttonSize: 60,
-                          icon: Icon(
+                        Padding(
+                          padding:
+                              EdgeInsetsDirectional.fromSTEB(10, 10, 10, 10),
+                          child: Icon(
                             Icons.calendar_today,
                             color: Colors.black,
-                            size: 30,
+                            size: 45,
                           ),
-                          onPressed: () {
-                            print('IconButton pressed ...');
-                          },
                         ),
                         Text(
                           dateTimeFormat('MMMMEEEEd', datePicked),
@@ -265,7 +260,7 @@ class _CouponsGeneratedWidgetState extends State<CouponsGeneratedWidget> {
                                                           morninglistItem,
                                                           r'''$.creation''',
                                                         ).toString(),
-                                                        'yyyy-MM-dd'),
+                                                        'yyyy-MM-dd | h:mm a'),
                                                     style: FlutterFlowTheme.of(
                                                             context)
                                                         .subtitle1,

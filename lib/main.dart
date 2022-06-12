@@ -110,7 +110,7 @@ class _NavBarPageState extends State<NavBarPage> {
   Widget build(BuildContext context) {
     final tabs = {
       'Home': HomeWidget(),
-      'Coupons': CouponsWidget(),
+      'AllUsersCoupons': AllUsersCouponsWidget(),
       'CouponsGenerated': CouponsGeneratedWidget(),
     };
     final currentIndex = tabs.keys.toList().indexOf(_currentPage);

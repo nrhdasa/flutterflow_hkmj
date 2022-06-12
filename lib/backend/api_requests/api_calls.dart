@@ -231,14 +231,15 @@ class GenerateCouponCall {
     String date = '',
     String slot = '',
     int number,
+    String authority = '',
   }) {
     final body = '''
 {
-  "type": "Request",
   "date": "${date}",
   "slot": "${slot}",
   "docstatus": 1,
-  "number": "${number}"
+  "number": ${number},
+  "authority": "${authority}"
 }''';
     return ApiManager.instance.makeApiCall(
       callName: 'generateCoupon',
@@ -251,6 +252,7 @@ class GenerateCouponCall {
         'date': date,
         'slot': slot,
         'number': number,
+        'authority': authority,
       },
       body: body,
       bodyType: BodyType.JSON,
