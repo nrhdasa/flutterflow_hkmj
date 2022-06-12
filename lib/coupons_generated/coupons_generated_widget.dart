@@ -83,7 +83,10 @@ class _CouponsGeneratedWidgetState extends State<CouponsGeneratedWidget> {
                           ),
                         ),
                         Text(
-                          dateTimeFormat('MMMMEEEEd', datePicked),
+                          valueOrDefault<String>(
+                            dateTimeFormat('MMMMEEEEd', datePicked),
+                            'Today',
+                          ),
                           style: FlutterFlowTheme.of(context).subtitle2,
                         ),
                       ],

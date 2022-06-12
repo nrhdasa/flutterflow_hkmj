@@ -385,7 +385,7 @@ class _AllUsersCouponsWidgetState extends State<AllUsersCouponsWidget>
                                                         child: Text(
                                                           getJsonField(
                                                             usersItem,
-                                                            r'''$.generated''',
+                                                            r'''$.used''',
                                                           ).toString(),
                                                           textAlign:
                                                               TextAlign.center,
