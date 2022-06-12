@@ -223,85 +223,85 @@ class _CouponDetailsWidgetState extends State<CouponDetailsWidget>
                     ),
                     Padding(
                       padding: EdgeInsetsDirectional.fromSTEB(0, 12, 0, 0),
-                      child: Container(
-                        height: 200,
-                        child: Stack(
-                          children: [
-                            Align(
-                              alignment: AlignmentDirectional(0, 0),
-                              child: Padding(
-                                padding:
-                                    EdgeInsetsDirectional.fromSTEB(0, 50, 0, 0),
-                                child: Container(
-                                  width: MediaQuery.of(context).size.width,
-                                  height: 150,
-                                  decoration: BoxDecoration(
-                                    color: FlutterFlowTheme.of(context)
-                                        .primaryBackground,
-                                  ),
-                                  child: Padding(
-                                    padding: EdgeInsetsDirectional.fromSTEB(
-                                        0, 60, 0, 0),
-                                    child: Column(
-                                      mainAxisSize: MainAxisSize.max,
-                                      mainAxisAlignment:
-                                          MainAxisAlignment.center,
-                                      children: [
-                                        Text(
-                                          'Share it !',
-                                          style: FlutterFlowTheme.of(context)
-                                              .subtitle1
-                                              .override(
-                                                fontFamily: 'Poppins',
-                                                color:
-                                                    FlutterFlowTheme.of(context)
-                                                        .alternate,
-                                              ),
-                                        ),
-                                      ],
+                      child: InkWell(
+                        onTap: () async {
+                          await actions.shareQRcode(
+                            getJsonField(
+                              (couponDetailsACouponDetailsResponse?.jsonBody ??
+                                  ''),
+                              r'''$.data.qr_code''',
+                            ).toString(),
+                          );
+                        },
+                        child: Container(
+                          height: 200,
+                          child: Stack(
+                            children: [
+                              Align(
+                                alignment: AlignmentDirectional(0, 0),
+                                child: Padding(
+                                  padding: EdgeInsetsDirectional.fromSTEB(
+                                      0, 50, 0, 0),
+                                  child: Container(
+                                    width: MediaQuery.of(context).size.width,
+                                    height: 150,
+                                    decoration: BoxDecoration(
+                                      color: FlutterFlowTheme.of(context)
+                                          .primaryBackground,
+                                    ),
+                                    child: Padding(
+                                      padding: EdgeInsetsDirectional.fromSTEB(
+                                          0, 60, 0, 0),
+                                      child: Column(
+                                        mainAxisSize: MainAxisSize.max,
+                                        mainAxisAlignment:
+                                            MainAxisAlignment.center,
+                                        children: [
+                                          Text(
+                                            'Share it !',
+                                            style: FlutterFlowTheme.of(context)
+                                                .subtitle1
+                                                .override(
+                                                  fontFamily: 'Poppins',
+                                                  color: FlutterFlowTheme.of(
+                                                          context)
+                                                      .alternate,
+                                                ),
+                                          ),
+                                        ],
+                                      ),
                                     ),
                                   ),
                                 ),
                               ),
-                            ),
-                            Align(
-                              alignment: AlignmentDirectional(0, -0.75),
-                              child: Container(
-                                width: 80,
-                                height: 80,
-                                decoration: BoxDecoration(
-                                  color: FlutterFlowTheme.of(context).alternate,
-                                  boxShadow: [
-                                    BoxShadow(
-                                      blurRadius: 7,
-                                      color: Color(0x8E000000),
-                                      offset: Offset(0, 3),
-                                    )
-                                  ],
-                                  shape: BoxShape.circle,
-                                ),
-                                child: InkWell(
-                                  onTap: () async {
-                                    await actions.shareQRcode(
-                                      getJsonField(
-                                        (couponDetailsACouponDetailsResponse
-                                                ?.jsonBody ??
-                                            ''),
-                                        r'''$.data.qr_code''',
-                                      ).toString(),
-                                    );
-                                  },
+                              Align(
+                                alignment: AlignmentDirectional(0, -0.75),
+                                child: Container(
+                                  width: 80,
+                                  height: 80,
+                                  decoration: BoxDecoration(
+                                    color:
+                                        FlutterFlowTheme.of(context).alternate,
+                                    boxShadow: [
+                                      BoxShadow(
+                                        blurRadius: 7,
+                                        color: Color(0x8E000000),
+                                        offset: Offset(0, 3),
+                                      )
+                                    ],
+                                    shape: BoxShape.circle,
+                                  ),
                                   child: Icon(
                                     Icons.share_sharp,
                                     color: Colors.white,
                                     size: 50,
                                   ),
-                                ),
-                              ).animated([
-                                animationsMap['containerOnPageLoadAnimation']
-                              ]),
-                            ),
-                          ],
+                                ).animated([
+                                  animationsMap['containerOnPageLoadAnimation']
+                                ]),
+                              ),
+                            ],
+                          ),
                         ),
                       ).animated([animationsMap['stackOnPageLoadAnimation']]),
                     ),
