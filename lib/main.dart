@@ -71,13 +71,12 @@ class _MyAppState extends State<MyApp> {
       darkTheme: ThemeData(brightness: Brightness.dark),
       themeMode: _themeMode,
       home: initialUser == null || displaySplashImage
-          ? Center(
-              child: SizedBox(
-                width: 50,
-                height: 50,
-                child: SpinKitFadingCube(
-                  color: FlutterFlowTheme.of(context).primaryColor,
-                  size: 50,
+          ? Container(
+              color: FlutterFlowTheme.of(context).secondaryColor,
+              child: Builder(
+                builder: (context) => Image.asset(
+                  'assets/images/logo.png',
+                  fit: BoxFit.contain,
                 ),
               ),
             )

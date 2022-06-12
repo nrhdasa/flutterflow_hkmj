@@ -540,10 +540,15 @@ class _HomeWidgetState extends State<HomeWidget> {
                                                 EdgeInsetsDirectional.fromSTEB(
                                                     0, 4, 0, 0),
                                             child: Text(
-                                              'Used',
+                                              'Used out of Generated',
                                               style:
                                                   FlutterFlowTheme.of(context)
-                                                      .bodyText2,
+                                                      .bodyText2
+                                                      .override(
+                                                        fontFamily: 'Poppins',
+                                                        color:
+                                                            Color(0xFF1A237E),
+                                                      ),
                                             ),
                                           ),
                                           Padding(
@@ -577,77 +582,6 @@ class _HomeWidgetState extends State<HomeWidget> {
                                         child: LinearPercentIndicator(
                                           percent: functions
                                               .getProgressIndicatorValueUsed(
-                                                  'Morning',
-                                                  (columnDashboardResponse
-                                                          ?.jsonBody ??
-                                                      '')),
-                                          width: MediaQuery.of(context)
-                                                  .size
-                                                  .width *
-                                              0.8,
-                                          lineHeight: 8,
-                                          animation: true,
-                                          progressColor:
-                                              FlutterFlowTheme.of(context)
-                                                  .primaryColor,
-                                          backgroundColor:
-                                              FlutterFlowTheme.of(context)
-                                                  .lineColor,
-                                          barRadius: Radius.circular(8),
-                                          padding: EdgeInsets.zero,
-                                        ),
-                                      ),
-                                    ),
-                                    Expanded(
-                                      child: Row(
-                                        mainAxisSize: MainAxisSize.max,
-                                        mainAxisAlignment:
-                                            MainAxisAlignment.spaceBetween,
-                                        crossAxisAlignment:
-                                            CrossAxisAlignment.end,
-                                        children: [
-                                          Padding(
-                                            padding:
-                                                EdgeInsetsDirectional.fromSTEB(
-                                                    0, 4, 0, 0),
-                                            child: Text(
-                                              'QR Generated',
-                                              style:
-                                                  FlutterFlowTheme.of(context)
-                                                      .bodyText2,
-                                            ),
-                                          ),
-                                          Padding(
-                                            padding:
-                                                EdgeInsetsDirectional.fromSTEB(
-                                                    0, 4, 0, 0),
-                                            child: Text(
-                                              '${getJsonField(
-                                                (columnDashboardResponse
-                                                        ?.jsonBody ??
-                                                    ''),
-                                                r'''$.message.Morning.generated''',
-                                              ).toString()}/${getJsonField(
-                                                (columnDashboardResponse
-                                                        ?.jsonBody ??
-                                                    ''),
-                                                r'''$.message.Morning.credit''',
-                                              ).toString()}',
-                                              style:
-                                                  FlutterFlowTheme.of(context)
-                                                      .bodyText2,
-                                            ),
-                                          ),
-                                        ],
-                                      ),
-                                    ),
-                                    Expanded(
-                                      child: Padding(
-                                        padding: EdgeInsetsDirectional.fromSTEB(
-                                            0, 8, 0, 0),
-                                        child: LinearPercentIndicator(
-                                          percent: functions
-                                              .getProgressIndicatorGenerated(
                                                   'Morning',
                                                   (columnDashboardResponse
                                                           ?.jsonBody ??
@@ -821,6 +755,44 @@ class _HomeWidgetState extends State<HomeWidget> {
                                         ],
                                       ),
                                     ),
+                                    Expanded(
+                                      child: Row(
+                                        mainAxisSize: MainAxisSize.max,
+                                        mainAxisAlignment:
+                                            MainAxisAlignment.spaceBetween,
+                                        crossAxisAlignment:
+                                            CrossAxisAlignment.end,
+                                        children: [
+                                          Padding(
+                                            padding:
+                                                EdgeInsetsDirectional.fromSTEB(
+                                                    0, 4, 0, 0),
+                                            child: Text(
+                                              'QR Generated',
+                                              style:
+                                                  FlutterFlowTheme.of(context)
+                                                      .bodyText2,
+                                            ),
+                                          ),
+                                          Padding(
+                                            padding:
+                                                EdgeInsetsDirectional.fromSTEB(
+                                                    0, 4, 0, 0),
+                                            child: Text(
+                                              '-${getJsonField(
+                                                (columnDashboardResponse
+                                                        ?.jsonBody ??
+                                                    ''),
+                                                r'''$.message.Morning.generated''',
+                                              ).toString()}',
+                                              style:
+                                                  FlutterFlowTheme.of(context)
+                                                      .bodyText2,
+                                            ),
+                                          ),
+                                        ],
+                                      ),
+                                    ),
                                     Container(
                                       width: double.infinity,
                                       height: 2,
@@ -925,10 +897,15 @@ class _HomeWidgetState extends State<HomeWidget> {
                                                 EdgeInsetsDirectional.fromSTEB(
                                                     0, 4, 0, 0),
                                             child: Text(
-                                              'Used',
+                                              'Used out of Generated',
                                               style:
                                                   FlutterFlowTheme.of(context)
-                                                      .bodyText2,
+                                                      .bodyText2
+                                                      .override(
+                                                        fontFamily: 'Poppins',
+                                                        color:
+                                                            Color(0xFF1A237E),
+                                                      ),
                                             ),
                                           ),
                                           Padding(
@@ -962,77 +939,6 @@ class _HomeWidgetState extends State<HomeWidget> {
                                         child: LinearPercentIndicator(
                                           percent: functions
                                               .getProgressIndicatorValueUsed(
-                                                  'Afternoon',
-                                                  (columnDashboardResponse
-                                                          ?.jsonBody ??
-                                                      '')),
-                                          width: MediaQuery.of(context)
-                                                  .size
-                                                  .width *
-                                              0.8,
-                                          lineHeight: 8,
-                                          animation: true,
-                                          progressColor:
-                                              FlutterFlowTheme.of(context)
-                                                  .primaryColor,
-                                          backgroundColor:
-                                              FlutterFlowTheme.of(context)
-                                                  .lineColor,
-                                          barRadius: Radius.circular(8),
-                                          padding: EdgeInsets.zero,
-                                        ),
-                                      ),
-                                    ),
-                                    Expanded(
-                                      child: Row(
-                                        mainAxisSize: MainAxisSize.max,
-                                        mainAxisAlignment:
-                                            MainAxisAlignment.spaceBetween,
-                                        crossAxisAlignment:
-                                            CrossAxisAlignment.end,
-                                        children: [
-                                          Padding(
-                                            padding:
-                                                EdgeInsetsDirectional.fromSTEB(
-                                                    0, 4, 0, 0),
-                                            child: Text(
-                                              'QR Generated',
-                                              style:
-                                                  FlutterFlowTheme.of(context)
-                                                      .bodyText2,
-                                            ),
-                                          ),
-                                          Padding(
-                                            padding:
-                                                EdgeInsetsDirectional.fromSTEB(
-                                                    0, 4, 0, 0),
-                                            child: Text(
-                                              '${getJsonField(
-                                                (columnDashboardResponse
-                                                        ?.jsonBody ??
-                                                    ''),
-                                                r'''$.message.Afternoon.generated''',
-                                              ).toString()}/${getJsonField(
-                                                (columnDashboardResponse
-                                                        ?.jsonBody ??
-                                                    ''),
-                                                r'''$.message.Afternoon.credit''',
-                                              ).toString()}',
-                                              style:
-                                                  FlutterFlowTheme.of(context)
-                                                      .bodyText2,
-                                            ),
-                                          ),
-                                        ],
-                                      ),
-                                    ),
-                                    Expanded(
-                                      child: Padding(
-                                        padding: EdgeInsetsDirectional.fromSTEB(
-                                            0, 8, 0, 0),
-                                        child: LinearPercentIndicator(
-                                          percent: functions
-                                              .getProgressIndicatorGenerated(
                                                   'Afternoon',
                                                   (columnDashboardResponse
                                                           ?.jsonBody ??
@@ -1206,6 +1112,44 @@ class _HomeWidgetState extends State<HomeWidget> {
                                         ],
                                       ),
                                     ),
+                                    Expanded(
+                                      child: Row(
+                                        mainAxisSize: MainAxisSize.max,
+                                        mainAxisAlignment:
+                                            MainAxisAlignment.spaceBetween,
+                                        crossAxisAlignment:
+                                            CrossAxisAlignment.end,
+                                        children: [
+                                          Padding(
+                                            padding:
+                                                EdgeInsetsDirectional.fromSTEB(
+                                                    0, 4, 0, 0),
+                                            child: Text(
+                                              'QR Generated',
+                                              style:
+                                                  FlutterFlowTheme.of(context)
+                                                      .bodyText2,
+                                            ),
+                                          ),
+                                          Padding(
+                                            padding:
+                                                EdgeInsetsDirectional.fromSTEB(
+                                                    0, 4, 0, 0),
+                                            child: Text(
+                                              '-${getJsonField(
+                                                (columnDashboardResponse
+                                                        ?.jsonBody ??
+                                                    ''),
+                                                r'''$.message.Afternoon.generated''',
+                                              ).toString()}',
+                                              style:
+                                                  FlutterFlowTheme.of(context)
+                                                      .bodyText2,
+                                            ),
+                                          ),
+                                        ],
+                                      ),
+                                    ),
                                     Container(
                                       width: double.infinity,
                                       height: 2,
@@ -1310,10 +1254,15 @@ class _HomeWidgetState extends State<HomeWidget> {
                                                 EdgeInsetsDirectional.fromSTEB(
                                                     0, 4, 0, 0),
                                             child: Text(
-                                              'Used',
+                                              'Used out of Generated',
                                               style:
                                                   FlutterFlowTheme.of(context)
-                                                      .bodyText2,
+                                                      .bodyText2
+                                                      .override(
+                                                        fontFamily: 'Poppins',
+                                                        color:
+                                                            Color(0xFF1A237E),
+                                                      ),
                                             ),
                                           ),
                                           Padding(
@@ -1347,77 +1296,6 @@ class _HomeWidgetState extends State<HomeWidget> {
                                         child: LinearPercentIndicator(
                                           percent: functions
                                               .getProgressIndicatorValueUsed(
-                                                  'Evening',
-                                                  (columnDashboardResponse
-                                                          ?.jsonBody ??
-                                                      '')),
-                                          width: MediaQuery.of(context)
-                                                  .size
-                                                  .width *
-                                              0.8,
-                                          lineHeight: 8,
-                                          animation: true,
-                                          progressColor:
-                                              FlutterFlowTheme.of(context)
-                                                  .primaryColor,
-                                          backgroundColor:
-                                              FlutterFlowTheme.of(context)
-                                                  .lineColor,
-                                          barRadius: Radius.circular(8),
-                                          padding: EdgeInsets.zero,
-                                        ),
-                                      ),
-                                    ),
-                                    Expanded(
-                                      child: Row(
-                                        mainAxisSize: MainAxisSize.max,
-                                        mainAxisAlignment:
-                                            MainAxisAlignment.spaceBetween,
-                                        crossAxisAlignment:
-                                            CrossAxisAlignment.end,
-                                        children: [
-                                          Padding(
-                                            padding:
-                                                EdgeInsetsDirectional.fromSTEB(
-                                                    0, 4, 0, 0),
-                                            child: Text(
-                                              'QR Generated',
-                                              style:
-                                                  FlutterFlowTheme.of(context)
-                                                      .bodyText2,
-                                            ),
-                                          ),
-                                          Padding(
-                                            padding:
-                                                EdgeInsetsDirectional.fromSTEB(
-                                                    0, 4, 0, 0),
-                                            child: Text(
-                                              '${getJsonField(
-                                                (columnDashboardResponse
-                                                        ?.jsonBody ??
-                                                    ''),
-                                                r'''$.message.Evening.generated''',
-                                              ).toString()}/${getJsonField(
-                                                (columnDashboardResponse
-                                                        ?.jsonBody ??
-                                                    ''),
-                                                r'''$.message.Evening.credit''',
-                                              ).toString()}',
-                                              style:
-                                                  FlutterFlowTheme.of(context)
-                                                      .bodyText2,
-                                            ),
-                                          ),
-                                        ],
-                                      ),
-                                    ),
-                                    Expanded(
-                                      child: Padding(
-                                        padding: EdgeInsetsDirectional.fromSTEB(
-                                            0, 8, 0, 0),
-                                        child: LinearPercentIndicator(
-                                          percent: functions
-                                              .getProgressIndicatorGenerated(
                                                   'Evening',
                                                   (columnDashboardResponse
                                                           ?.jsonBody ??
@@ -1582,6 +1460,44 @@ class _HomeWidgetState extends State<HomeWidget> {
                                                         ?.jsonBody ??
                                                     ''),
                                                 r'''$.message.Evening.transfer_rec''',
+                                              ).toString()}',
+                                              style:
+                                                  FlutterFlowTheme.of(context)
+                                                      .bodyText2,
+                                            ),
+                                          ),
+                                        ],
+                                      ),
+                                    ),
+                                    Expanded(
+                                      child: Row(
+                                        mainAxisSize: MainAxisSize.max,
+                                        mainAxisAlignment:
+                                            MainAxisAlignment.spaceBetween,
+                                        crossAxisAlignment:
+                                            CrossAxisAlignment.end,
+                                        children: [
+                                          Padding(
+                                            padding:
+                                                EdgeInsetsDirectional.fromSTEB(
+                                                    0, 4, 0, 0),
+                                            child: Text(
+                                              'QR Generated',
+                                              style:
+                                                  FlutterFlowTheme.of(context)
+                                                      .bodyText2,
+                                            ),
+                                          ),
+                                          Padding(
+                                            padding:
+                                                EdgeInsetsDirectional.fromSTEB(
+                                                    0, 4, 0, 0),
+                                            child: Text(
+                                              '-${getJsonField(
+                                                (columnDashboardResponse
+                                                        ?.jsonBody ??
+                                                    ''),
+                                                r'''$.message.Evening.generated''',
                                               ).toString()}',
                                               style:
                                                   FlutterFlowTheme.of(context)
