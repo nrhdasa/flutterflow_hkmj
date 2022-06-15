@@ -202,8 +202,10 @@ class _AllUsersCouponsWidgetState extends State<AllUsersCouponsWidget>
                                   color: Color(0x26FF5963),
                                   boxShadow: [
                                     BoxShadow(
-                                      color: Color(0x230E151B),
-                                      offset: Offset(0, 2),
+                                      blurRadius: 1,
+                                      color: Color(0xE9C9CBCC),
+                                      offset: Offset(1, 2),
+                                      spreadRadius: 1,
                                     )
                                   ],
                                   borderRadius: BorderRadius.circular(12),
