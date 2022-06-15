@@ -199,7 +199,8 @@ class _AllUsersCouponsWidgetState extends State<AllUsersCouponsWidget>
                                 width: 100,
                                 height: 100,
                                 decoration: BoxDecoration(
-                                  color: Color(0x26FF5963),
+                                  color: FlutterFlowTheme.of(context)
+                                      .primaryBackground,
                                   boxShadow: [
                                     BoxShadow(
                                       blurRadius: 1,
@@ -208,7 +209,12 @@ class _AllUsersCouponsWidgetState extends State<AllUsersCouponsWidget>
                                       spreadRadius: 1,
                                     )
                                   ],
-                                  borderRadius: BorderRadius.circular(12),
+                                  borderRadius: BorderRadius.circular(5),
+                                  border: Border.all(
+                                    color: FlutterFlowTheme.of(context)
+                                        .secondaryBackground,
+                                    width: 1,
+                                  ),
                                 ),
                                 child: Row(
                                   mainAxisSize: MainAxisSize.max,
@@ -298,7 +304,9 @@ class _AllUsersCouponsWidgetState extends State<AllUsersCouponsWidget>
                                                         .bodyText1
                                                         .override(
                                                           fontFamily: 'Poppins',
-                                                          color: Colors.white,
+                                                          color: FlutterFlowTheme
+                                                                  .of(context)
+                                                              .primaryText,
                                                           fontSize: 20,
                                                         ),
                                                   ),
@@ -336,7 +344,9 @@ class _AllUsersCouponsWidgetState extends State<AllUsersCouponsWidget>
                                                         .bodyText1
                                                         .override(
                                                           fontFamily: 'Poppins',
-                                                          color: Colors.white,
+                                                          color: FlutterFlowTheme
+                                                                  .of(context)
+                                                              .primaryText,
                                                           fontSize: 20,
                                                         ),
                                                   ),
