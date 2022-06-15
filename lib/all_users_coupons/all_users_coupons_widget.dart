@@ -247,46 +247,6 @@ class _AllUsersCouponsWidgetState extends State<AllUsersCouponsWidget>
                                                             context)
                                                         .subtitle1,
                                                   ),
-                                                  Container(
-                                                    width: 60,
-                                                    height: 40,
-                                                    decoration: BoxDecoration(
-                                                      color: Color(0xFF0E0343),
-                                                      boxShadow: [
-                                                        BoxShadow(
-                                                          blurRadius: 5,
-                                                          color:
-                                                              Color(0xFF858585),
-                                                          offset: Offset(1, 1),
-                                                          spreadRadius: 2,
-                                                        )
-                                                      ],
-                                                      borderRadius:
-                                                          BorderRadius.circular(
-                                                              20),
-                                                      shape: BoxShape.rectangle,
-                                                    ),
-                                                    alignment:
-                                                        AlignmentDirectional(
-                                                            0, 0),
-                                                    child: Text(
-                                                      getJsonField(
-                                                        usersItem,
-                                                        r'''$.credit''',
-                                                      ).toString(),
-                                                      textAlign:
-                                                          TextAlign.center,
-                                                      style: FlutterFlowTheme
-                                                              .of(context)
-                                                          .bodyText1
-                                                          .override(
-                                                            fontFamily:
-                                                                'Poppins',
-                                                            color: Colors.white,
-                                                            fontSize: 20,
-                                                          ),
-                                                    ),
-                                                  ),
                                                 ],
                                               ),
                                             ),
@@ -295,139 +255,95 @@ class _AllUsersCouponsWidgetState extends State<AllUsersCouponsWidget>
                                             width: MediaQuery.of(context)
                                                     .size
                                                     .width *
-                                                0.85,
-                                            decoration: BoxDecoration(),
+                                                0.5,
+                                            height: 70,
+                                            decoration: BoxDecoration(
+                                              color: Color(0xFFEEEEEE),
+                                            ),
                                             child: Row(
                                               mainAxisSize: MainAxisSize.max,
                                               mainAxisAlignment:
-                                                  MainAxisAlignment.start,
-                                              crossAxisAlignment:
-                                                  CrossAxisAlignment.center,
+                                                  MainAxisAlignment
+                                                      .spaceBetween,
                                               children: [
-                                                Padding(
-                                                  padding: EdgeInsetsDirectional
-                                                      .fromSTEB(20, 0, 20, 0),
-                                                  child: Column(
-                                                    mainAxisSize:
-                                                        MainAxisSize.max,
-                                                    children: [
-                                                      Container(
-                                                        width: 20,
-                                                        height: 20,
-                                                        decoration:
-                                                            BoxDecoration(
-                                                          color: FlutterFlowTheme
-                                                                  .of(context)
-                                                              .tertiaryColor,
-                                                          shape:
-                                                              BoxShape.circle,
-                                                        ),
-                                                        alignment:
-                                                            AlignmentDirectional(
-                                                                0, 0),
-                                                        child: Text(
-                                                          getJsonField(
-                                                            usersItem,
-                                                            r'''$.generated''',
-                                                          ).toString(),
-                                                          textAlign:
-                                                              TextAlign.center,
-                                                          style: FlutterFlowTheme
-                                                                  .of(context)
-                                                              .title3
-                                                              .override(
-                                                                fontFamily:
-                                                                    'Poppins',
-                                                                fontSize: 10,
-                                                              ),
-                                                        ),
-                                                      ),
-                                                      Padding(
-                                                        padding:
-                                                            EdgeInsetsDirectional
-                                                                .fromSTEB(
-                                                                    0, 4, 0, 4),
-                                                        child: Text(
-                                                          'Generated',
-                                                          style: FlutterFlowTheme
-                                                                  .of(context)
-                                                              .bodyText2
-                                                              .override(
-                                                                fontFamily:
-                                                                    'Poppins',
-                                                                fontSize: 10,
-                                                              ),
-                                                        ),
-                                                      ),
+                                                Container(
+                                                  width: 60,
+                                                  height: 40,
+                                                  decoration: BoxDecoration(
+                                                    color: Color(0xFFC0C0C0),
+                                                    boxShadow: [
+                                                      BoxShadow(
+                                                        blurRadius: 5,
+                                                        color:
+                                                            Color(0xFF858585),
+                                                        offset: Offset(1, 1),
+                                                        spreadRadius: 2,
+                                                      )
                                                     ],
+                                                    borderRadius:
+                                                        BorderRadius.circular(
+                                                            20),
+                                                    shape: BoxShape.rectangle,
+                                                  ),
+                                                  alignment:
+                                                      AlignmentDirectional(
+                                                          0, 0),
+                                                  child: Text(
+                                                    getJsonField(
+                                                      usersItem,
+                                                      r'''$.silver.credit''',
+                                                    ).toString(),
+                                                    textAlign: TextAlign.center,
+                                                    style: FlutterFlowTheme.of(
+                                                            context)
+                                                        .bodyText1
+                                                        .override(
+                                                          fontFamily: 'Poppins',
+                                                          color: Colors.white,
+                                                          fontSize: 20,
+                                                        ),
                                                   ),
                                                 ),
-                                                Padding(
-                                                  padding: EdgeInsetsDirectional
-                                                      .fromSTEB(20, 0, 20, 0),
-                                                  child: Column(
-                                                    mainAxisSize:
-                                                        MainAxisSize.max,
-                                                    children: [
-                                                      Container(
-                                                        width: 20,
-                                                        height: 20,
-                                                        decoration:
-                                                            BoxDecoration(
-                                                          color:
-                                                              Color(0xFF96FF9B),
-                                                          shape:
-                                                              BoxShape.circle,
-                                                        ),
-                                                        alignment:
-                                                            AlignmentDirectional(
-                                                                0, 0),
-                                                        child: Text(
-                                                          getJsonField(
-                                                            usersItem,
-                                                            r'''$.used''',
-                                                          ).toString(),
-                                                          textAlign:
-                                                              TextAlign.center,
-                                                          style: FlutterFlowTheme
-                                                                  .of(context)
-                                                              .title3
-                                                              .override(
-                                                                fontFamily:
-                                                                    'Poppins',
-                                                                fontSize: 10,
-                                                              ),
-                                                        ),
-                                                      ),
-                                                      Padding(
-                                                        padding:
-                                                            EdgeInsetsDirectional
-                                                                .fromSTEB(
-                                                                    0, 4, 0, 4),
-                                                        child: Text(
-                                                          'Used',
-                                                          style: FlutterFlowTheme
-                                                                  .of(context)
-                                                              .bodyText2
-                                                              .override(
-                                                                fontFamily:
-                                                                    'Poppins',
-                                                                fontSize: 10,
-                                                              ),
-                                                        ),
-                                                      ),
+                                                Container(
+                                                  width: 60,
+                                                  height: 40,
+                                                  decoration: BoxDecoration(
+                                                    color: Color(0xFFFFD700),
+                                                    boxShadow: [
+                                                      BoxShadow(
+                                                        blurRadius: 5,
+                                                        color:
+                                                            Color(0xFF858585),
+                                                        offset: Offset(1, 1),
+                                                        spreadRadius: 2,
+                                                      )
                                                     ],
+                                                    borderRadius:
+                                                        BorderRadius.circular(
+                                                            20),
+                                                    shape: BoxShape.rectangle,
+                                                  ),
+                                                  alignment:
+                                                      AlignmentDirectional(
+                                                          0, 0),
+                                                  child: Text(
+                                                    getJsonField(
+                                                      usersItem,
+                                                      r'''$.gold.credit''',
+                                                    ).toString(),
+                                                    textAlign: TextAlign.center,
+                                                    style: FlutterFlowTheme.of(
+                                                            context)
+                                                        .bodyText1
+                                                        .override(
+                                                          fontFamily: 'Poppins',
+                                                          color: Colors.white,
+                                                          fontSize: 20,
+                                                        ),
                                                   ),
                                                 ),
                                               ],
                                             ),
-                                          ),
-                                          Container(
-                                            width: MediaQuery.of(context)
-                                                    .size
-                                                    .width *
-                                                0.85,
-                                            decoration: BoxDecoration(),
                                           ),
                                         ],
                                       ),
