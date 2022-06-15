@@ -199,8 +199,7 @@ class _AllUsersCouponsWidgetState extends State<AllUsersCouponsWidget>
                                 width: 100,
                                 height: 100,
                                 decoration: BoxDecoration(
-                                  color: FlutterFlowTheme.of(context)
-                                      .primaryBackground,
+                                  color: Color(0x26FF5963),
                                   boxShadow: [
                                     BoxShadow(
                                       color: Color(0x230E151B),
@@ -257,9 +256,7 @@ class _AllUsersCouponsWidgetState extends State<AllUsersCouponsWidget>
                                                     .width *
                                                 0.5,
                                             height: 70,
-                                            decoration: BoxDecoration(
-                                              color: Color(0xFFEEEEEE),
-                                            ),
+                                            decoration: BoxDecoration(),
                                             child: Row(
                                               mainAxisSize: MainAxisSize.max,
                                               mainAxisAlignment:
