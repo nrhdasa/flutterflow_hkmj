@@ -109,7 +109,7 @@ class _WelcomeWidgetState extends State<WelcomeWidget>
             (r) => false,
           );
         } else {
-          await Future.delayed(const Duration(milliseconds: 2000));
+          await Future.delayed(const Duration(milliseconds: 500));
           await Navigator.pushAndRemoveUntil(
             context,
             PageTransition(
@@ -122,7 +122,7 @@ class _WelcomeWidgetState extends State<WelcomeWidget>
           );
         }
       } else {
-        await Future.delayed(const Duration(milliseconds: 2000));
+        await Future.delayed(const Duration(milliseconds: 500));
         await Navigator.pushAndRemoveUntil(
           context,
           PageTransition(
