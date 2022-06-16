@@ -546,6 +546,14 @@ class _HomePageWidgetState extends State<HomePageWidget> {
                                                 height: 60,
                                                 decoration: BoxDecoration(
                                                   color: Color(0xFF696D73),
+                                                  boxShadow: [
+                                                    BoxShadow(
+                                                      blurRadius: 2,
+                                                      color: Colors.white,
+                                                      offset: Offset(1, 2),
+                                                      spreadRadius: 1,
+                                                    )
+                                                  ],
                                                 ),
                                                 child: Padding(
                                                   padding: EdgeInsetsDirectional
@@ -571,7 +579,7 @@ class _HomePageWidgetState extends State<HomePageWidget> {
                                                                       'Poppins',
                                                                   color: FlutterFlowTheme.of(
                                                                           context)
-                                                                      .textColor,
+                                                                      .primaryBtnText,
                                                                   fontSize: 30,
                                                                 ),
                                                       ),
