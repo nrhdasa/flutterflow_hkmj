@@ -65,21 +65,6 @@ class _ScanCouponWidgetState extends State<ScanCouponWidget> {
                       );
 
                       if ((couponid != null) && (couponid != '')) {
-                        ScaffoldMessenger.of(context).showSnackBar(
-                          SnackBar(
-                            content: Text(
-                              couponid,
-                              style: TextStyle(
-                                color: FlutterFlowTheme.of(context).primaryText,
-                              ),
-                            ),
-                            duration: Duration(milliseconds: 4000),
-                            backgroundColor:
-                                FlutterFlowTheme.of(context).tertiaryColor,
-                          ),
-                        );
-                        await Future.delayed(
-                            const Duration(milliseconds: 2000));
                         await Navigator.push(
                           context,
                           PageTransition(

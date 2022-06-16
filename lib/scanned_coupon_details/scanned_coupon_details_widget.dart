@@ -54,7 +54,21 @@ class _ScannedCouponDetailsWidgetState extends State<ScannedCouponDetailsWidget>
         opacity: 1,
       ),
     ),
-    'containerOnPageLoadAnimation': AnimationInfo(
+    'containerOnPageLoadAnimation1': AnimationInfo(
+      trigger: AnimationTrigger.onPageLoad,
+      duration: 600,
+      initialState: AnimationState(
+        offset: Offset(0, 0),
+        scale: 50,
+        opacity: 0,
+      ),
+      finalState: AnimationState(
+        offset: Offset(0, 0),
+        scale: 1,
+        opacity: 1,
+      ),
+    ),
+    'containerOnPageLoadAnimation2': AnimationInfo(
       trigger: AnimationTrigger.onPageLoad,
       duration: 600,
       initialState: AnimationState(
@@ -110,372 +124,451 @@ class _ScannedCouponDetailsWidgetState extends State<ScannedCouponDetailsWidget>
               onTap: () => FocusScope.of(context).unfocus(),
               child: Stack(
                 children: [
-                  SingleChildScrollView(
-                    child: Column(
-                      mainAxisSize: MainAxisSize.max,
-                      mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                  if (((scannedCouponDetailsACouponDetailsResponse
+                              ?.statusCode ??
+                          200)) ==
+                      200)
+                    Stack(
                       children: [
-                        Padding(
-                          padding: EdgeInsetsDirectional.fromSTEB(24, 4, 24, 0),
-                          child: Row(
+                        SingleChildScrollView(
+                          child: Column(
                             mainAxisSize: MainAxisSize.max,
                             mainAxisAlignment: MainAxisAlignment.spaceBetween,
                             children: [
                               Padding(
-                                padding:
-                                    EdgeInsetsDirectional.fromSTEB(0, 26, 0, 0),
-                                child: Text(
-                                  'Coupon',
-                                  style: FlutterFlowTheme.of(context).title1,
+                                padding: EdgeInsetsDirectional.fromSTEB(
+                                    24, 4, 24, 0),
+                                child: Row(
+                                  mainAxisSize: MainAxisSize.max,
+                                  mainAxisAlignment:
+                                      MainAxisAlignment.spaceBetween,
+                                  children: [
+                                    Padding(
+                                      padding: EdgeInsetsDirectional.fromSTEB(
+                                          0, 26, 0, 0),
+                                      child: Text(
+                                        'Coupon',
+                                        style:
+                                            FlutterFlowTheme.of(context).title1,
+                                      ),
+                                    ),
+                                  ],
                                 ),
+                              ),
+                              Container(
+                                width: double.infinity,
+                                height: 300,
+                                child: custom_widgets.QRImage(
+                                  width: double.infinity,
+                                  height: 300,
+                                  qrcode: getJsonField(
+                                    (scannedCouponDetailsACouponDetailsResponse
+                                            ?.jsonBody ??
+                                        ''),
+                                    r'''$.data.qr_code''',
+                                  ).toString(),
+                                ),
+                              ),
+                              Padding(
+                                padding:
+                                    EdgeInsetsDirectional.fromSTEB(0, 10, 0, 0),
+                                child: Container(
+                                  width:
+                                      MediaQuery.of(context).size.width * 0.9,
+                                  height: 60,
+                                  decoration: BoxDecoration(
+                                    color: Color(0xFF795548),
+                                    boxShadow: [
+                                      BoxShadow(
+                                        color: Color(0x2E39D2C0),
+                                      )
+                                    ],
+                                    borderRadius: BorderRadius.circular(30),
+                                  ),
+                                  child: Padding(
+                                    padding: EdgeInsetsDirectional.fromSTEB(
+                                        20, 0, 10, 0),
+                                    child: Row(
+                                      mainAxisSize: MainAxisSize.max,
+                                      mainAxisAlignment:
+                                          MainAxisAlignment.spaceBetween,
+                                      children: [
+                                        Text(
+                                          'Issuer',
+                                          style: FlutterFlowTheme.of(context)
+                                              .subtitle1
+                                              .override(
+                                                fontFamily: 'Poppins',
+                                                color:
+                                                    FlutterFlowTheme.of(context)
+                                                        .primaryBackground,
+                                              ),
+                                        ),
+                                        Text(
+                                          getJsonField(
+                                            (scannedCouponDetailsACouponDetailsResponse
+                                                    ?.jsonBody ??
+                                                ''),
+                                            r'''$.data.authority''',
+                                          ).toString(),
+                                          style: FlutterFlowTheme.of(context)
+                                              .title3
+                                              .override(
+                                                fontFamily: 'Poppins',
+                                                color:
+                                                    FlutterFlowTheme.of(context)
+                                                        .secondaryBackground,
+                                              ),
+                                        ),
+                                      ],
+                                    ),
+                                  ),
+                                ),
+                              ),
+                              Padding(
+                                padding: EdgeInsetsDirectional.fromSTEB(
+                                    0, 20, 0, 10),
+                                child: Row(
+                                  mainAxisSize: MainAxisSize.max,
+                                  mainAxisAlignment:
+                                      MainAxisAlignment.spaceEvenly,
+                                  children: [
+                                    Container(
+                                      width: MediaQuery.of(context).size.width *
+                                          0.4,
+                                      height: 100,
+                                      decoration: BoxDecoration(
+                                        color: Color(0x2E39D2C0),
+                                        borderRadius: BorderRadius.only(
+                                          bottomLeft: Radius.circular(0),
+                                          bottomRight: Radius.circular(0),
+                                          topLeft: Radius.circular(30),
+                                          topRight: Radius.circular(0),
+                                        ),
+                                      ),
+                                      child: Padding(
+                                        padding: EdgeInsetsDirectional.fromSTEB(
+                                            5, 5, 5, 5),
+                                        child: Column(
+                                          mainAxisSize: MainAxisSize.max,
+                                          mainAxisAlignment:
+                                              MainAxisAlignment.spaceAround,
+                                          children: [
+                                            Text(
+                                              functions.getDateinFormat(
+                                                  getJsonField(
+                                                    (scannedCouponDetailsACouponDetailsResponse
+                                                            ?.jsonBody ??
+                                                        ''),
+                                                    r'''$.data.date''',
+                                                  ).toString(),
+                                                  'E, dd MMM'),
+                                              style:
+                                                  FlutterFlowTheme.of(context)
+                                                      .title1,
+                                            ),
+                                          ],
+                                        ),
+                                      ),
+                                    ),
+                                    Container(
+                                      width: MediaQuery.of(context).size.width *
+                                          0.4,
+                                      height: 100,
+                                      decoration: BoxDecoration(
+                                        color: Color(0x2E39D2C0),
+                                        borderRadius: BorderRadius.only(
+                                          bottomLeft: Radius.circular(0),
+                                          bottomRight: Radius.circular(0),
+                                          topLeft: Radius.circular(0),
+                                          topRight: Radius.circular(30),
+                                        ),
+                                      ),
+                                      child: Padding(
+                                        padding: EdgeInsetsDirectional.fromSTEB(
+                                            5, 5, 5, 5),
+                                        child: Column(
+                                          mainAxisSize: MainAxisSize.max,
+                                          mainAxisAlignment:
+                                              MainAxisAlignment.spaceAround,
+                                          children: [
+                                            Text(
+                                              getJsonField(
+                                                (scannedCouponDetailsACouponDetailsResponse
+                                                        ?.jsonBody ??
+                                                    ''),
+                                                r'''$.data.slot''',
+                                              ).toString(),
+                                              style:
+                                                  FlutterFlowTheme.of(context)
+                                                      .title1,
+                                            ),
+                                          ],
+                                        ),
+                                      ),
+                                    ),
+                                  ],
+                                ).animated(
+                                    [animationsMap['rowOnPageLoadAnimation1']]),
+                              ),
+                              Padding(
+                                padding: EdgeInsetsDirectional.fromSTEB(
+                                    0, 20, 0, 10),
+                                child: Row(
+                                  mainAxisSize: MainAxisSize.max,
+                                  mainAxisAlignment:
+                                      MainAxisAlignment.spaceEvenly,
+                                  children: [
+                                    Container(
+                                      width: MediaQuery.of(context).size.width *
+                                          0.4,
+                                      height: 100,
+                                      decoration: BoxDecoration(
+                                        color: Color(0x2E39D2C0),
+                                        borderRadius: BorderRadius.only(
+                                          bottomLeft: Radius.circular(30),
+                                          bottomRight: Radius.circular(0),
+                                          topLeft: Radius.circular(0),
+                                          topRight: Radius.circular(0),
+                                        ),
+                                      ),
+                                      child: Padding(
+                                        padding: EdgeInsetsDirectional.fromSTEB(
+                                            5, 5, 5, 5),
+                                        child: Column(
+                                          mainAxisSize: MainAxisSize.max,
+                                          mainAxisAlignment:
+                                              MainAxisAlignment.spaceAround,
+                                          children: [
+                                            Text(
+                                              getJsonField(
+                                                (scannedCouponDetailsACouponDetailsResponse
+                                                        ?.jsonBody ??
+                                                    ''),
+                                                r'''$.data.number''',
+                                              ).toString(),
+                                              style:
+                                                  FlutterFlowTheme.of(context)
+                                                      .title1
+                                                      .override(
+                                                        fontFamily: 'Poppins',
+                                                        color:
+                                                            FlutterFlowTheme.of(
+                                                                    context)
+                                                                .alternate,
+                                                        fontSize: 50,
+                                                      ),
+                                            ),
+                                          ],
+                                        ),
+                                      ),
+                                    ),
+                                    Container(
+                                      width: MediaQuery.of(context).size.width *
+                                          0.4,
+                                      height: 100,
+                                      decoration: BoxDecoration(
+                                        color: Color(0x2E39D2C0),
+                                        borderRadius: BorderRadius.only(
+                                          bottomLeft: Radius.circular(0),
+                                          bottomRight: Radius.circular(30),
+                                          topLeft: Radius.circular(0),
+                                          topRight: Radius.circular(0),
+                                        ),
+                                      ),
+                                      child: Padding(
+                                        padding: EdgeInsetsDirectional.fromSTEB(
+                                            5, 5, 5, 5),
+                                        child: Column(
+                                          mainAxisSize: MainAxisSize.max,
+                                          mainAxisAlignment:
+                                              MainAxisAlignment.spaceAround,
+                                          children: [
+                                            Text(
+                                              getJsonField(
+                                                (scannedCouponDetailsACouponDetailsResponse
+                                                        ?.jsonBody ??
+                                                    ''),
+                                                r'''$.data.coupon_type''',
+                                              ).toString(),
+                                              style:
+                                                  FlutterFlowTheme.of(context)
+                                                      .title1
+                                                      .override(
+                                                        fontFamily: 'Poppins',
+                                                        color:
+                                                            FlutterFlowTheme.of(
+                                                                    context)
+                                                                .alternate,
+                                                        fontSize: 50,
+                                                      ),
+                                            ),
+                                          ],
+                                        ),
+                                      ),
+                                    ),
+                                  ],
+                                ).animated(
+                                    [animationsMap['rowOnPageLoadAnimation2']]),
                               ),
                             ],
                           ),
                         ),
-                        Container(
-                          width: double.infinity,
-                          height: 300,
-                          child: custom_widgets.QRImage(
-                            width: double.infinity,
-                            height: 300,
-                            qrcode: getJsonField(
+                        if (!(functions.isCouponUsed(getJsonField(
                               (scannedCouponDetailsACouponDetailsResponse
                                       ?.jsonBody ??
                                   ''),
-                              r'''$.data.qr_code''',
-                            ).toString(),
-                          ),
-                        ),
-                        Padding(
-                          padding: EdgeInsetsDirectional.fromSTEB(0, 10, 0, 0),
-                          child: Container(
-                            width: MediaQuery.of(context).size.width * 0.9,
-                            height: 60,
-                            decoration: BoxDecoration(
-                              color: Color(0xFF795548),
-                              boxShadow: [
-                                BoxShadow(
-                                  color: Color(0x2E39D2C0),
-                                )
-                              ],
-                              borderRadius: BorderRadius.circular(30),
-                            ),
+                              r'''$.data.used''',
+                            ))) ??
+                            true)
+                          Align(
+                            alignment: AlignmentDirectional(-0.7, 0.85),
                             child: Padding(
                               padding:
-                                  EdgeInsetsDirectional.fromSTEB(20, 0, 10, 0),
-                              child: Row(
-                                mainAxisSize: MainAxisSize.max,
-                                mainAxisAlignment:
-                                    MainAxisAlignment.spaceBetween,
-                                children: [
-                                  Text(
-                                    'Issuer',
-                                    style: FlutterFlowTheme.of(context)
-                                        .subtitle1
-                                        .override(
-                                          fontFamily: 'Poppins',
-                                          color: FlutterFlowTheme.of(context)
-                                              .primaryBackground,
+                                  EdgeInsetsDirectional.fromSTEB(10, 0, 10, 0),
+                              child: FFButtonWidget(
+                                onPressed: () async {
+                                  var confirmDialogResponse =
+                                      await showDialog<bool>(
+                                            context: context,
+                                            builder: (alertDialogContext) {
+                                              return AlertDialog(
+                                                title: Text('Are you sure?'),
+                                                content: Text(
+                                                    'This can not be undone. Please  check properly before you submit.'),
+                                                actions: [
+                                                  TextButton(
+                                                    onPressed: () =>
+                                                        Navigator.pop(
+                                                            alertDialogContext,
+                                                            false),
+                                                    child: Text('Cancel'),
+                                                  ),
+                                                  TextButton(
+                                                    onPressed: () =>
+                                                        Navigator.pop(
+                                                            alertDialogContext,
+                                                            true),
+                                                    child: Text('Confirm'),
+                                                  ),
+                                                ],
+                                              );
+                                            },
+                                          ) ??
+                                          false;
+                                  if (confirmDialogResponse) {
+                                    responseUsed =
+                                        await ConfirmCouponUsedCall.call(
+                                      auth: FFAppState().authtoken,
+                                      coupon: widget.couponid,
+                                    );
+                                    if (((responseUsed?.statusCode ?? 200)) ==
+                                        200) {
+                                      await Navigator.push(
+                                        context,
+                                        PageTransition(
+                                          type: PageTransitionType.rightToLeft,
+                                          duration: Duration(milliseconds: 300),
+                                          reverseDuration:
+                                              Duration(milliseconds: 300),
+                                          child: SuccessScanWidget(),
                                         ),
+                                      );
+                                    } else {
+                                      ScaffoldMessenger.of(context)
+                                          .showSnackBar(
+                                        SnackBar(
+                                          content: Text(
+                                            functions.getException(getJsonField(
+                                              (responseUsed?.jsonBody ?? ''),
+                                              r'''$.exception''',
+                                            ).toString()),
+                                            style: TextStyle(
+                                              color:
+                                                  FlutterFlowTheme.of(context)
+                                                      .black600,
+                                            ),
+                                          ),
+                                          duration:
+                                              Duration(milliseconds: 4000),
+                                          backgroundColor:
+                                              FlutterFlowTheme.of(context)
+                                                  .tertiaryColor,
+                                        ),
+                                      );
+                                    }
+                                  }
+
+                                  setState(() {});
+                                },
+                                text: 'ACCEPT COUPON',
+                                options: FFButtonOptions(
+                                  width: double.infinity,
+                                  height: 60,
+                                  color:
+                                      FlutterFlowTheme.of(context).primaryColor,
+                                  textStyle: FlutterFlowTheme.of(context)
+                                      .subtitle1
+                                      .override(
+                                        fontFamily: 'Poppins',
+                                        color: FlutterFlowTheme.of(context)
+                                            .primaryBackground,
+                                      ),
+                                  borderSide: BorderSide(
+                                    color: Colors.transparent,
+                                    width: 1,
                                   ),
-                                  Text(
-                                    getJsonField(
-                                      (scannedCouponDetailsACouponDetailsResponse
-                                              ?.jsonBody ??
-                                          ''),
-                                      r'''$.data.authority''',
-                                    ).toString(),
-                                    style: FlutterFlowTheme.of(context)
-                                        .title3
-                                        .override(
-                                          fontFamily: 'Poppins',
-                                          color: FlutterFlowTheme.of(context)
-                                              .secondaryBackground,
-                                        ),
+                                  borderRadius: 12,
+                                ),
+                              ),
+                            ),
+                          ),
+                        if (functions.isCouponUsed(getJsonField(
+                              (scannedCouponDetailsACouponDetailsResponse
+                                      ?.jsonBody ??
+                                  ''),
+                              r'''$.data.used''',
+                            )) ??
+                            true)
+                          Align(
+                            alignment: AlignmentDirectional(0, -0.52),
+                            child: Container(
+                              width: double.infinity,
+                              height: 100,
+                              decoration: BoxDecoration(
+                                color: FlutterFlowTheme.of(context).alternate,
+                                shape: BoxShape.rectangle,
+                              ),
+                              child: Stack(
+                                children: [
+                                  Align(
+                                    alignment: AlignmentDirectional(0, 0),
+                                    child: Text(
+                                      'Already Used',
+                                      style: FlutterFlowTheme.of(context)
+                                          .title1
+                                          .override(
+                                            fontFamily: 'Poppins',
+                                            color: FlutterFlowTheme.of(context)
+                                                .primaryText,
+                                            fontSize: 30,
+                                          ),
+                                    ),
                                   ),
                                 ],
                               ),
-                            ),
+                            ).animated([
+                              animationsMap['containerOnPageLoadAnimation1']
+                            ]),
                           ),
-                        ),
-                        Padding(
-                          padding: EdgeInsetsDirectional.fromSTEB(0, 20, 0, 10),
-                          child: Row(
-                            mainAxisSize: MainAxisSize.max,
-                            mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-                            children: [
-                              Container(
-                                width: MediaQuery.of(context).size.width * 0.4,
-                                height: 100,
-                                decoration: BoxDecoration(
-                                  color: Color(0x2E39D2C0),
-                                  borderRadius: BorderRadius.only(
-                                    bottomLeft: Radius.circular(0),
-                                    bottomRight: Radius.circular(0),
-                                    topLeft: Radius.circular(30),
-                                    topRight: Radius.circular(0),
-                                  ),
-                                ),
-                                child: Padding(
-                                  padding: EdgeInsetsDirectional.fromSTEB(
-                                      5, 5, 5, 5),
-                                  child: Column(
-                                    mainAxisSize: MainAxisSize.max,
-                                    mainAxisAlignment:
-                                        MainAxisAlignment.spaceAround,
-                                    children: [
-                                      Text(
-                                        functions.getDateinFormat(
-                                            getJsonField(
-                                              (scannedCouponDetailsACouponDetailsResponse
-                                                      ?.jsonBody ??
-                                                  ''),
-                                              r'''$.data.date''',
-                                            ).toString(),
-                                            'E, dd MMM'),
-                                        style:
-                                            FlutterFlowTheme.of(context).title1,
-                                      ),
-                                    ],
-                                  ),
-                                ),
-                              ),
-                              Container(
-                                width: MediaQuery.of(context).size.width * 0.4,
-                                height: 100,
-                                decoration: BoxDecoration(
-                                  color: Color(0x2E39D2C0),
-                                  borderRadius: BorderRadius.only(
-                                    bottomLeft: Radius.circular(0),
-                                    bottomRight: Radius.circular(0),
-                                    topLeft: Radius.circular(0),
-                                    topRight: Radius.circular(30),
-                                  ),
-                                ),
-                                child: Padding(
-                                  padding: EdgeInsetsDirectional.fromSTEB(
-                                      5, 5, 5, 5),
-                                  child: Column(
-                                    mainAxisSize: MainAxisSize.max,
-                                    mainAxisAlignment:
-                                        MainAxisAlignment.spaceAround,
-                                    children: [
-                                      Text(
-                                        getJsonField(
-                                          (scannedCouponDetailsACouponDetailsResponse
-                                                  ?.jsonBody ??
-                                              ''),
-                                          r'''$.data.slot''',
-                                        ).toString(),
-                                        style:
-                                            FlutterFlowTheme.of(context).title1,
-                                      ),
-                                    ],
-                                  ),
-                                ),
-                              ),
-                            ],
-                          ).animated(
-                              [animationsMap['rowOnPageLoadAnimation1']]),
-                        ),
-                        Padding(
-                          padding: EdgeInsetsDirectional.fromSTEB(0, 20, 0, 10),
-                          child: Row(
-                            mainAxisSize: MainAxisSize.max,
-                            mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-                            children: [
-                              Container(
-                                width: MediaQuery.of(context).size.width * 0.4,
-                                height: 100,
-                                decoration: BoxDecoration(
-                                  color: Color(0x2E39D2C0),
-                                  borderRadius: BorderRadius.only(
-                                    bottomLeft: Radius.circular(30),
-                                    bottomRight: Radius.circular(0),
-                                    topLeft: Radius.circular(0),
-                                    topRight: Radius.circular(0),
-                                  ),
-                                ),
-                                child: Padding(
-                                  padding: EdgeInsetsDirectional.fromSTEB(
-                                      5, 5, 5, 5),
-                                  child: Column(
-                                    mainAxisSize: MainAxisSize.max,
-                                    mainAxisAlignment:
-                                        MainAxisAlignment.spaceAround,
-                                    children: [
-                                      Text(
-                                        getJsonField(
-                                          (scannedCouponDetailsACouponDetailsResponse
-                                                  ?.jsonBody ??
-                                              ''),
-                                          r'''$.data.number''',
-                                        ).toString(),
-                                        style: FlutterFlowTheme.of(context)
-                                            .title1
-                                            .override(
-                                              fontFamily: 'Poppins',
-                                              color:
-                                                  FlutterFlowTheme.of(context)
-                                                      .alternate,
-                                              fontSize: 50,
-                                            ),
-                                      ),
-                                    ],
-                                  ),
-                                ),
-                              ),
-                              Container(
-                                width: MediaQuery.of(context).size.width * 0.4,
-                                height: 100,
-                                decoration: BoxDecoration(
-                                  color: Color(0x2E39D2C0),
-                                  borderRadius: BorderRadius.only(
-                                    bottomLeft: Radius.circular(0),
-                                    bottomRight: Radius.circular(30),
-                                    topLeft: Radius.circular(0),
-                                    topRight: Radius.circular(0),
-                                  ),
-                                ),
-                                child: Padding(
-                                  padding: EdgeInsetsDirectional.fromSTEB(
-                                      5, 5, 5, 5),
-                                  child: Column(
-                                    mainAxisSize: MainAxisSize.max,
-                                    mainAxisAlignment:
-                                        MainAxisAlignment.spaceAround,
-                                    children: [
-                                      Text(
-                                        getJsonField(
-                                          (scannedCouponDetailsACouponDetailsResponse
-                                                  ?.jsonBody ??
-                                              ''),
-                                          r'''$.data.coupon_type''',
-                                        ).toString(),
-                                        style: FlutterFlowTheme.of(context)
-                                            .title1
-                                            .override(
-                                              fontFamily: 'Poppins',
-                                              color:
-                                                  FlutterFlowTheme.of(context)
-                                                      .alternate,
-                                              fontSize: 50,
-                                            ),
-                                      ),
-                                    ],
-                                  ),
-                                ),
-                              ),
-                            ],
-                          ).animated(
-                              [animationsMap['rowOnPageLoadAnimation2']]),
-                        ),
                       ],
                     ),
-                  ),
-                  if (!(functions.isCouponUsed(getJsonField(
-                        (scannedCouponDetailsACouponDetailsResponse?.jsonBody ??
-                            ''),
-                        r'''$.data.used''',
-                      ))) ??
-                      true)
+                  if (((scannedCouponDetailsACouponDetailsResponse
+                              ?.statusCode ??
+                          200)) !=
+                      200)
                     Align(
-                      alignment: AlignmentDirectional(-0.7, 0.85),
-                      child: Padding(
-                        padding: EdgeInsetsDirectional.fromSTEB(10, 0, 10, 0),
-                        child: FFButtonWidget(
-                          onPressed: () async {
-                            var confirmDialogResponse = await showDialog<bool>(
-                                  context: context,
-                                  builder: (alertDialogContext) {
-                                    return AlertDialog(
-                                      title: Text('Are you sure?'),
-                                      content: Text(
-                                          'This can not be undone. Please  check properly before you submit.'),
-                                      actions: [
-                                        TextButton(
-                                          onPressed: () => Navigator.pop(
-                                              alertDialogContext, false),
-                                          child: Text('Cancel'),
-                                        ),
-                                        TextButton(
-                                          onPressed: () => Navigator.pop(
-                                              alertDialogContext, true),
-                                          child: Text('Confirm'),
-                                        ),
-                                      ],
-                                    );
-                                  },
-                                ) ??
-                                false;
-                            if (confirmDialogResponse) {
-                              responseUsed = await ConfirmCouponUsedCall.call(
-                                auth: FFAppState().authtoken,
-                                coupon: widget.couponid,
-                              );
-                              if (((responseUsed?.statusCode ?? 200)) == 200) {
-                                await Navigator.push(
-                                  context,
-                                  PageTransition(
-                                    type: PageTransitionType.rightToLeft,
-                                    duration: Duration(milliseconds: 300),
-                                    reverseDuration:
-                                        Duration(milliseconds: 300),
-                                    child: SuccessScanWidget(),
-                                  ),
-                                );
-                              } else {
-                                ScaffoldMessenger.of(context).showSnackBar(
-                                  SnackBar(
-                                    content: Text(
-                                      functions.getException(getJsonField(
-                                        (responseUsed?.jsonBody ?? ''),
-                                        r'''$.exception''',
-                                      ).toString()),
-                                      style: TextStyle(
-                                        color: FlutterFlowTheme.of(context)
-                                            .black600,
-                                      ),
-                                    ),
-                                    duration: Duration(milliseconds: 4000),
-                                    backgroundColor:
-                                        FlutterFlowTheme.of(context)
-                                            .tertiaryColor,
-                                  ),
-                                );
-                              }
-                            }
-
-                            setState(() {});
-                          },
-                          text: 'ACCEPT COUPON',
-                          options: FFButtonOptions(
-                            width: double.infinity,
-                            height: 60,
-                            color: FlutterFlowTheme.of(context).primaryColor,
-                            textStyle:
-                                FlutterFlowTheme.of(context).subtitle1.override(
-                                      fontFamily: 'Poppins',
-                                      color: FlutterFlowTheme.of(context)
-                                          .primaryBackground,
-                                    ),
-                            borderSide: BorderSide(
-                              color: Colors.transparent,
-                              width: 1,
-                            ),
-                            borderRadius: 12,
-                          ),
-                        ),
-                      ),
-                    ),
-                  if (functions.isCouponUsed(getJsonField(
-                        (scannedCouponDetailsACouponDetailsResponse?.jsonBody ??
-                            ''),
-                        r'''$.data.used''',
-                      )) ??
-                      true)
-                    Align(
-                      alignment: AlignmentDirectional(0, -0.52),
+                      alignment: AlignmentDirectional(0, 0.05),
                       child: Container(
                         width: double.infinity,
                         height: 100,
@@ -488,7 +581,7 @@ class _ScannedCouponDetailsWidgetState extends State<ScannedCouponDetailsWidget>
                             Align(
                               alignment: AlignmentDirectional(0, 0),
                               child: Text(
-                                'Already Used',
+                                'Invalid Coupon',
                                 style: FlutterFlowTheme.of(context)
                                     .title1
                                     .override(
@@ -502,7 +595,7 @@ class _ScannedCouponDetailsWidgetState extends State<ScannedCouponDetailsWidget>
                           ],
                         ),
                       ).animated(
-                          [animationsMap['containerOnPageLoadAnimation']]),
+                          [animationsMap['containerOnPageLoadAnimation2']]),
                     ),
                 ],
               ),
