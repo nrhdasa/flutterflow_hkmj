@@ -308,10 +308,7 @@ class _CouponsGeneratedWidgetState extends State<CouponsGeneratedWidget> {
                                                     boxShadow: [
                                                       BoxShadow(
                                                         blurRadius: 100,
-                                                        color:
-                                                            FlutterFlowTheme.of(
-                                                                    context)
-                                                                .gray600,
+                                                        color: Colors.white,
                                                         spreadRadius: 5,
                                                       )
                                                     ],
@@ -344,10 +341,7 @@ class _CouponsGeneratedWidgetState extends State<CouponsGeneratedWidget> {
                                                     boxShadow: [
                                                       BoxShadow(
                                                         blurRadius: 100,
-                                                        color:
-                                                            FlutterFlowTheme.of(
-                                                                    context)
-                                                                .gray600,
+                                                        color: Colors.white,
                                                         spreadRadius: 5,
                                                       )
                                                     ],
