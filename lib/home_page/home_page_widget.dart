@@ -108,7 +108,9 @@ class _HomePageWidgetState extends State<HomePageWidget> {
                               type: PageTransitionType.rightToLeft,
                               duration: Duration(milliseconds: 300),
                               reverseDuration: Duration(milliseconds: 300),
-                              child: ScannedCouponDetailsWidget(),
+                              child: ScannedCouponDetailsWidget(
+                                couponid: couponid,
+                              ),
                             ),
                           );
                         } else {
