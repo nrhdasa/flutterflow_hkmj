@@ -193,7 +193,7 @@ class _RequestWidgetState extends State<RequestWidget> {
                         borderRadius: BorderRadius.circular(8),
                       ),
                       child: FlutterFlowDropDown(
-                        initialOption: couponTypeValue ??= 'Morning',
+                        initialOption: couponTypeValue ??= 'Silver',
                         options: ['Silver', 'Gold'],
                         onChanged: (val) =>
                             setState(() => couponTypeValue = val),

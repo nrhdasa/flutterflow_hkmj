@@ -256,7 +256,7 @@ class _TransferWidgetState extends State<TransferWidget> {
                         borderRadius: BorderRadius.circular(8),
                       ),
                       child: FlutterFlowDropDown(
-                        initialOption: couponTypeValue ??= 'Morning',
+                        initialOption: couponTypeValue ??= 'Silver',
                         options: ['Silver', 'Gold'],
                         onChanged: (val) =>
                             setState(() => couponTypeValue = val),

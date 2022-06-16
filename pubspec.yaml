@@ -42,7 +42,6 @@ dependencies:
   json_path: 0.3.1
   lottie: 1.2.1
   page_transition: 2.0.4
-  percent_indicator: 4.0.0
   rxdart: 0.26.0
   share_plus: ^4.0.5
   shared_preferences: 2.0.11
