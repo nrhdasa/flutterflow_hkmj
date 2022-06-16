@@ -608,7 +608,10 @@ class _HomeCopyWidgetState extends State<HomeCopyWidget> {
                                                           MainAxisSize.max,
                                                       children: [
                                                         Text(
-                                                          '34',
+                                                          getJsonField(
+                                                            dashItem,
+                                                            r'''$.silver.release''',
+                                                          ).toString(),
                                                           style: FlutterFlowTheme
                                                                   .of(context)
                                                               .title1
@@ -756,7 +759,7 @@ class _HomeCopyWidgetState extends State<HomeCopyWidget> {
                                                               ),
                                                         ),
                                                         Text(
-                                                          'QR',
+                                                          'QR Code',
                                                           style: FlutterFlowTheme
                                                                   .of(context)
                                                               .bodyText2
@@ -796,7 +799,7 @@ class _HomeCopyWidgetState extends State<HomeCopyWidget> {
                                                               ),
                                                         ),
                                                         Text(
-                                                          'Used',
+                                                          'Served',
                                                           style: FlutterFlowTheme
                                                                   .of(context)
                                                               .bodyText2
