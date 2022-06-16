@@ -1,9 +1,9 @@
 // Export pages
 export 'login/login_widget.dart' show LoginWidget;
 export 'profile/profile_widget.dart' show ProfileWidget;
-export 'home/home_widget.dart' show HomeWidget;
 export 'coupons_generated/coupons_generated_widget.dart'
     show CouponsGeneratedWidget;
+export 'home/home_widget.dart' show HomeWidget;
 export 'all_users_coupons/all_users_coupons_widget.dart'
     show AllUsersCouponsWidget;
 export 'request/request_widget.dart' show RequestWidget;
@@ -17,3 +17,4 @@ export 'generate/generate_widget.dart' show GenerateWidget;
 export 'coupon_details/coupon_details_widget.dart' show CouponDetailsWidget;
 export 'scan_coupon/scan_coupon_widget.dart' show ScanCouponWidget;
 export 'success_scan/success_scan_widget.dart' show SuccessScanWidget;
+export 'home_copy/home_copy_widget.dart' show HomeCopyWidget;
