@@ -232,7 +232,7 @@ class _ScannedCouponDetailsWidgetState extends State<ScannedCouponDetailsWidget>
                                                   ''),
                                               r'''$.data.date''',
                                             ).toString(),
-                                            'dd MMM'),
+                                            'E, dd MMM'),
                                         style:
                                             FlutterFlowTheme.of(context).title1,
                                       ),
@@ -373,11 +373,11 @@ class _ScannedCouponDetailsWidgetState extends State<ScannedCouponDetailsWidget>
                       ],
                     ),
                   ),
-                  if (functions.isCouponUsed(getJsonField(
+                  if (!(functions.isCouponUsed(getJsonField(
                         (scannedCouponDetailsACouponDetailsResponse?.jsonBody ??
                             ''),
                         r'''$.data.used''',
-                      )) ??
+                      ))) ??
                       true)
                     Align(
                       alignment: AlignmentDirectional(-0.7, 0.85),
