@@ -37,7 +37,7 @@ class _HomePageWidgetState extends State<HomePageWidget> {
           style: FlutterFlowTheme.of(context).title1.override(
                 fontFamily: 'Poppins',
                 color: FlutterFlowTheme.of(context).primaryText,
-                fontSize: 20,
+                fontSize: 2,
               ),
         ),
         actions: [
@@ -533,7 +533,7 @@ class _HomePageWidgetState extends State<HomePageWidget> {
                                         child: Card(
                                           clipBehavior:
                                               Clip.antiAliasWithSaveLayer,
-                                          color: Color(0x21C0C0C0),
+                                          color: Color(0xEEBBC2CC),
                                           shape: RoundedRectangleBorder(
                                             borderRadius:
                                                 BorderRadius.circular(16),
