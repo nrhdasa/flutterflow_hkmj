@@ -545,7 +545,7 @@ class _HomePageWidgetState extends State<HomePageWidget> {
                                                 width: double.infinity,
                                                 height: 60,
                                                 decoration: BoxDecoration(
-                                                  color: Color(0xFF696D73),
+                                                  color: Color(0xFFAECDCA),
                                                   boxShadow: [
                                                     BoxShadow(
                                                       blurRadius: 100,
