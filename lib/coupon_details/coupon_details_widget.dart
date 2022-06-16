@@ -279,7 +279,7 @@ class _CouponDetailsWidgetState extends State<CouponDetailsWidget>
                                       .override(
                                         fontFamily: 'Poppins',
                                         color: Color(0xFF150977),
-                                        fontSize: 30,
+                                        fontSize: 50,
                                       ),
                                 ),
                               ],
@@ -322,7 +322,7 @@ class _CouponDetailsWidgetState extends State<CouponDetailsWidget>
                                       .override(
                                         fontFamily: 'Poppins',
                                         color: Color(0xFF150977),
-                                        fontSize: 30,
+                                        fontSize: 50,
                                       ),
                                 ),
                               ],
