@@ -1,4 +1,5 @@
 import '../backend/api_requests/api_calls.dart';
+import '../flutter_flow/flutter_flow_animations.dart';
 import '../flutter_flow/flutter_flow_icon_button.dart';
 import '../flutter_flow/flutter_flow_theme.dart';
 import '../flutter_flow/flutter_flow_util.dart';
@@ -23,9 +24,68 @@ class HomePageWidget extends StatefulWidget {
   _HomePageWidgetState createState() => _HomePageWidgetState();
 }
 
-class _HomePageWidgetState extends State<HomePageWidget> {
+class _HomePageWidgetState extends State<HomePageWidget>
+    with TickerProviderStateMixin {
+  final animationsMap = {
+    'containerOnPageLoadAnimation': AnimationInfo(
+      trigger: AnimationTrigger.onPageLoad,
+      duration: 600,
+      fadeIn: true,
+      initialState: AnimationState(
+        offset: Offset(-25, 0),
+        scale: 1,
+        opacity: 0,
+      ),
+      finalState: AnimationState(
+        offset: Offset(0, 0),
+        scale: 1,
+        opacity: 1,
+      ),
+    ),
+    'rowOnPageLoadAnimation': AnimationInfo(
+      trigger: AnimationTrigger.onPageLoad,
+      duration: 600,
+      fadeIn: true,
+      initialState: AnimationState(
+        offset: Offset(-30, 0),
+        scale: 1,
+        opacity: 0,
+      ),
+      finalState: AnimationState(
+        offset: Offset(0, 0),
+        scale: 1,
+        opacity: 1,
+      ),
+    ),
+    'columnOnPageLoadAnimation': AnimationInfo(
+      curve: Curves.easeIn,
+      trigger: AnimationTrigger.onPageLoad,
+      duration: 600,
+      fadeIn: true,
+      initialState: AnimationState(
+        offset: Offset(32, 47),
+        scale: 1,
+        opacity: 0,
+      ),
+      finalState: AnimationState(
+        offset: Offset(0, 0),
+        scale: 1,
+        opacity: 1,
+      ),
+    ),
+  };
   final scaffoldKey = GlobalKey<ScaffoldState>();
   var couponid = '';
+
+  @override
+  void initState() {
+    super.initState();
+    startPageLoadAnimations(
+      animationsMap.values
+          .where((anim) => anim.trigger == AnimationTrigger.onPageLoad),
+      this,
+    );
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -388,7 +448,8 @@ class _HomePageWidgetState extends State<HomePageWidget> {
                               ),
                             ),
                           ),
-                        ),
+                        ).animated(
+                            [animationsMap['containerOnPageLoadAnimation']]),
                       ),
                       Padding(
                         padding: EdgeInsetsDirectional.fromSTEB(16, 0, 16, 0),
@@ -501,7 +562,7 @@ class _HomePageWidgetState extends State<HomePageWidget> {
                                 ),
                               ),
                             ],
-                          ),
+                          ).animated([animationsMap['rowOnPageLoadAnimation']]),
                         ),
                       ),
                       Divider(),
@@ -1174,7 +1235,8 @@ class _HomePageWidgetState extends State<HomePageWidget> {
                                   ),
                                 ),
                               ],
-                            );
+                            ).animated(
+                                [animationsMap['columnOnPageLoadAnimation']]);
                           }),
                         );
                       },

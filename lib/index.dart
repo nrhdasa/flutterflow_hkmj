@@ -15,6 +15,6 @@ export 'welcome/welcome_widget.dart' show WelcomeWidget;
 export 'generate/generate_widget.dart' show GenerateWidget;
 export 'coupon_details/coupon_details_widget.dart' show CouponDetailsWidget;
 export 'success_scan/success_scan_widget.dart' show SuccessScanWidget;
-export 'home_page/home_page_widget.dart' show HomePageWidget;
 export 'scanned_coupon_details/scanned_coupon_details_widget.dart'
     show ScannedCouponDetailsWidget;
+export 'home_page/home_page_widget.dart' show HomePageWidget;
