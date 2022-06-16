@@ -98,6 +98,17 @@ class _ScanCouponWidgetState extends State<ScanCouponWidget>
                         ScanMode.QR,
                       );
 
+                      ScaffoldMessenger.of(context).showSnackBar(
+                        SnackBar(
+                          content: Text(
+                            couponid,
+                            style: TextStyle(),
+                          ),
+                          duration: Duration(milliseconds: 4000),
+                          backgroundColor: Color(0x00000000),
+                        ),
+                      );
+
                       setState(() {});
                     },
                     text: 'Scan',
