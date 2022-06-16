@@ -68,7 +68,7 @@ class _LoginWidgetState extends State<LoginWidget> {
                 ),
                 Container(
                   width: MediaQuery.of(context).size.width,
-                  height: 300,
+                  height: 400,
                   decoration: BoxDecoration(
                     color: Colors.white,
                     borderRadius: BorderRadius.only(

@@ -1147,7 +1147,7 @@ class _HomePageWidgetState extends State<HomePageWidget> {
                                                                   .title1,
                                                             ),
                                                             Text(
-                                                              'Used',
+                                                              'Served',
                                                               style: FlutterFlowTheme
                                                                       .of(context)
                                                                   .bodyText2
