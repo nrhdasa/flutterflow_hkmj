@@ -37,7 +37,7 @@ class _HomePageWidgetState extends State<HomePageWidget> {
           style: FlutterFlowTheme.of(context).title1.override(
                 fontFamily: 'Poppins',
                 color: FlutterFlowTheme.of(context).primaryText,
-                fontSize: 2,
+                fontSize: 20,
               ),
         ),
         actions: [
