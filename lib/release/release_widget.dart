@@ -21,6 +21,7 @@ class _ReleaseWidgetState extends State<ReleaseWidget> {
   ApiCallResponse response;
   DateTime datePicked;
   String dropDownValue;
+  String couponTypeValue;
   TextEditingController numberController;
   final scaffoldKey = GlobalKey<ScaffoldState>();
 
@@ -176,6 +177,45 @@ class _ReleaseWidgetState extends State<ReleaseWidget> {
                     ),
                   ),
                   Padding(
+                    padding: EdgeInsetsDirectional.fromSTEB(24, 14, 24, 0),
+                    child: Container(
+                      width: double.infinity,
+                      height: 60,
+                      decoration: BoxDecoration(
+                        color: FlutterFlowTheme.of(context).secondaryBackground,
+                        boxShadow: [
+                          BoxShadow(
+                            blurRadius: 5,
+                            color: Color(0x4D101213),
+                            offset: Offset(0, 2),
+                          )
+                        ],
+                        borderRadius: BorderRadius.circular(8),
+                      ),
+                      child: FlutterFlowDropDown(
+                        initialOption: couponTypeValue ??= 'Morning',
+                        options: ['Silver', 'Gold'],
+                        onChanged: (val) =>
+                            setState(() => couponTypeValue = val),
+                        width: 180,
+                        height: 50,
+                        textStyle:
+                            FlutterFlowTheme.of(context).bodyText1.override(
+                                  fontFamily: 'Poppins',
+                                  color: Colors.black,
+                                ),
+                        hintText: 'Please select the coupon type...',
+                        fillColor: Colors.white,
+                        elevation: 2,
+                        borderColor: Colors.transparent,
+                        borderWidth: 0,
+                        borderRadius: 0,
+                        margin: EdgeInsetsDirectional.fromSTEB(12, 4, 12, 4),
+                        hidesUnderline: true,
+                      ),
+                    ),
+                  ),
+                  Padding(
                     padding: EdgeInsetsDirectional.fromSTEB(24, 10, 0, 0),
                     child: Container(
                       width: double.infinity,
@@ -253,6 +293,7 @@ class _ReleaseWidgetState extends State<ReleaseWidget> {
                           date: functions.setDate(datePicked),
                           slot: dropDownValue,
                           number: int.parse(numberController.text),
+                          couponType: couponTypeValue,
                         );
                         if (((response?.statusCode ?? 200)) == 200) {
                           if ((getJsonField(

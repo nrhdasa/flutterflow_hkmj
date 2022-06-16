@@ -21,7 +21,7 @@ class _SuccessWidgetState extends State<SuccessWidget> {
   Widget build(BuildContext context) {
     return Scaffold(
       key: scaffoldKey,
-      backgroundColor: Color(0xFF67B569),
+      backgroundColor: Color(0xF867B569),
       body: SafeArea(
         child: GestureDetector(
           onTap: () => FocusScope.of(context).unfocus(),

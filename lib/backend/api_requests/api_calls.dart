@@ -103,6 +103,7 @@ class CreateRequestCall {
     String date = '',
     String slot = '',
     int number,
+    String couponType = '',
   }) {
     final body = '''
 {
@@ -110,6 +111,7 @@ class CreateRequestCall {
   "date": "${date}",
   "slot": "${slot}",
   "number": "${number}",
+  "coupon_type": "${couponType}",
   "docstatus": 1
 }''';
     return ApiManager.instance.makeApiCall(
@@ -123,6 +125,7 @@ class CreateRequestCall {
         'date': date,
         'slot': slot,
         'number': number,
+        'coupon_type': couponType,
       },
       body: body,
       bodyType: BodyType.JSON,
@@ -166,6 +169,7 @@ class CreateTransferCall {
     String slot = '',
     int number,
     String transferTo = '',
+    String couponType = '',
   }) {
     final body = '''
 {
@@ -173,6 +177,7 @@ class CreateTransferCall {
   "date": "${date}",
   "slot": "${slot}",
   "number": ${number},
+  "coupon_type": "${couponType}",
   "transfer_to": "${transferTo}",
   "docstatus": 1
 }''';
@@ -188,6 +193,7 @@ class CreateTransferCall {
         'slot': slot,
         'number': number,
         'transfer_to': transferTo,
+        'coupon_type': couponType,
       },
       body: body,
       bodyType: BodyType.JSON,
@@ -232,6 +238,7 @@ class GenerateCouponCall {
     String slot = '',
     int number,
     String authority = '',
+    String couponType = '',
   }) {
     final body = '''
 {
@@ -239,6 +246,7 @@ class GenerateCouponCall {
   "slot": "${slot}",
   "docstatus": 1,
   "number": ${number},
+  "coupon_type": "${couponType}",
   "authority": "${authority}"
 }''';
     return ApiManager.instance.makeApiCall(
@@ -253,6 +261,7 @@ class GenerateCouponCall {
         'slot': slot,
         'number': number,
         'authority': authority,
+        'coupon_type': couponType,
       },
       body: body,
       bodyType: BodyType.JSON,
@@ -321,6 +330,7 @@ class CreateReleaseCall {
     String date = '',
     String slot = '',
     int number,
+    String couponType = '',
   }) {
     final body = '''
 {
@@ -328,6 +338,7 @@ class CreateReleaseCall {
   "date": "${date}",
   "slot": "${slot}",
   "number": ${number},
+  "coupon_type": "${couponType}",
   "docstatus": 1
 }''';
     return ApiManager.instance.makeApiCall(
@@ -341,6 +352,7 @@ class CreateReleaseCall {
         'date': date,
         'slot': slot,
         'number': number,
+        'coupon_type': couponType,
       },
       body: body,
       bodyType: BodyType.JSON,
