@@ -169,31 +169,27 @@ class _CouponDetailsWidgetState extends State<CouponDetailsWidget>
                                 topRight: Radius.circular(0),
                               ),
                             ),
-                            child: Column(
-                              mainAxisSize: MainAxisSize.max,
-                              mainAxisAlignment: MainAxisAlignment.spaceAround,
-                              children: [
-                                Padding(
-                                  padding: EdgeInsetsDirectional.fromSTEB(
-                                      0, 0, 0, 8),
-                                  child: Text(
-                                    'Date',
-                                    style:
-                                        FlutterFlowTheme.of(context).bodyText2,
+                            child: Padding(
+                              padding:
+                                  EdgeInsetsDirectional.fromSTEB(5, 5, 5, 5),
+                              child: Column(
+                                mainAxisSize: MainAxisSize.max,
+                                mainAxisAlignment:
+                                    MainAxisAlignment.spaceAround,
+                                children: [
+                                  Text(
+                                    functions.getDateinFormat(
+                                        getJsonField(
+                                          (couponDetailsACouponDetailsResponse
+                                                  ?.jsonBody ??
+                                              ''),
+                                          r'''$.data.date''',
+                                        ).toString(),
+                                        'E, dd MMM'),
+                                    style: FlutterFlowTheme.of(context).title1,
                                   ),
-                                ),
-                                Text(
-                                  functions.getDateinFormat(
-                                      getJsonField(
-                                        (couponDetailsACouponDetailsResponse
-                                                ?.jsonBody ??
-                                            ''),
-                                        r'''$.data.date''',
-                                      ).toString(),
-                                      'E, dd MMM'),
-                                  style: FlutterFlowTheme.of(context).title1,
-                                ),
-                              ],
+                                ],
+                              ),
                             ),
                           ),
                           Container(
@@ -208,29 +204,25 @@ class _CouponDetailsWidgetState extends State<CouponDetailsWidget>
                                 topRight: Radius.circular(30),
                               ),
                             ),
-                            child: Column(
-                              mainAxisSize: MainAxisSize.max,
-                              mainAxisAlignment: MainAxisAlignment.spaceAround,
-                              children: [
-                                Padding(
-                                  padding: EdgeInsetsDirectional.fromSTEB(
-                                      0, 0, 0, 8),
-                                  child: Text(
-                                    'Slot',
-                                    style:
-                                        FlutterFlowTheme.of(context).bodyText2,
+                            child: Padding(
+                              padding:
+                                  EdgeInsetsDirectional.fromSTEB(5, 5, 5, 5),
+                              child: Column(
+                                mainAxisSize: MainAxisSize.max,
+                                mainAxisAlignment:
+                                    MainAxisAlignment.spaceAround,
+                                children: [
+                                  Text(
+                                    getJsonField(
+                                      (couponDetailsACouponDetailsResponse
+                                              ?.jsonBody ??
+                                          ''),
+                                      r'''$.data.slot''',
+                                    ).toString(),
+                                    style: FlutterFlowTheme.of(context).title1,
                                   ),
-                                ),
-                                Text(
-                                  getJsonField(
-                                    (couponDetailsACouponDetailsResponse
-                                            ?.jsonBody ??
-                                        ''),
-                                    r'''$.data.slot''',
-                                  ).toString(),
-                                  style: FlutterFlowTheme.of(context).title1,
-                                ),
-                              ],
+                                ],
+                              ),
                             ),
                           ),
                         ],
@@ -254,36 +246,32 @@ class _CouponDetailsWidgetState extends State<CouponDetailsWidget>
                                 topRight: Radius.circular(0),
                               ),
                             ),
-                            child: Column(
-                              mainAxisSize: MainAxisSize.max,
-                              mainAxisAlignment: MainAxisAlignment.spaceAround,
-                              children: [
-                                Padding(
-                                  padding: EdgeInsetsDirectional.fromSTEB(
-                                      0, 0, 0, 8),
-                                  child: Text(
-                                    'Count',
-                                    style:
-                                        FlutterFlowTheme.of(context).bodyText2,
+                            child: Padding(
+                              padding:
+                                  EdgeInsetsDirectional.fromSTEB(5, 5, 5, 5),
+                              child: Column(
+                                mainAxisSize: MainAxisSize.max,
+                                mainAxisAlignment:
+                                    MainAxisAlignment.spaceAround,
+                                children: [
+                                  Text(
+                                    getJsonField(
+                                      (couponDetailsACouponDetailsResponse
+                                              ?.jsonBody ??
+                                          ''),
+                                      r'''$.data.number''',
+                                    ).toString(),
+                                    style: FlutterFlowTheme.of(context)
+                                        .title1
+                                        .override(
+                                          fontFamily: 'Poppins',
+                                          color: FlutterFlowTheme.of(context)
+                                              .alternate,
+                                          fontSize: 50,
+                                        ),
                                   ),
-                                ),
-                                Text(
-                                  getJsonField(
-                                    (couponDetailsACouponDetailsResponse
-                                            ?.jsonBody ??
-                                        ''),
-                                    r'''$.data.number''',
-                                  ).toString(),
-                                  style: FlutterFlowTheme.of(context)
-                                      .title1
-                                      .override(
-                                        fontFamily: 'Poppins',
-                                        color: FlutterFlowTheme.of(context)
-                                            .alternate,
-                                        fontSize: 50,
-                                      ),
-                                ),
-                              ],
+                                ],
+                              ),
                             ),
                           ),
                           Container(
@@ -298,36 +286,32 @@ class _CouponDetailsWidgetState extends State<CouponDetailsWidget>
                                 topRight: Radius.circular(0),
                               ),
                             ),
-                            child: Column(
-                              mainAxisSize: MainAxisSize.max,
-                              mainAxisAlignment: MainAxisAlignment.spaceAround,
-                              children: [
-                                Padding(
-                                  padding: EdgeInsetsDirectional.fromSTEB(
-                                      0, 0, 0, 8),
-                                  child: Text(
-                                    'Coupon Type',
-                                    style:
-                                        FlutterFlowTheme.of(context).bodyText2,
+                            child: Padding(
+                              padding:
+                                  EdgeInsetsDirectional.fromSTEB(5, 5, 5, 5),
+                              child: Column(
+                                mainAxisSize: MainAxisSize.max,
+                                mainAxisAlignment:
+                                    MainAxisAlignment.spaceAround,
+                                children: [
+                                  Text(
+                                    getJsonField(
+                                      (couponDetailsACouponDetailsResponse
+                                              ?.jsonBody ??
+                                          ''),
+                                      r'''$.data.coupon_type''',
+                                    ).toString(),
+                                    style: FlutterFlowTheme.of(context)
+                                        .title1
+                                        .override(
+                                          fontFamily: 'Poppins',
+                                          color: FlutterFlowTheme.of(context)
+                                              .alternate,
+                                          fontSize: 50,
+                                        ),
                                   ),
-                                ),
-                                Text(
-                                  getJsonField(
-                                    (couponDetailsACouponDetailsResponse
-                                            ?.jsonBody ??
-                                        ''),
-                                    r'''$.data.coupon_type''',
-                                  ).toString(),
-                                  style: FlutterFlowTheme.of(context)
-                                      .title1
-                                      .override(
-                                        fontFamily: 'Poppins',
-                                        color: FlutterFlowTheme.of(context)
-                                            .alternate,
-                                        fontSize: 50,
-                                      ),
-                                ),
-                              ],
+                                ],
+                              ),
                             ),
                           ),
                         ],
