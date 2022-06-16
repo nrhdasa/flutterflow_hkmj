@@ -489,7 +489,7 @@ class _HomeCopyWidgetState extends State<HomeCopyWidget> {
                                   child: Text(
                                     getJsonField(
                                       dashItem,
-                                      r'''$.slot''',
+                                      r'''$''',
                                     ).toString(),
                                     style: FlutterFlowTheme.of(context).title3,
                                   ),
