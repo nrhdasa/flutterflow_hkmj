@@ -37,11 +37,31 @@ class _AllUsersCouponsWidgetState extends State<AllUsersCouponsWidget>
         opacity: 1,
       ),
     ),
+    'containerOnPageLoadAnimation': AnimationInfo(
+      trigger: AnimationTrigger.onPageLoad,
+      duration: 600,
+      fadeIn: true,
+      initialState: AnimationState(
+        offset: Offset(-65, 0),
+        scale: 1,
+        opacity: 0,
+      ),
+      finalState: AnimationState(
+        offset: Offset(0, 0),
+        scale: 1,
+        opacity: 1,
+      ),
+    ),
   };
 
   @override
   void initState() {
     super.initState();
+    startPageLoadAnimations(
+      animationsMap.values
+          .where((anim) => anim.trigger == AnimationTrigger.onPageLoad),
+      this,
+    );
     setupTriggerAnimations(
       animationsMap.values
           .where((anim) => anim.trigger == AnimationTrigger.onActionTrigger),
@@ -362,7 +382,9 @@ class _AllUsersCouponsWidgetState extends State<AllUsersCouponsWidget>
                                     ),
                                   ],
                                 ),
-                              ),
+                              ).animated([
+                                animationsMap['containerOnPageLoadAnimation']
+                              ]),
                             );
                           },
                         ).animated([

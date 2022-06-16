@@ -1,8 +1,8 @@
 // Export pages
 export 'login/login_widget.dart' show LoginWidget;
+export 'profile/profile_widget.dart' show ProfileWidget;
 export 'coupons_generated/coupons_generated_widget.dart'
     show CouponsGeneratedWidget;
-export 'profile/profile_widget.dart' show ProfileWidget;
 export 'all_users_coupons/all_users_coupons_widget.dart'
     show AllUsersCouponsWidget;
 export 'request/request_widget.dart' show RequestWidget;

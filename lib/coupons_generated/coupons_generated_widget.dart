@@ -1,5 +1,6 @@
 import '../backend/api_requests/api_calls.dart';
 import '../coupon_details/coupon_details_widget.dart';
+import '../flutter_flow/flutter_flow_animations.dart';
 import '../flutter_flow/flutter_flow_theme.dart';
 import '../flutter_flow/flutter_flow_util.dart';
 import '../flutter_flow/custom_functions.dart' as functions;
@@ -15,9 +16,37 @@ class CouponsGeneratedWidget extends StatefulWidget {
   _CouponsGeneratedWidgetState createState() => _CouponsGeneratedWidgetState();
 }
 
-class _CouponsGeneratedWidgetState extends State<CouponsGeneratedWidget> {
+class _CouponsGeneratedWidgetState extends State<CouponsGeneratedWidget>
+    with TickerProviderStateMixin {
   DateTime datePicked;
   final scaffoldKey = GlobalKey<ScaffoldState>();
+  final animationsMap = {
+    'rowOnPageLoadAnimation': AnimationInfo(
+      trigger: AnimationTrigger.onPageLoad,
+      duration: 600,
+      fadeIn: true,
+      initialState: AnimationState(
+        offset: Offset(-60, 0),
+        scale: 1,
+        opacity: 0,
+      ),
+      finalState: AnimationState(
+        offset: Offset(0, 0),
+        scale: 1,
+        opacity: 1,
+      ),
+    ),
+  };
+
+  @override
+  void initState() {
+    super.initState();
+    startPageLoadAnimations(
+      animationsMap.values
+          .where((anim) => anim.trigger == AnimationTrigger.onPageLoad),
+      this,
+    );
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -292,7 +321,10 @@ class _CouponsGeneratedWidgetState extends State<CouponsGeneratedWidget> {
                                                     ],
                                                   ),
                                                 ],
-                                              ),
+                                              ).animated([
+                                                animationsMap[
+                                                    'rowOnPageLoadAnimation']
+                                              ]),
                                               if (functions.checkCouponType(
                                                       'Silver',
                                                       getJsonField(
