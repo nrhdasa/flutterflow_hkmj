@@ -3,6 +3,7 @@ import '../flutter_flow/flutter_flow_animations.dart';
 import '../flutter_flow/flutter_flow_theme.dart';
 import '../flutter_flow/flutter_flow_util.dart';
 import '../flutter_flow/flutter_flow_widgets.dart';
+import '../success_scan/success_scan_widget.dart';
 import '../custom_code/widgets/index.dart' as custom_widgets;
 import '../flutter_flow/custom_functions.dart' as functions;
 import 'package:flutter/material.dart';
@@ -24,6 +25,8 @@ class ScannedCouponDetailsWidget extends StatefulWidget {
 
 class _ScannedCouponDetailsWidgetState extends State<ScannedCouponDetailsWidget>
     with TickerProviderStateMixin {
+  ApiCallResponse responseUsed;
+  final scaffoldKey = GlobalKey<ScaffoldState>();
   final animationsMap = {
     'rowOnPageLoadAnimation1': AnimationInfo(
       trigger: AnimationTrigger.onPageLoad,
@@ -52,7 +55,6 @@ class _ScannedCouponDetailsWidgetState extends State<ScannedCouponDetailsWidget>
       ),
     ),
   };
-  final scaffoldKey = GlobalKey<ScaffoldState>();
 
   @override
   void initState() {
@@ -123,7 +125,8 @@ class _ScannedCouponDetailsWidgetState extends State<ScannedCouponDetailsWidget>
                             width: double.infinity,
                             height: 300,
                             qrcode: getJsonField(
-                              (couponDetailsACouponDetailsResponse?.jsonBody ??
+                              (scannedCouponDetailsACouponDetailsResponse
+                                      ?.jsonBody ??
                                   ''),
                               r'''$.data.qr_code''',
                             ).toString(),
@@ -162,7 +165,12 @@ class _ScannedCouponDetailsWidgetState extends State<ScannedCouponDetailsWidget>
                                         ),
                                   ),
                                   Text(
-                                    'Hello World',
+                                    getJsonField(
+                                      (scannedCouponDetailsACouponDetailsResponse
+                                              ?.jsonBody ??
+                                          ''),
+                                      r'''$.data.authority''',
+                                    ).toString(),
                                     style: FlutterFlowTheme.of(context)
                                         .title3
                                         .override(
@@ -205,7 +213,7 @@ class _ScannedCouponDetailsWidgetState extends State<ScannedCouponDetailsWidget>
                                       Text(
                                         functions.getDateinFormat(
                                             getJsonField(
-                                              (couponDetailsACouponDetailsResponse
+                                              (scannedCouponDetailsACouponDetailsResponse
                                                       ?.jsonBody ??
                                                   ''),
                                               r'''$.data.date''',
@@ -240,7 +248,7 @@ class _ScannedCouponDetailsWidgetState extends State<ScannedCouponDetailsWidget>
                                     children: [
                                       Text(
                                         getJsonField(
-                                          (couponDetailsACouponDetailsResponse
+                                          (scannedCouponDetailsACouponDetailsResponse
                                                   ?.jsonBody ??
                                               ''),
                                           r'''$.data.slot''',
@@ -284,7 +292,7 @@ class _ScannedCouponDetailsWidgetState extends State<ScannedCouponDetailsWidget>
                                     children: [
                                       Text(
                                         getJsonField(
-                                          (couponDetailsACouponDetailsResponse
+                                          (scannedCouponDetailsACouponDetailsResponse
                                                   ?.jsonBody ??
                                               ''),
                                           r'''$.data.number''',
@@ -325,7 +333,7 @@ class _ScannedCouponDetailsWidgetState extends State<ScannedCouponDetailsWidget>
                                     children: [
                                       Text(
                                         getJsonField(
-                                          (couponDetailsACouponDetailsResponse
+                                          (scannedCouponDetailsACouponDetailsResponse
                                                   ?.jsonBody ??
                                               ''),
                                           r'''$.data.coupon_type''',
@@ -351,34 +359,101 @@ class _ScannedCouponDetailsWidgetState extends State<ScannedCouponDetailsWidget>
                       ],
                     ),
                   ),
-                  Align(
-                    alignment: AlignmentDirectional(-0.7, 0.85),
-                    child: Padding(
-                      padding: EdgeInsetsDirectional.fromSTEB(10, 0, 10, 0),
-                      child: FFButtonWidget(
-                        onPressed: () {
-                          print('Button pressed ...');
-                        },
-                        text: 'ACCEPT COUPON',
-                        options: FFButtonOptions(
-                          width: double.infinity,
-                          height: 60,
-                          color: FlutterFlowTheme.of(context).primaryColor,
-                          textStyle:
-                              FlutterFlowTheme.of(context).subtitle1.override(
-                                    fontFamily: 'Poppins',
-                                    color: FlutterFlowTheme.of(context)
-                                        .primaryBackground,
+                  if (getJsonField(
+                        (scannedCouponDetailsACouponDetailsResponse?.jsonBody ??
+                            ''),
+                        r'''$.data.used''',
+                      ) ??
+                      true)
+                    Align(
+                      alignment: AlignmentDirectional(-0.7, 0.85),
+                      child: Padding(
+                        padding: EdgeInsetsDirectional.fromSTEB(10, 0, 10, 0),
+                        child: FFButtonWidget(
+                          onPressed: () async {
+                            var confirmDialogResponse = await showDialog<bool>(
+                                  context: context,
+                                  builder: (alertDialogContext) {
+                                    return AlertDialog(
+                                      title: Text('Are you sure?'),
+                                      content: Text(
+                                          'This can not be undone. Please  check properly before you submit.'),
+                                      actions: [
+                                        TextButton(
+                                          onPressed: () => Navigator.pop(
+                                              alertDialogContext, false),
+                                          child: Text('Cancel'),
+                                        ),
+                                        TextButton(
+                                          onPressed: () => Navigator.pop(
+                                              alertDialogContext, true),
+                                          child: Text('Confirm'),
+                                        ),
+                                      ],
+                                    );
+                                  },
+                                ) ??
+                                false;
+                            if (confirmDialogResponse) {
+                              responseUsed = await ConfirmCouponUsedCall.call(
+                                auth: FFAppState().authtoken,
+                                coupon: widget.couponid,
+                              );
+                              if (((responseUsed?.statusCode ?? 200)) == 200) {
+                                await Navigator.push(
+                                  context,
+                                  PageTransition(
+                                    type: PageTransitionType.rightToLeft,
+                                    duration: Duration(milliseconds: 300),
+                                    reverseDuration:
+                                        Duration(milliseconds: 300),
+                                    child: SuccessScanWidget(),
                                   ),
-                          borderSide: BorderSide(
-                            color: Colors.transparent,
-                            width: 1,
+                                );
+                              } else {
+                                ScaffoldMessenger.of(context).showSnackBar(
+                                  SnackBar(
+                                    content: Text(
+                                      functions.getException(getJsonField(
+                                        (responseUsed?.jsonBody ?? ''),
+                                        r'''$.exception''',
+                                      ).toString()),
+                                      style: TextStyle(
+                                        color: FlutterFlowTheme.of(context)
+                                            .black600,
+                                      ),
+                                    ),
+                                    duration: Duration(milliseconds: 4000),
+                                    backgroundColor:
+                                        FlutterFlowTheme.of(context)
+                                            .tertiaryColor,
+                                  ),
+                                );
+                              }
+                            }
+
+                            setState(() {});
+                          },
+                          text: 'ACCEPT COUPON',
+                          options: FFButtonOptions(
+                            width: double.infinity,
+                            height: 60,
+                            color: FlutterFlowTheme.of(context).primaryColor,
+                            textStyle:
+                                FlutterFlowTheme.of(context).subtitle1.override(
+                                      fontFamily: 'Poppins',
+                                      color: FlutterFlowTheme.of(context)
+                                          .primaryBackground,
+                                    ),
+                            borderSide: BorderSide(
+                              color: Colors.transparent,
+                              width: 1,
+                            ),
+                            borderRadius: 12,
                           ),
-                          borderRadius: 12,
                         ),
                       ),
                     ),
-                  ),
                 ],
               ),
             ),

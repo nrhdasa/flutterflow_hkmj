@@ -3,6 +3,7 @@ import '../flutter_flow/flutter_flow_animations.dart';
 import '../flutter_flow/flutter_flow_theme.dart';
 import '../flutter_flow/flutter_flow_util.dart';
 import '../flutter_flow/flutter_flow_widgets.dart';
+import '../scanned_coupon_details/scanned_coupon_details_widget.dart';
 import '../success_scan/success_scan_widget.dart';
 import '../flutter_flow/custom_functions.dart' as functions;
 import 'package:flutter/material.dart';
@@ -98,16 +99,36 @@ class _ScanCouponWidgetState extends State<ScanCouponWidget>
                         ScanMode.QR,
                       );
 
-                      ScaffoldMessenger.of(context).showSnackBar(
-                        SnackBar(
-                          content: Text(
-                            couponid,
-                            style: TextStyle(),
+                      if ((couponid != null) && (couponid != '')) {
+                        await Navigator.push(
+                          context,
+                          PageTransition(
+                            type: PageTransitionType.rightToLeft,
+                            duration: Duration(milliseconds: 300),
+                            reverseDuration: Duration(milliseconds: 300),
+                            child: ScannedCouponDetailsWidget(
+                              couponid: couponid,
+                            ),
                           ),
-                          duration: Duration(milliseconds: 4000),
-                          backgroundColor: Color(0x00000000),
-                        ),
-                      );
+                        );
+                      } else {
+                        ScaffoldMessenger.of(context).showSnackBar(
+                          SnackBar(
+                            content: Text(
+                              'Couldn\'t scan. Please try again !',
+                              style: FlutterFlowTheme.of(context)
+                                  .subtitle1
+                                  .override(
+                                    fontFamily: 'Poppins',
+                                    color: FlutterFlowTheme.of(context).gray600,
+                                  ),
+                            ),
+                            duration: Duration(milliseconds: 4000),
+                            backgroundColor:
+                                FlutterFlowTheme.of(context).secondaryColor,
+                          ),
+                        );
+                      }
 
                       setState(() {});
                     },
