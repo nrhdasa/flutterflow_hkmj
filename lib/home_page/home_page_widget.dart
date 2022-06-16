@@ -548,10 +548,10 @@ class _HomePageWidgetState extends State<HomePageWidget> {
                                                   color: Color(0xFF696D73),
                                                   boxShadow: [
                                                     BoxShadow(
-                                                      blurRadius: 2,
+                                                      blurRadius: 100,
                                                       color: Colors.white,
-                                                      offset: Offset(1, 2),
-                                                      spreadRadius: 1,
+                                                      offset: Offset(1, 10),
+                                                      spreadRadius: 20,
                                                     )
                                                   ],
                                                 ),
@@ -870,6 +870,17 @@ class _HomePageWidgetState extends State<HomePageWidget> {
                                                 height: 60,
                                                 decoration: BoxDecoration(
                                                   color: Color(0x31FF5963),
+                                                  boxShadow: [
+                                                    BoxShadow(
+                                                      blurRadius: 100,
+                                                      color:
+                                                          FlutterFlowTheme.of(
+                                                                  context)
+                                                              .naplesYellow,
+                                                      offset: Offset(1, 10),
+                                                      spreadRadius: 20,
+                                                    )
+                                                  ],
                                                 ),
                                                 child: Padding(
                                                   padding: EdgeInsetsDirectional
