@@ -263,7 +263,7 @@ class _CouponsGeneratedWidgetState extends State<CouponsGeneratedWidget> {
                                                           morninglistItem,
                                                           r'''$.creation''',
                                                         ).toString(),
-                                                        'yyyy-MM-dd | h:mm a'),
+                                                        'E, dd MMM | h:mm a'),
                                                     style: FlutterFlowTheme.of(
                                                             context)
                                                         .subtitle1,
