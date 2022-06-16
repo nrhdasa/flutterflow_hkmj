@@ -218,7 +218,7 @@ class _ScannedCouponDetailsWidgetState extends State<ScannedCouponDetailsWidget>
                                                   ''),
                                               r'''$.data.date''',
                                             ).toString(),
-                                            'E, dd MMM'),
+                                            'dd MMM'),
                                         style:
                                             FlutterFlowTheme.of(context).title1,
                                       ),
