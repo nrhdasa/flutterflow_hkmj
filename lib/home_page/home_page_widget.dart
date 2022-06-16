@@ -577,9 +577,8 @@ class _HomePageWidgetState extends State<HomePageWidget> {
                                                                 .override(
                                                                   fontFamily:
                                                                       'Poppins',
-                                                                  color: FlutterFlowTheme.of(
-                                                                          context)
-                                                                      .primaryBtnText,
+                                                                  color: Color(
+                                                                      0xFF150977),
                                                                   fontSize: 30,
                                                                 ),
                                                       ),
