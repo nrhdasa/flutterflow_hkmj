@@ -4,7 +4,6 @@ import '../flutter_flow/flutter_flow_theme.dart';
 import '../flutter_flow/flutter_flow_util.dart';
 import '../flutter_flow/flutter_flow_widgets.dart';
 import '../generate/generate_widget.dart';
-import '../main.dart';
 import '../profile/profile_widget.dart';
 import '../release/release_widget.dart';
 import '../request/request_widget.dart';
@@ -398,7 +397,7 @@ class _HomeWidgetState extends State<HomeWidget> {
                                         duration: Duration(milliseconds: 300),
                                         reverseDuration:
                                             Duration(milliseconds: 300),
-                                        child: NavBarPage(initialPage: 'Home'),
+                                        child: HomeWidget(),
                                       ),
                                       (r) => false,
                                     );

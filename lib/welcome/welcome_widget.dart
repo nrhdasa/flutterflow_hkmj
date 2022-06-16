@@ -98,18 +98,19 @@ class _WelcomeWidgetState extends State<WelcomeWidget>
           auth: FFAppState().authtoken,
         );
         if ((message?.succeeded ?? true)) {
-          await Navigator.push(
+          await Navigator.pushAndRemoveUntil(
             context,
             PageTransition(
               type: PageTransitionType.rightToLeft,
               duration: Duration(milliseconds: 300),
               reverseDuration: Duration(milliseconds: 300),
-              child: NavBarPage(initialPage: 'Home'),
+              child: NavBarPage(initialPage: 'HomePage'),
             ),
+            (r) => false,
           );
         } else {
           await Future.delayed(const Duration(milliseconds: 2000));
-          await Navigator.push(
+          await Navigator.pushAndRemoveUntil(
             context,
             PageTransition(
               type: PageTransitionType.rightToLeft,
@@ -117,11 +118,12 @@ class _WelcomeWidgetState extends State<WelcomeWidget>
               reverseDuration: Duration(milliseconds: 300),
               child: LoginWidget(),
             ),
+            (r) => false,
           );
         }
       } else {
         await Future.delayed(const Duration(milliseconds: 2000));
-        await Navigator.push(
+        await Navigator.pushAndRemoveUntil(
           context,
           PageTransition(
             type: PageTransitionType.rightToLeft,
@@ -129,6 +131,7 @@ class _WelcomeWidgetState extends State<WelcomeWidget>
             reverseDuration: Duration(milliseconds: 300),
             child: LoginWidget(),
           ),
+          (r) => false,
         );
       }
     });

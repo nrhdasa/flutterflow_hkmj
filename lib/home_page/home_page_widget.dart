@@ -4,7 +4,7 @@ import '../flutter_flow/flutter_flow_theme.dart';
 import '../flutter_flow/flutter_flow_util.dart';
 import '../flutter_flow/flutter_flow_widgets.dart';
 import '../generate/generate_widget.dart';
-import '../main.dart';
+import '../home/home_widget.dart';
 import '../profile/profile_widget.dart';
 import '../release/release_widget.dart';
 import '../request/request_widget.dart';
@@ -15,14 +15,14 @@ import 'package:flutter_spinkit/flutter_spinkit.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:google_fonts/google_fonts.dart';
 
-class HomeCopyWidget extends StatefulWidget {
-  const HomeCopyWidget({Key key}) : super(key: key);
+class HomePageWidget extends StatefulWidget {
+  const HomePageWidget({Key key}) : super(key: key);
 
   @override
-  _HomeCopyWidgetState createState() => _HomeCopyWidgetState();
+  _HomePageWidgetState createState() => _HomePageWidgetState();
 }
 
-class _HomeCopyWidgetState extends State<HomeCopyWidget> {
+class _HomePageWidgetState extends State<HomePageWidget> {
   final scaffoldKey = GlobalKey<ScaffoldState>();
 
   @override
@@ -360,7 +360,7 @@ class _HomeCopyWidgetState extends State<HomeCopyWidget> {
                                     duration: Duration(milliseconds: 300),
                                     reverseDuration:
                                         Duration(milliseconds: 300),
-                                    child: NavBarPage(initialPage: 'Home'),
+                                    child: HomeWidget(),
                                   ),
                                   (r) => false,
                                 );
