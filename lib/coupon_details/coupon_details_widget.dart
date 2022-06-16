@@ -4,6 +4,7 @@ import '../flutter_flow/flutter_flow_theme.dart';
 import '../flutter_flow/flutter_flow_util.dart';
 import '../custom_code/actions/index.dart' as actions;
 import '../custom_code/widgets/index.dart' as custom_widgets;
+import '../flutter_flow/custom_functions.dart' as functions;
 import 'package:flutter/material.dart';
 import 'package:flutter_spinkit/flutter_spinkit.dart';
 import 'package:google_fonts/google_fonts.dart';
@@ -156,12 +157,14 @@ class _CouponDetailsWidgetState extends State<CouponDetailsWidget>
                                 ),
                               ),
                               Text(
-                                getJsonField(
-                                  (couponDetailsACouponDetailsResponse
-                                          ?.jsonBody ??
-                                      ''),
-                                  r'''$.data.date''',
-                                ).toString(),
+                                functions.getDateinFormat(
+                                    getJsonField(
+                                      (couponDetailsACouponDetailsResponse
+                                              ?.jsonBody ??
+                                          ''),
+                                      r'''$.data.date''',
+                                    ).toString(),
+                                    'E, dd MMM'),
                                 style: FlutterFlowTheme.of(context).title1,
                               ),
                             ],
@@ -215,6 +218,29 @@ class _CouponDetailsWidgetState extends State<CouponDetailsWidget>
                                       color: FlutterFlowTheme.of(context)
                                           .primaryColor,
                                     ),
+                              ),
+                            ],
+                          ),
+                          Column(
+                            mainAxisSize: MainAxisSize.max,
+                            mainAxisAlignment: MainAxisAlignment.spaceAround,
+                            children: [
+                              Padding(
+                                padding:
+                                    EdgeInsetsDirectional.fromSTEB(0, 0, 0, 8),
+                                child: Text(
+                                  'Coupon Type',
+                                  style: FlutterFlowTheme.of(context).bodyText2,
+                                ),
+                              ),
+                              Text(
+                                getJsonField(
+                                  (couponDetailsACouponDetailsResponse
+                                          ?.jsonBody ??
+                                      ''),
+                                  r'''$.data.coupon_type''',
+                                ).toString(),
+                                style: FlutterFlowTheme.of(context).title1,
                               ),
                             ],
                           ),
