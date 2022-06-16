@@ -158,7 +158,7 @@ class _CouponDetailsWidgetState extends State<CouponDetailsWidget>
                         mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                         children: [
                           Container(
-                            width: MediaQuery.of(context).size.width * 0.3,
+                            width: MediaQuery.of(context).size.width * 0.4,
                             height: 100,
                             decoration: BoxDecoration(
                               color: Color(0x2E39D2C0),
@@ -197,7 +197,7 @@ class _CouponDetailsWidgetState extends State<CouponDetailsWidget>
                             ),
                           ),
                           Container(
-                            width: MediaQuery.of(context).size.width * 0.3,
+                            width: MediaQuery.of(context).size.width * 0.4,
                             height: 100,
                             decoration: BoxDecoration(
                               color: Color(0x2E39D2C0),
@@ -243,7 +243,7 @@ class _CouponDetailsWidgetState extends State<CouponDetailsWidget>
                         mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                         children: [
                           Container(
-                            width: MediaQuery.of(context).size.width * 0.3,
+                            width: MediaQuery.of(context).size.width * 0.4,
                             height: 100,
                             decoration: BoxDecoration(
                               color: Color(0x2E39D2C0),
@@ -286,7 +286,7 @@ class _CouponDetailsWidgetState extends State<CouponDetailsWidget>
                             ),
                           ),
                           Container(
-                            width: MediaQuery.of(context).size.width * 0.3,
+                            width: MediaQuery.of(context).size.width * 0.4,
                             height: 100,
                             decoration: BoxDecoration(
                               color: Color(0x2E39D2C0),
