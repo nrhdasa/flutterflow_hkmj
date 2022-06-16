@@ -8,9 +8,10 @@ import '../main.dart';
 import '../profile/profile_widget.dart';
 import '../release/release_widget.dart';
 import '../request/request_widget.dart';
-import '../scan_coupon/scan_coupon_widget.dart';
+import '../scanned_coupon_details/scanned_coupon_details_widget.dart';
 import '../transfer_select_user/transfer_select_user_widget.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_barcode_scanner/flutter_barcode_scanner.dart';
 import 'package:flutter_spinkit/flutter_spinkit.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:google_fonts/google_fonts.dart';
@@ -24,6 +25,7 @@ class HomePageWidget extends StatefulWidget {
 
 class _HomePageWidgetState extends State<HomePageWidget> {
   final scaffoldKey = GlobalKey<ScaffoldState>();
+  var couponid = '';
 
   @override
   Widget build(BuildContext context) {
@@ -92,15 +94,40 @@ class _HomePageWidgetState extends State<HomePageWidget> {
                     padding: EdgeInsetsDirectional.fromSTEB(24, 24, 24, 24),
                     child: FFButtonWidget(
                       onPressed: () async {
-                        await Navigator.push(
-                          context,
-                          PageTransition(
-                            type: PageTransitionType.rightToLeft,
-                            duration: Duration(milliseconds: 300),
-                            reverseDuration: Duration(milliseconds: 300),
-                            child: ScanCouponWidget(),
-                          ),
+                        couponid = await FlutterBarcodeScanner.scanBarcode(
+                          '#C62828', // scanning line color
+                          'Cancel', // cancel button text
+                          true, // whether to show the flash icon
+                          ScanMode.QR,
                         );
+
+                        if ((couponid != null) && (couponid != '')) {
+                          await Navigator.push(
+                            context,
+                            PageTransition(
+                              type: PageTransitionType.rightToLeft,
+                              duration: Duration(milliseconds: 300),
+                              reverseDuration: Duration(milliseconds: 300),
+                              child: ScannedCouponDetailsWidget(),
+                            ),
+                          );
+                        } else {
+                          ScaffoldMessenger.of(context).showSnackBar(
+                            SnackBar(
+                              content: Text(
+                                'Couldn\'t scan. Please try again !',
+                                style: TextStyle(
+                                  color: FlutterFlowTheme.of(context).black600,
+                                ),
+                              ),
+                              duration: Duration(milliseconds: 4000),
+                              backgroundColor:
+                                  FlutterFlowTheme.of(context).secondaryColor,
+                            ),
+                          );
+                        }
+
+                        setState(() {});
                       },
                       text: 'Scan Coupon',
                       icon: Icon(

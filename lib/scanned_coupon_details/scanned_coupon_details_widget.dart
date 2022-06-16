@@ -55,8 +55,9 @@ class _ScannedCouponDetailsWidgetState extends State<ScannedCouponDetailsWidget>
       ),
     ),
     'containerOnPageLoadAnimation1': AnimationInfo(
+      curve: Curves.easeIn,
       trigger: AnimationTrigger.onPageLoad,
-      duration: 600,
+      duration: 300,
       initialState: AnimationState(
         offset: Offset(0, 0),
         scale: 50,
@@ -69,8 +70,9 @@ class _ScannedCouponDetailsWidgetState extends State<ScannedCouponDetailsWidget>
       ),
     ),
     'containerOnPageLoadAnimation2': AnimationInfo(
+      curve: Curves.easeIn,
       trigger: AnimationTrigger.onPageLoad,
-      duration: 600,
+      duration: 300,
       initialState: AnimationState(
         offset: Offset(0, 0),
         scale: 50,
