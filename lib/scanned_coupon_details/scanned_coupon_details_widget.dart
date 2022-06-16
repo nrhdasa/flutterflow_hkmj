@@ -54,6 +54,20 @@ class _ScannedCouponDetailsWidgetState extends State<ScannedCouponDetailsWidget>
         opacity: 1,
       ),
     ),
+    'containerOnPageLoadAnimation': AnimationInfo(
+      trigger: AnimationTrigger.onPageLoad,
+      duration: 600,
+      initialState: AnimationState(
+        offset: Offset(0, 0),
+        scale: 50,
+        opacity: 0,
+      ),
+      finalState: AnimationState(
+        offset: Offset(0, 0),
+        scale: 1,
+        opacity: 1,
+      ),
+    ),
   };
 
   @override
@@ -359,11 +373,11 @@ class _ScannedCouponDetailsWidgetState extends State<ScannedCouponDetailsWidget>
                       ],
                     ),
                   ),
-                  if (getJsonField(
+                  if (functions.isCouponUsed(getJsonField(
                         (scannedCouponDetailsACouponDetailsResponse?.jsonBody ??
                             ''),
                         r'''$.data.used''',
-                      ) ??
+                      )) ??
                       true)
                     Align(
                       alignment: AlignmentDirectional(-0.7, 0.85),
@@ -453,6 +467,42 @@ class _ScannedCouponDetailsWidgetState extends State<ScannedCouponDetailsWidget>
                           ),
                         ),
                       ),
+                    ),
+                  if (functions.isCouponUsed(getJsonField(
+                        (scannedCouponDetailsACouponDetailsResponse?.jsonBody ??
+                            ''),
+                        r'''$.data.used''',
+                      )) ??
+                      true)
+                    Align(
+                      alignment: AlignmentDirectional(0, -0.52),
+                      child: Container(
+                        width: double.infinity,
+                        height: 100,
+                        decoration: BoxDecoration(
+                          color: FlutterFlowTheme.of(context).alternate,
+                          shape: BoxShape.rectangle,
+                        ),
+                        child: Stack(
+                          children: [
+                            Align(
+                              alignment: AlignmentDirectional(0, 0),
+                              child: Text(
+                                'Already Used',
+                                style: FlutterFlowTheme.of(context)
+                                    .title1
+                                    .override(
+                                      fontFamily: 'Poppins',
+                                      color: FlutterFlowTheme.of(context)
+                                          .primaryText,
+                                      fontSize: 30,
+                                    ),
+                              ),
+                            ),
+                          ],
+                        ),
+                      ).animated(
+                          [animationsMap['containerOnPageLoadAnimation']]),
                     ),
                 ],
               ),
