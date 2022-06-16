@@ -204,8 +204,8 @@ class _HomePageWidgetState extends State<HomePageWidget> {
                                       borderRadius: 20,
                                       borderWidth: 1,
                                       buttonSize: 70,
-                                      fillColor:
-                                          FlutterFlowTheme.of(context).gray200,
+                                      fillColor: FlutterFlowTheme.of(context)
+                                          .secondaryBackground,
                                       icon: FaIcon(
                                         FontAwesomeIcons.plus,
                                         color: Colors.black,

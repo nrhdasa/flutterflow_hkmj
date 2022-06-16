@@ -130,7 +130,10 @@ class _ReleaseWidgetState extends State<ReleaseWidget> {
                               ),
                             ),
                             Text(
-                              dateTimeFormat('MMMMEEEEd', datePicked),
+                              valueOrDefault<String>(
+                                dateTimeFormat('MMMMEEEEd', datePicked),
+                                'Today',
+                              ),
                               style: FlutterFlowTheme.of(context).subtitle2,
                             ),
                           ],

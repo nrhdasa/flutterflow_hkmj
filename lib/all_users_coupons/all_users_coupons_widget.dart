@@ -131,6 +131,9 @@ class _AllUsersCouponsWidgetState extends State<AllUsersCouponsWidget>
                       spreadRadius: 0.3,
                     )
                   ],
+                  border: Border.all(
+                    color: FlutterFlowTheme.of(context).secondaryColor,
+                  ),
                 ),
                 child: FlutterFlowDropDown(
                   initialOption: dropDownValue ??= 'Morning',
@@ -145,7 +148,7 @@ class _AllUsersCouponsWidgetState extends State<AllUsersCouponsWidget>
                   icon: Icon(
                     Icons.arrow_drop_down_circle_outlined,
                     color: Color(0xFF1A237E),
-                    size: 15,
+                    size: 30,
                   ),
                   fillColor: Colors.white,
                   elevation: 10,
