@@ -24,7 +24,20 @@ class CouponDetailsWidget extends StatefulWidget {
 class _CouponDetailsWidgetState extends State<CouponDetailsWidget>
     with TickerProviderStateMixin {
   final animationsMap = {
-    'rowOnPageLoadAnimation': AnimationInfo(
+    'rowOnPageLoadAnimation1': AnimationInfo(
+      trigger: AnimationTrigger.onPageLoad,
+      duration: 600,
+      fadeIn: true,
+      initialState: AnimationState(
+        offset: Offset(0, 60),
+        opacity: 0,
+      ),
+      finalState: AnimationState(
+        offset: Offset(0, 0),
+        opacity: 1,
+      ),
+    ),
+    'rowOnPageLoadAnimation2': AnimationInfo(
       trigger: AnimationTrigger.onPageLoad,
       duration: 600,
       fadeIn: true,
@@ -192,6 +205,15 @@ class _CouponDetailsWidgetState extends State<CouponDetailsWidget>
                               ),
                             ],
                           ),
+                        ],
+                      ).animated([animationsMap['rowOnPageLoadAnimation1']]),
+                    ),
+                    Padding(
+                      padding: EdgeInsetsDirectional.fromSTEB(0, 20, 0, 10),
+                      child: Row(
+                        mainAxisSize: MainAxisSize.max,
+                        mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                        children: [
                           Column(
                             mainAxisSize: MainAxisSize.max,
                             mainAxisAlignment: MainAxisAlignment.spaceAround,
@@ -215,8 +237,8 @@ class _CouponDetailsWidgetState extends State<CouponDetailsWidget>
                                     .title1
                                     .override(
                                       fontFamily: 'Poppins',
-                                      color: FlutterFlowTheme.of(context)
-                                          .primaryColor,
+                                      color: Color(0xFF150977),
+                                      fontSize: 30,
                                     ),
                               ),
                             ],
@@ -240,12 +262,18 @@ class _CouponDetailsWidgetState extends State<CouponDetailsWidget>
                                       ''),
                                   r'''$.data.coupon_type''',
                                 ).toString(),
-                                style: FlutterFlowTheme.of(context).title1,
+                                style: FlutterFlowTheme.of(context)
+                                    .title1
+                                    .override(
+                                      fontFamily: 'Poppins',
+                                      color: Color(0xFF150977),
+                                      fontSize: 30,
+                                    ),
                               ),
                             ],
                           ),
                         ],
-                      ).animated([animationsMap['rowOnPageLoadAnimation']]),
+                      ).animated([animationsMap['rowOnPageLoadAnimation2']]),
                     ),
                     Padding(
                       padding: EdgeInsetsDirectional.fromSTEB(0, 12, 0, 0),
