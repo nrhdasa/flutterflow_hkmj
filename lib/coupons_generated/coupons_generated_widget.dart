@@ -163,7 +163,8 @@ class _CouponsGeneratedWidgetState extends State<CouponsGeneratedWidget> {
                                       children: [
                                         Container(
                                           decoration: BoxDecoration(
-                                            color: Color(0xFFFDD835),
+                                            color: FlutterFlowTheme.of(context)
+                                                .secondaryColor,
                                             boxShadow: [
                                               BoxShadow(
                                                 color: Color(0xFFFDD835),
@@ -191,7 +192,9 @@ class _CouponsGeneratedWidgetState extends State<CouponsGeneratedWidget> {
                                                       .override(
                                                         fontFamily: 'Poppins',
                                                         color:
-                                                            Color(0xFF1A237E),
+                                                            FlutterFlowTheme.of(
+                                                                    context)
+                                                                .primaryText,
                                                       ),
                                             ),
                                           ),
@@ -199,77 +202,167 @@ class _CouponsGeneratedWidgetState extends State<CouponsGeneratedWidget> {
                                         Padding(
                                           padding:
                                               EdgeInsetsDirectional.fromSTEB(
-                                                  8, 8, 12, 8),
+                                                  8, 8, 8, 8),
                                           child: Row(
                                             mainAxisSize: MainAxisSize.max,
+                                            mainAxisAlignment:
+                                                MainAxisAlignment.spaceBetween,
                                             crossAxisAlignment:
-                                                CrossAxisAlignment.center,
+                                                CrossAxisAlignment.end,
                                             children: [
-                                              Container(
-                                                width: 70,
-                                                decoration: BoxDecoration(),
-                                                child: Padding(
-                                                  padding: EdgeInsetsDirectional
-                                                      .fromSTEB(16, 0, 16, 0),
-                                                  child: Text(
-                                                    getJsonField(
-                                                      morninglistItem,
-                                                      r'''$.number''',
-                                                    ).toString(),
-                                                    style: FlutterFlowTheme.of(
-                                                            context)
-                                                        .subtitle1
-                                                        .override(
-                                                          fontFamily: 'Poppins',
-                                                          color: FlutterFlowTheme
-                                                                  .of(context)
-                                                              .secondaryColor,
-                                                          fontSize: 30,
-                                                          fontWeight:
-                                                              FontWeight.bold,
-                                                        ),
+                                              Row(
+                                                mainAxisSize: MainAxisSize.max,
+                                                children: [
+                                                  Container(
+                                                    width: 70,
+                                                    decoration: BoxDecoration(),
+                                                    child: Padding(
+                                                      padding:
+                                                          EdgeInsetsDirectional
+                                                              .fromSTEB(
+                                                                  16, 0, 16, 0),
+                                                      child: Text(
+                                                        getJsonField(
+                                                          morninglistItem,
+                                                          r'''$.number''',
+                                                        ).toString(),
+                                                        style:
+                                                            FlutterFlowTheme.of(
+                                                                    context)
+                                                                .subtitle1
+                                                                .override(
+                                                                  fontFamily:
+                                                                      'Poppins',
+                                                                  color: FlutterFlowTheme.of(
+                                                                          context)
+                                                                      .secondaryColor,
+                                                                  fontSize: 35,
+                                                                  fontWeight:
+                                                                      FontWeight
+                                                                          .bold,
+                                                                ),
+                                                      ),
+                                                    ),
+                                                  ),
+                                                  Padding(
+                                                    padding:
+                                                        EdgeInsetsDirectional
+                                                            .fromSTEB(
+                                                                0, 0, 15, 0),
+                                                    child: Container(
+                                                      width: 4,
+                                                      height: 50,
+                                                      decoration: BoxDecoration(
+                                                        color:
+                                                            FlutterFlowTheme.of(
+                                                                    context)
+                                                                .primaryText,
+                                                      ),
+                                                    ),
+                                                  ),
+                                                  Column(
+                                                    mainAxisSize:
+                                                        MainAxisSize.max,
+                                                    mainAxisAlignment:
+                                                        MainAxisAlignment
+                                                            .center,
+                                                    crossAxisAlignment:
+                                                        CrossAxisAlignment
+                                                            .start,
+                                                    children: [
+                                                      Text(
+                                                        'Created On',
+                                                        style:
+                                                            FlutterFlowTheme.of(
+                                                                    context)
+                                                                .bodyText2,
+                                                      ),
+                                                      Text(
+                                                        functions.getDateinFormat(
+                                                            getJsonField(
+                                                              morninglistItem,
+                                                              r'''$.creation''',
+                                                            ).toString(),
+                                                            'E, dd MMM | h:mm a'),
+                                                        style:
+                                                            FlutterFlowTheme.of(
+                                                                    context)
+                                                                .subtitle1,
+                                                      ),
+                                                    ],
+                                                  ),
+                                                ],
+                                              ),
+                                              if (functions.checkCouponType(
+                                                      'Silver',
+                                                      getJsonField(
+                                                        morninglistItem,
+                                                        r'''$.coupon_type''',
+                                                      ).toString()) ??
+                                                  true)
+                                                Container(
+                                                  width: 50,
+                                                  height: 50,
+                                                  decoration: BoxDecoration(
+                                                    color: Color(0xFFBBC2CC),
+                                                    boxShadow: [
+                                                      BoxShadow(
+                                                        blurRadius: 100,
+                                                        color:
+                                                            FlutterFlowTheme.of(
+                                                                    context)
+                                                                .gray600,
+                                                        spreadRadius: 5,
+                                                      )
+                                                    ],
+                                                    borderRadius:
+                                                        BorderRadius.circular(
+                                                            100),
+                                                    border: Border.all(
+                                                      color:
+                                                          FlutterFlowTheme.of(
+                                                                  context)
+                                                              .tertiaryColor,
+                                                      width: 1,
+                                                    ),
                                                   ),
                                                 ),
-                                              ),
-                                              Padding(
-                                                padding: EdgeInsetsDirectional
-                                                    .fromSTEB(0, 0, 15, 0),
-                                                child: Container(
-                                                  width: 4,
+                                              if (functions.checkCouponType(
+                                                      'Gold',
+                                                      getJsonField(
+                                                        morninglistItem,
+                                                        r'''$.coupon_type''',
+                                                      ).toString()) ??
+                                                  true)
+                                                Container(
+                                                  width: 50,
                                                   height: 50,
                                                   decoration: BoxDecoration(
                                                     color: FlutterFlowTheme.of(
                                                             context)
-                                                        .primaryText,
+                                                        .naplesYellow,
+                                                    boxShadow: [
+                                                      BoxShadow(
+                                                        blurRadius: 100,
+                                                        color:
+                                                            FlutterFlowTheme.of(
+                                                                    context)
+                                                                .gray600,
+                                                        spreadRadius: 5,
+                                                      )
+                                                    ],
+                                                    borderRadius:
+                                                        BorderRadius.circular(
+                                                            100),
+                                                    border: Border.all(
+                                                      color:
+                                                          FlutterFlowTheme.of(
+                                                                  context)
+                                                              .tertiaryColor,
+                                                      width: 1,
+                                                    ),
                                                   ),
                                                 ),
-                                              ),
-                                              Column(
-                                                mainAxisSize: MainAxisSize.max,
-                                                mainAxisAlignment:
-                                                    MainAxisAlignment.center,
-                                                crossAxisAlignment:
-                                                    CrossAxisAlignment.start,
-                                                children: [
-                                                  Text(
-                                                    'Created On',
-                                                    style: FlutterFlowTheme.of(
-                                                            context)
-                                                        .bodyText2,
-                                                  ),
-                                                  Text(
-                                                    functions.getDateinFormat(
-                                                        getJsonField(
-                                                          morninglistItem,
-                                                          r'''$.creation''',
-                                                        ).toString(),
-                                                        'E, dd MMM | h:mm a'),
-                                                    style: FlutterFlowTheme.of(
-                                                            context)
-                                                        .subtitle1,
-                                                  ),
-                                                ],
-                                              ),
                                             ],
                                           ),
                                         ),

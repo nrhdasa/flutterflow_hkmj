@@ -75,3 +75,14 @@ bool isCouponUsed(int used) {
   }
   return false;
 }
+
+bool checkCouponType(
+  String coupontype,
+  String datareceived,
+) {
+  if (coupontype == datareceived) {
+    return true;
+  }
+  return false;
+  // Add your function code here!
+}
