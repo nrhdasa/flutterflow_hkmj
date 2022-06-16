@@ -278,7 +278,8 @@ class _CouponDetailsWidgetState extends State<CouponDetailsWidget>
                                       .title1
                                       .override(
                                         fontFamily: 'Poppins',
-                                        color: Color(0xFF150977),
+                                        color: FlutterFlowTheme.of(context)
+                                            .alternate,
                                         fontSize: 50,
                                       ),
                                 ),
@@ -321,7 +322,8 @@ class _CouponDetailsWidgetState extends State<CouponDetailsWidget>
                                       .title1
                                       .override(
                                         fontFamily: 'Poppins',
-                                        color: Color(0xFF150977),
+                                        color: FlutterFlowTheme.of(context)
+                                            .alternate,
                                         fontSize: 50,
                                       ),
                                 ),
